@@ -1,3 +1,17 @@
+<script setup lang="ts">
+
+import { ref } from 'vue'
+import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
+
+import { PlusIcon, ArrowLeftOnRectangleIcon, ArrowRightOnRectangleIcon, MagnifyingGlassIcon, FunnelIcon, BarsArrowDownIcon, ArrowLongDownIcon, DocumentTextIcon, ShieldCheckIcon, PhotoIcon, HeartIcon, ClipboardDocumentCheckIcon } from '@heroicons/vue/24/outline'
+
+const categories = ref({Active: [], ColdLeads: [], DeadLeads: [] })
+
+const { openAddLeads } = sideBarFunctionalities()
+
+const { leadList } = addLeadFunctionalities()
+</script>
+
 <template>
     <div>
         <TabGroup>
@@ -134,17 +148,3 @@
     </TabGroup>
     </div>
 </template>
-
-<script setup lang="ts">
-
-import { ref } from 'vue'
-import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
-
-import { PlusIcon, ArrowLeftOnRectangleIcon, ArrowRightOnRectangleIcon, MagnifyingGlassIcon, FunnelIcon, BarsArrowDownIcon, ArrowLongDownIcon, DocumentTextIcon, ShieldCheckIcon, PhotoIcon, HeartIcon, ClipboardDocumentCheckIcon } from '@heroicons/vue/24/outline'
-
-const categories = ref({Active: [], ColdLeads: [], DeadLeads: [] })
-
-const { openAddLeads } = sideBarFunctionalities()
-
-const { leadList } = addLeadFunctionalities()
-</script>

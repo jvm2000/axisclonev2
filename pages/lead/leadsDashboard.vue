@@ -10,7 +10,7 @@
                 <!-- topbar -->
                 <BarLeadTopBar />
                 <!-- tab Leads -->
-                <ContentsLeadTabs/>
+                <ContentsLeadTabs class="px-20"/>
             </div>
         </div>
     </div>

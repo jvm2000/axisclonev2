@@ -2,6 +2,9 @@
 
     import { ChevronLeftIcon, ChevronDownIcon, PlusIcon, XMarkIcon } from '@heroicons/vue/24/outline'
     import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
+    import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
+
+    const categories = ref({User_Information: [], Programs_and_Grading: [], Attendance_and_Bookings: [], Notes_and_Documents: [], Communication: [], History: []})
 
     const router = useRouter()
 
@@ -108,8 +111,61 @@
                                 </transition>
                                 </Menu>
                             </div>
-                        </div>
+                        </div>   
                     </div>
+                     <!-- leadProfileTabs
+                        leadProfileTabs
+                        leadProfileTabs
+                        leadProfileTabs
+                        leadProfileTabs -->
+                    <div>
+                        <TabGroup>
+                            <div class="px-2 py-10">
+                                <div class="h-[2.5rem] w-full flex flex-row items-center border-b-2 border-gray-200">
+                                    <TabList>
+                                    <div class="text-[16px] space-x-8">
+                                        <Tab v-for="category in Object.keys(categories)" 
+                                            :key="category"
+                                            v-slot="{ selected }">
+                                            <button :class="[selected ? 'h-[2.6rem] w-auto border-b-4 border-blue-400 text-blue-400 ring-0 outline-none space-x-2' : 'w-auto space-x-2']">
+                                                {{ category }}
+                                            </button>
+                                        </Tab>
+                                    </div>
+                                    </TabList>
+                                </div>
+                                <TabPanels>
+                                    <!-- User Information Content
+                                    User Information Content
+                                    User Information Content
+                                    User Information Content
+                                    User Information Content -->
+                                    <TabPanel>
+                                        <div class="py-8">
+                                            <div class="flex space-x-4">
+                                                <div class="bg-white rounded-lg h-[42rem] w-[33rem] px-4 overflow-visible">
+                                                    <img src="/icons/userI.svg" alt="" class="absolute">
+                                                </div>
+                                            </div>
+                                            <div>
+
+                                            </div>
+                                        </div>
+                                    </TabPanel>
+                                    <TabPanel>Content 2</TabPanel>
+                                    <TabPanel>Content 3</TabPanel>
+                                    <TabPanel>Content 4</TabPanel>
+                                    <TabPanel>Content 5</TabPanel>
+                                    <TabPanel>Content 6</TabPanel>
+                                </TabPanels>
+                            </div>
+                        </TabGroup>
+                    </div>
+                    <!-- end of tab
+                    end of tab
+                    end of tab
+                    end of tab
+                    end of tab -->
                 </div>
             </div>
         </div>
