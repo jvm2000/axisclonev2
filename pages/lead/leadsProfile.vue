@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-    import { ChevronLeftIcon, ChevronDownIcon, PlusIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+    import { ChevronLeftIcon, ChevronDownIcon, PencilIcon, TrashIcon } from '@heroicons/vue/24/outline'
     import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
     import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 
@@ -15,7 +15,7 @@
 </script>
 
 <template>
-    <div class="h-screen w-full bg-[#F2F6FB] overflow-hidden">
+    <div class="h-screen w-screen bg-[#F2F6FB] overflow-hidden">
         <div class="relative flex items-start h-screen min-h-screen">
             <nav class="z-[20]">
                 <BarMaxSideBar />
@@ -141,17 +141,9 @@
                                     User Information Content
                                     User Information Content -->
                                     <TabPanel>
-                                        <div class="py-8">
-                                            <div class="flex space-x-4">
-                                                <div class="bg-white rounded-lg h-[42rem] w-[33rem] px-4 overflow-visible">
-                                                    <img src="/icons/userI.svg" alt="" class="absolute">
-                                                </div>
-                                            </div>
-                                            <div>
-
-                                            </div>
-                                        </div>
+                                        <LeadProfileUserInformation/>
                                     </TabPanel>
+
                                     <TabPanel>Content 2</TabPanel>
                                     <TabPanel>Content 3</TabPanel>
                                     <TabPanel>Content 4</TabPanel>
