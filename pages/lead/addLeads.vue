@@ -26,7 +26,7 @@
     ])
 
     const select = (condition: Object) => {
-    selected.value = condition
+        selected.value = condition
     }
 
     const isOpenAddAndGoals = ref(false)

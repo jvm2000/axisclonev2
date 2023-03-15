@@ -4,7 +4,7 @@
     import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
     import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 
-    const categories = ref({User_Information: [], Programs_and_Grading: [], Attendance_and_Bookings: [], Notes_and_Documents: [], Communication: [], History: []})
+    const categories = reactive([{ name: 'User Information'}, { name: 'Programs and Grading'}, { name: 'Attendance and Bookings'}, { name: 'Notes and Documents'}, { name: 'Communication'}, { name: 'History'}])
 
     const router = useRouter()
 
@@ -124,11 +124,11 @@
                                 <div class="h-[2.5rem] w-full flex flex-row items-center border-b-2 border-gray-200">
                                     <TabList>
                                     <div class="text-[16px] space-x-8">
-                                        <Tab v-for="category in Object.keys(categories)" 
-                                            :key="category"
+                                        <Tab v-for="category, index in categories" 
+                                            :key="index"
                                             v-slot="{ selected }">
                                             <button :class="[selected ? 'h-[2.6rem] w-auto border-b-4 border-blue-400 text-blue-400 ring-0 outline-none space-x-2' : 'w-auto space-x-2']">
-                                                {{ category }}
+                                                {{ category.name }}
                                             </button>
                                         </Tab>
                                     </div>
