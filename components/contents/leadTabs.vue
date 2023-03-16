@@ -10,6 +10,9 @@ const categories = ref({Active: [], ColdLeads: [], DeadLeads: [] })
 const { openAddLeads } = sideBarFunctionalities()
 
 const { leadList } = addLeadFunctionalities()
+
+const { clickViewProfile } = useViewProfile()
+
 </script>
 
 <template>
@@ -98,7 +101,10 @@ const { leadList } = addLeadFunctionalities()
                                                 v-for="(leads,index) in leadList"
                                                 :key="index"
                                             >
-                                                <div class="table-cell">
+                                                <div 
+                                                    class="table-cell cursor-pointer"
+                                                    @click="clickViewProfile(leads)"
+                                                >
                                                     <p>{{ leads.firstname }} {{ leads.lastname }}</p>
                                                 </div>
                                                 <div class="table-cell">

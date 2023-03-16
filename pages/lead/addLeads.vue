@@ -107,9 +107,11 @@
                                         <div class="w-[12.3rem] h-[12.3rem] bg-[#EAF3F9] border-2 border-[#CAD7E8] border-dashed rounded-full px-20 py-20">
                                             <div>
                                                 <label for="imageupload">
-                                                    <img src="/illustrations/camera.svg" alt="" class="cursor-pointer">
+                                                    <p>{{ form.image }}</p>
+                                                    <img src="{{ form.image }}" alt="" class="z-[20] w-full h-full">
+                                                    <img src="/illustrations/camera.svg" alt="" class="cursor-pointer z-[10]">
                                                 </label>
-                                                <input id="imageupload" type="file" class="hidden absolute">
+                                                <input id="imageupload" type="file" class="hidden absolute" @change="leadPic">
                                             </div>
                                         </div>
                                         <p class="text-[14px]">Image can be a PNG or or JPEG file</p>

@@ -22,7 +22,7 @@ const state = reactive({
         leadID: '',
         leadSource: '',
         descriptionText: '',
-        leadPic: null,
+        leadPic: File,
         leadCondition: false,
         yesCondition: '',
         noCondition: '',

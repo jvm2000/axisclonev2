@@ -2,9 +2,9 @@
 
     import { PencilIcon, TrashIcon, PlusIcon } from '@heroicons/vue/24/outline'
 
-    const { useBasicInfo, saveBasicInfo, useAddressInfo, saveAddressInfo, useContactInfo, saveContactInfo, useOtherInfo, useMedicalCondition, useStickyNote, saveMedicalCondition, saveOtherInfo, saveStickyNote, useBold, useItalic, useUniform, saveUniform, useAddUniform, useRelationship,
+    const { useBasicInfo, saveBasicInfo, useAddressInfo, saveAddressInfo, useContactInfo, saveContactInfo, useOtherInfo, useMedicalCondition, useStickyNote, saveMedicalCondition, saveOtherInfo, saveStickyNote, useBold, useItalic, useUniform, saveUniform, useAddUniform, useRelationship, closeAddUniform,
     editAddressInfo, editBasicInfo, editContactInfo, editMedicalCondition, editOtherInfo, editRelationships, editStickyNote, toogleBold, toogleItalic, addUniform, editUniform } = useLeadsProfileEdit()
-
+    
     const selected = ref({})
 
     const conditions = reactive([
@@ -492,7 +492,7 @@
                                 @click="useUniform"
                             />
                     </div>
-                    <div>
+                    <div class="pb-4">
                         <div class="flex pl-8 pt-8 space-x-4">
                             <p class="text-[16px]">1</p>
                             <p class="text-[16px]">Muai Thai Shorts ADB</p>
@@ -546,35 +546,54 @@
                                 </p>
                             </div>
                         </div>
-                        <div v-if="addUniform" class="pt-2 pl-8 flex pb-4 space-x-4 place-items-center">
-                            <div class="flex flex-col space-y-2">
-                                <label for="productname" class="text-[16px]">Product Name</label>
-                                <select name="" id="productname" class="w-[16rem] h-[3rem] rounded-lg border border-[#CDD9DF] px-4 py-1">
-                                    <option value="--">--</option>
-                                    <option value="">Muai Thai Shorts ADB</option>
-                                    <option value="">Taekwondo GI Uniform</option>
-                                    <option value="">BJJ Gi Uniform with Belt</option>
-                                    <option value="">Muay Thai for Kids AA </option>
-                                </select>
+                        <div v-if="addUniform" class="pt-2 pl-8 pb-4 place-items-center">
+                            <div class="flex space-x-4">
+                                <div class="flex flex-col space-y-2">
+                                    <label for="productname" class="text-[16px]">Product Name</label>
+                                    <select name="" id="productname" class="w-[16rem] h-[3rem] rounded-lg border border-[#CDD9DF] px-4 py-1">
+                                        <option value="--">--</option>
+                                        <option value="">Muai Thai Shorts ADB</option>
+                                        <option value="">Taekwondo GI Uniform</option>
+                                        <option value="">BJJ Gi Uniform with Belt</option>
+                                        <option value="">Muay Thai for Kids AA </option>
+                                    </select>
+                                </div>
+                                <div class="flex flex-col space-y-2">
+                                    <label for="productname" class="text-[16px]">Product Name</label>
+                                    <select name="" id="productname" class="w-[14.7rem] h-[3rem] rounded-lg border border-[#CDD9DF] px-4 py-1">
+                                        <option value="--">--</option>
+                                        <option value="">XL</option>
+                                        <option value="">L</option>
+                                        <option value="">M</option>
+                                        <option value="">S</option>
+                                        <option value="">XS</option>
+                                    </select>
+                                </div>
+                                <div class="flex flex-col space-y-2">
+                                    <label for="productname" class="text-[16px]">Value</label>
+                                    <input type="number" class="w-[8rem] h-[3rem] rounded-lg border border-[#CDD9DF] px-4 py-1">
+                                </div>
+                                <div class="flex flex-col">
+                                    <p class="invisible pb-4">test</p>
+                                    <p class="px-6 py-1 text-white rounded-lg bg-[#81D3F7] text-[16px]">Add</p>
+                                </div>
                             </div>
-                            <div class="flex flex-col space-y-2">
-                                <label for="productname" class="text-[16px]">Product Name</label>
-                                <select name="" id="productname" class="w-[14.7rem] h-[3rem] rounded-lg border border-[#CDD9DF] px-4 py-1">
-                                    <option value="--">--</option>
-                                    <option value="">XL</option>
-                                    <option value="">L</option>
-                                    <option value="">M</option>
-                                    <option value="">S</option>
-                                    <option value="">XS</option>
-                                </select>
-                            </div>
-                            <div class="flex flex-col space-y-2">
-                                <label for="productname" class="text-[16px]">Value</label>
-                                <input type="number" class="w-[8rem] h-[3rem] rounded-lg border border-[#CDD9DF] px-4 py-1">
-                            </div>
-                            <div class="flex flex-col">
-                                <p class="invisible">test</p>
-                                <p class="px-6 py-1 text-white rounded-lg bg-[#81D3F7] text-[16px]">Add</p>
+                            <div class="flex pt-8">
+                                <div class="w-[36rem]"></div>
+                                <div class="flex space-x-4 pb-2">
+                                    <p 
+                                        class="px-4 py-2 text-[16px] text-white bg-[#CAD7E8] rounded-lg cursor-pointer"
+                                        @click="closeAddUniform"
+                                    >
+                                        Cancel
+                                    </p>
+                                    <p 
+                                        class="px-4 py-2 text-[16px] text-white bg-[#5081F0] rounded-lg cursor-pointer"
+                                        @click="closeAddUniform"
+                                    >
+                                        Save
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
