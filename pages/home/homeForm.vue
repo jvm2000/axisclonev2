@@ -1,7 +1,7 @@
 <template>
     <!-- container -->
-    <div class="bg-[#F2F6FB] w-screen h-screen">
-        <div class="relative flex items-start h-screen min-h-screen overflow-y-hidden">
+    <div class="bg-[#F2F6FB] w-fit h-screen overflow-hidden">
+        <div class="relative flex items-start h-fit min-h-screen w-screen overflow-hidden ">
             <!-- sidebar -->
             <nav class="z-[20]">
                 <BarMinSideBar :class="[minimizeSideBar ? 'block' : 'hidden']"/>
@@ -12,7 +12,7 @@
                 <BarTopBar/>
             </div>
             <div>
-                <ContentsLeadContent class=""/>
+                <ContentsLeadContent class="overflow-hidden"/>
 
             </div>
         </div>

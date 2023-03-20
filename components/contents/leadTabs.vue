@@ -4,8 +4,9 @@ import { ref } from 'vue'
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 
 import { PlusIcon, ArrowLeftOnRectangleIcon, ArrowRightOnRectangleIcon, MagnifyingGlassIcon, FunnelIcon, BarsArrowDownIcon, ArrowLongDownIcon, DocumentTextIcon, ShieldCheckIcon, PhotoIcon, HeartIcon, ClipboardDocumentCheckIcon } from '@heroicons/vue/24/outline'
+import { react } from '@babel/types';
 
-const categories = ref({Active: [], ColdLeads: [], DeadLeads: [] })
+const categories = reactive([{name: 'Active'}, {name: 'Cold Leads'}, {name: 'Dead Leads'}])
 
 const { openAddLeads } = sideBarFunctionalities()
 
@@ -22,11 +23,11 @@ const { clickViewProfile } = useViewProfile()
             <div class="h-[5rem] w-full flex flex-row items-center border-b-2">
                 <TabList>
                 <div class="text-[16px] space-x-6">
-                    <Tab v-for="category in Object.keys(categories)" 
-                        :key="category"
+                    <Tab v-for="category, index in categories" 
+                        :key="index"
                         v-slot="{ selected }">
                         <button :class="[selected ? 'w-[6rem] border-b-4 border-blue-400 text-blue-400 ring-0 outline-none space-x-2' : 'w-[6rem] space-x-2']">
-                            {{ category }}
+                            {{ category.name }}
                         </button>
                     </Tab>
                 </div>

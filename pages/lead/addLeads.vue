@@ -7,6 +7,7 @@
 
     const { saveLead, isLeadModalOpen } = modalFunctions()
 
+    const { handleChange, image } = useUploadImage()
     const selected = ref({})
     const goalLists = reactive([])
 
@@ -54,7 +55,7 @@
                         <ChevronLeftIcon class="text-blue-400 w-4 h-4"/>
                         <a @click="closeAddLeads" class="cursor-pointer text-[16ax]">Go back to list</a>
                     </div>
-                    <div class="px-[9rem] py-10 place-items-center">
+                    <div class="px-[13rem] py-10 place-items-center">
                         <div class="w-[64rem] min-h-[103rem] bg-white rounded-xl px-8 py-4">
                             <div class="overflow-y-scroll h-[50rem]">
                                 <div class="flex flex-row place-items-center">
@@ -72,25 +73,25 @@
                                                 v-model="form.leadFName"
                                             >
                                         </div>
-                                        <div class="flex flex-row place-items-center space-x-10">
+                                        <div class="flex flex-row place-items-center space-x-[2.3rem]">
                                             <p class="text-[16px]">Middle Name</p>
                                             <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[24rem] h-[3rem] rounded-lg" placeholder="Enter middle name"
                                                 v-model="form.leadMName"
                                             >
                                         </div>
-                                        <div class="flex flex-row place-items-center space-x-14">
+                                        <div class="flex flex-row place-items-center space-x-[3.7rem]">
                                             <p class="text-[16px]">Last Name</p>
                                             <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[24rem] h-[3rem] rounded-lg" placeholder="Enter last name" required
                                                 v-model="form.leadLName"    
                                             >
                                         </div>
-                                        <div class="flex flex-row place-items-center space-x-[4.1rem]">
+                                        <div class="flex flex-row place-items-center space-x-[4.4rem]">
                                             <p class="text-[16px]">Birthdate</p>
                                             <input type="date" class="text-[16px] border-2 border-gray-400 pl-6 w-[12rem] h-[3rem] rounded-lg text-gray-400 px-4" required
                                                 v-model="form.leadBirthdate"
                                             >
                                         </div>
-                                        <div class="flex flex-row place-items-center space-x-[5rem] pb-[2rem]">
+                                        <div class="flex flex-row place-items-center space-x-[5.2rem] pb-[2rem]">
                                             <label for="gender" class="16px">Gender</label>
                                             <div class="flex flex-row">
                                                 <select name="selected" id="gender" class="text-gray-400 px-6 text-[16px] border-2 border-gray-400 w-[12rem] h-[3rem] rounded-lg"
@@ -107,11 +108,17 @@
                                         <div class="w-[12.3rem] h-[12.3rem] bg-[#EAF3F9] border-2 border-[#CAD7E8] border-dashed rounded-full px-20 py-20">
                                             <div>
                                                 <label for="imageupload">
-                                                    <p>{{ form.image }}</p>
-                                                    <img src="{{ form.image }}" alt="" class="z-[20] w-full h-full">
-                                                    <img src="/illustrations/camera.svg" alt="" class="cursor-pointer z-[10]">
+                                                    <input
+                                                        ref="image"
+                                                        type="file"
+                                                        id="profile-photo"
+                                                        name="profile-photo"
+                                                        class="invisible z-[20] absolute cursor-pointer"
+                                                        accept=".jpeg, .jpg, .png, image/jpeg, image/png"
+                                                        @change="handleChange"
+                                                    />
+                                                    <img src="/illustrations/camera.svg" alt="" class="z-[10]">
                                                 </label>
-                                                <input id="imageupload" type="file" class="hidden absolute" @change="leadPic">
                                             </div>
                                         </div>
                                         <p class="text-[14px]">Image can be a PNG or or JPEG file</p>
@@ -123,13 +130,13 @@
                                 </div>
                                 <div class="flex pt-12">
                                     <div class="space-y-6">
-                                        <div class="flex flex-row place-items-center space-x-8">
+                                        <div class="flex flex-row place-items-center space-x-[2.4rem]">
                                             <p class="text-[16px]">Email Address</p>
                                             <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[24rem] h-[3rem] rounded-lg" placeholder="Enter email address" required
                                                 v-model="form.leadEmailAddress"
                                             >
                                         </div>
-                                        <div class="flex flex-row place-items-center space-x-8">
+                                        <div class="flex flex-row place-items-center space-x-[2.5rem]">
                                             <p class="text-[16px]">Phone <i>(home)</i></p>
                                             <div class="flex flex-row px-2 border-2 border-gray-400 rounded-lg place-items-center">
                                                 <select class="h-[2rem] ring-0 outline-none"
@@ -151,7 +158,7 @@
                                                     v-model="form.leadPhoneHome"
                                                 >
                                             </div>
-                                            <div class="w-[4rem]"></div>
+                                            <div class="w-[2.5rem]"></div>
                                             <p class="text-[16px]">Phone <i>(work)</i></p>
                                             <div class="flex flex-row px-2 border-2 border-gray-400 rounded-lg place-items-center">
                                                 <select class="h-[2rem] ring-0 outline-none"
@@ -174,25 +181,25 @@
                                                 >
                                             </div>
                                         </div>
-                                        <div class="flex flex-row place-items-center space-x-[5.5rem]">
+                                        <div class="flex flex-row place-items-center space-x-[5.6rem]">
                                             <p class="text-[16px]">Mobile</p>
                                             <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[24rem] h-[3rem] rounded-lg" placeholder="Enter email address" required
                                                 v-model="form.leadMobileNo"
                                             >
                                         </div>
-                                        <div class="flex flex-row place-items-center space-x-[5.7rem]">
+                                        <div class="flex flex-row place-items-center space-x-[6.2rem]">
                                             <p class="text-[16px]">Street</p>
                                             <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[24rem] h-[3rem] rounded-lg" placeholder="Enter street" required
                                                 v-model="form.leadStreetAddress"
                                             >
                                         </div>
-                                        <div class="flex flex-row place-items-center space-x-[5.2rem]">
+                                        <div class="flex flex-row place-items-center space-x-[5.5rem]">
                                             <p class="text-[16px]">Suburb</p>
                                             <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[24rem] h-[3rem] rounded-lg" placeholder="Enter suburb"
                                                 v-model="form.leadSubUrb"
                                             >
                                         </div>
-                                        <div class="flex flex-row place-items-center space-x-[6.1rem]">
+                                        <div class="flex flex-row place-items-center space-x-[6.5rem]">
                                             <label for="gender" class="16px">State</label>
                                             <div class="flex flex-row">
                                                 <select name="selected" id="gender" class="text-gray-400 px-4 text-[16px] border-2 border-gray-400 w-[24rem] h-[3rem] rounded-lg"
@@ -209,7 +216,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="flex flex-row place-items-center space-x-[5rem]">
+                                        <div class="flex flex-row place-items-center space-x-[5.2rem]">
                                             <label for="gender" class="16px">Country</label>
                                             <div class="flex flex-row">
                                                 <select name="selected" id="gender" class="text-gray-400 px-4 text-[16px] border-2 border-gray-400 w-[24rem] h-[3rem] rounded-lg"
@@ -226,7 +233,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="flex flex-row place-items-center space-x-[5rem] pb-[2rem]">
+                                        <div class="flex flex-row place-items-center space-x-[5.4rem] pb-[2rem]">
                                             <p class="text-[16px]">Zipcode</p>
                                             <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[12rem] h-[3rem] rounded-lg" placeholder="Enter zipcode"
                                                 v-model="form.leadZipCode"
@@ -239,28 +246,28 @@
                                 </div>
                                 <div class="flex pt-12">
                                     <div class="space-y-6">
-                                        <div class="flex flex-row place-items-center space-x-[3.5rem]">
+                                        <div class="flex flex-row place-items-center space-x-[3.8rem]">
                                             <p class="text-[16px]">Joined Date</p>
                                             <input type="date" class="text-[16px] border-2 border-gray-400 pl-6 w-[12rem] h-[3rem] rounded-lg text-gray-400 px-4" required
                                                 v-model="form.leadDateAdded"
                                             >
                                         </div>
-                                        <div class="flex flex-row place-items-center space-x-[5.5rem]">
+                                        <div class="flex flex-row place-items-center space-x-[5.7rem]">
                                             <p class="text-[16px]">Lead ID</p>
                                             <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[24rem] h-[3rem] rounded-lg" placeholder="Enter lead ID"
                                                 v-model="form.leadID"
                                             >
                                         </div>
-                                        <div class="flex flex-row place-items-center space-x-[5.8rem] pb-[2rem]">
+                                        <div class="flex flex-row place-items-center space-x-[6.2rem] pb-[2rem]">
                                             <label for="gender" class="16px">Source</label>
                                             <div class="flex flex-row">
                                                 <select name="selected" id="gender" class="text-gray-400 px-2 text-[16px] border-2 border-gray-400 w-[24rem] h-[3rem] rounded-lg appearance-none"
                                                     v-model="form.leadSource"
                                                 >
                                                 <ChevronDownIcon class="w-4 h-4 absolute"/>
-                                                    <option>Choose Countryr</option>
-                                                    <option>Male</option>
-                                                    <option>Female</option>
+                                                    <option>Friends</option>
+                                                    <option>Social Media</option>
+                                                    <option>Posts</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -281,14 +288,14 @@
                                                         @click="yesCondition"
                                                         v-model="form.yesCondition"
                                                     >
-                                                    <label for="yes" class="text-[16px]">Yes</label>
+                                                    <label for="" class="text-[16px]">Yes</label>
                                                 </div>
                                                 <div class="flex space-x-2">
                                                     <input type="radio" class="" id="no" name="healthChecker"
                                                         @click="noCondition"
                                                         v-model="form.noCondition"
                                                     >
-                                                    <label for="no" class="text-[16px]">No</label>
+                                                    <label for="" class="text-[16px]">No</label>
                                                 </div>
                                             </div>
                                         </div>

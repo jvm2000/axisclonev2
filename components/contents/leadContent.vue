@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-1 sm:grid-cols-2 px-16 sm:px-28 py-28 items-start overflow-y-auto h-screen">
+    <div class="grid grid-cols-1 sm:grid-cols-2 px-16 sm:px-28 py-28 items-start h-screen">
         <div class="">
             <div>
                 <p class="text-[30px] text-blue-500 font-semibold">Hi Bethany!</p><br>
