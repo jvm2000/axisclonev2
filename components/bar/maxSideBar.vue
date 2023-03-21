@@ -6,22 +6,20 @@
             />
             <img src="/illustrations/logo_logo -axis 1.svg" alt="" class="block pt-4 pb-10 h-auto w-[13rem]">
         </div>
-        <div class="space-y-10 ml-4">
+        <div class="space-y-8 ml-4">
             <div class="flex flex-row space-x-4 cursor-pointer" @click="openDashboard">
                 <HomeIcon class="w-6 h-6"/>
                 <a class="text-[18px] text-white">Dashboard</a>
             </div>
             <div class="flex flex-row cursor-pointer">
                 <UsersIcon class="mr-4 w-6 h-6"/>
-                <p class="block text-[18px] text-white mr-12"
-                    @click="openUserManagementDropdown"
-                >User Management</p>
-                <ChevronDownIcon :class="[!userManagementIsOpen ? 'block w-6 h-6' : 'hidden']"/>
+                <p class="block text-[18px] text-white mr-12">User Management</p>
+                <ChevronDownIcon @click="openUserManagementDropdown" :class="[!userManagementIsOpen ? 'block w-6 h-6' : 'hidden']"/>
                 <ChevronUpIcon @click="closeUserManagementDropdown" :class="[userManagementIsOpen ? 'block w-6 h-6' : 'hidden']"/>
 
             </div>
             <div>
-            <div v-if="userManagementIsOpen" class="space-y-10 indent-16">
+            <div v-if="userManagementIsOpen" class="space-y-8 indent-16">
                 <a class="text-[18px] cursor-pointer" @click="openLeadsDashboard">Leads</a>
                 <p class="text-[18px] cursor-pointer">Students</p>
                 <p class="text-[18px] cursor-pointer">Instructor</p>
