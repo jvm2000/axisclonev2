@@ -10,11 +10,15 @@
 
     const router = useRouter()
 
+    const { activeStatus } = addLeadFunctionalities()
+
     const closeProfileLead = () => {
         router.push('/lead/leadsDashboard')
     }
 
     const { leadViewItem } = useViewProfile()
+
+    const { isLeadOnHoldModalOpen, openOnHoldModal } = modalFunctions()
 
 </script>
 
@@ -48,7 +52,7 @@
                                             <Menu as="div" class="relative inline-block text-left z-[20]">
                                             <div>
                                                 <MenuButton
-                                                class="inline-flex w-full justify-center rounded-full bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                                                class="inline-flex w-full justify-center rounded-full bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-opacity-75"
                                                 >
                                                 <div
                                                     class="flex space-x-2 place-items-center"
@@ -85,10 +89,10 @@
                                                 leave-to-class="transform scale-95 opacity-0"
                                             >
                                                 <MenuItems
-                                                class="absolute right-0 mt-2 w-[13.5rem] origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                                class="absolute right-0 mt-2 w-[13.5rem] origin-top-right divide-y rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                                                 >
                                                 <div class="px-1 py-1">
-                                                    <p class="text-[16px] text-gray-400 px-6 py-2 cursor-default">Choose Status</p>
+                                                    <p class="text-[16px] text-black px-6 py-2 cursor-default">Choose Status</p>
                                                     <MenuItem v-slot="{ active }">
                                                     <div 
                                                         class="flex place-items-center cursor-pointer"
@@ -99,6 +103,7 @@
                                                             active ? 'bg-[#EAF3F9]' : 'text-gray-900',
                                                             'group flex w-full items-center rounded-md py-2 text-[16px]',
                                                             ]"
+                                                            @click="activeStatus(leads)"
                                                         >
                                                             <ExclamationCircleIcon class="ml-6 w-2 h-2 text-[#46DBA8] bg-[#46DBA8] rounded-full"/>
                                                             <EditIcon
@@ -121,6 +126,7 @@
                                                             active ? 'bg-[#EAF3F9]' : 'text-gray-900',
                                                             'group flex w-full items-center rounded-md py-2 text-[16px]',
                                                             ]"
+                                                            @click="openOnHoldModal(leadViewItem)"
                                                         >
                                                             <ExclamationCircleIcon class="ml-6 w-2 h-2 text-[#FFCB24] bg-[#FFCB24] rounded-full"/>
                                                             <DuplicateIcon
@@ -219,5 +225,6 @@
                 </div>
             </div>
         </div>
+        <DialogsLeadOnHoldModal :isLeadOnHoldModalOpen="openOnHoldModal"/>
     </div>
 </template>

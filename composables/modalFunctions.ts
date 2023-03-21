@@ -1,10 +1,11 @@
-const { addLead, canOpenLeadModal } = addLeadFunctionalities()
 
 const state = reactive({
     isLeadModalOpen: false,
+    isLeadOnHoldModalOpen: false
 })
 
 export default function () {
+    const { addLead, canOpenLeadModal } = addLeadFunctionalities()
 
     const openLeadModal = () => {
         state.isLeadModalOpen = true
@@ -14,13 +15,20 @@ export default function () {
         state.isLeadModalOpen = false
     }
 
+    const openOnHoldModal = () => {
+        state.isLeadOnHoldModalOpen = true
+    }
+
+    const cancelOnHoldModal = () => {
+        state.isLeadOnHoldModalOpen = false
+    }
+
     const saveLead = () => {
         addLead()
-        if(canOpenLeadModal.value){
-        }
-        else{
+
+        setTimeout(() => {
             openLeadModal()
-        }
+        }, 1000);
     }
     return{
         ...toRefs(state),
@@ -28,5 +36,7 @@ export default function () {
         closeLeadModal,
         saveLead,
         addLead,
+        openOnHoldModal,
+        cancelOnHoldModal,
     }
 }
