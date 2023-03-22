@@ -284,18 +284,26 @@
                                         <div class="flex flex-row place-items-center pb-[1rem]">
                                             <div class="space-x-[3rem] flex flex-row">
                                                 <div class="flex space-x-2">
-                                                    <input type="radio" class="" id="yes" name="healthChecker"
+                                                    <input type="radio" class="" name="healthChecker"
                                                         @click="yesCondition"
                                                         v-model="form.yesCondition"
                                                     >
+<<<<<<< HEAD
+                                                    <label class="text-[16px]">Yes</label>
+=======
                                                     <label for="" class="text-[16px]">Yes</label>
+>>>>>>> 3674f1f14a0b21863896bd6652e7edca5c1efe50
                                                 </div>
                                                 <div class="flex space-x-2">
-                                                    <input type="radio" class="" id="no" name="healthChecker"
+                                                    <input type="radio" class="" name="healthChecker"
                                                         @click="noCondition"
                                                         v-model="form.noCondition"
                                                     >
+<<<<<<< HEAD
+                                                    <label class="text-[16px]">No</label>
+=======
                                                     <label for="" class="text-[16px]">No</label>
+>>>>>>> 3674f1f14a0b21863896bd6652e7edca5c1efe50
                                                 </div>
                                             </div>
                                         </div>

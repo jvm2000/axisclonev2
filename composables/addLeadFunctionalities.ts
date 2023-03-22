@@ -30,7 +30,8 @@ const state = reactive({
     leadItem: {},
     addAndGoals: '',
     index: {},
-    canOpenLeadModal: false
+    canOpenLeadModal: false,
+    leadObject: {}
 })
 
 export default function () {
@@ -51,7 +52,7 @@ export default function () {
         state.goalList.splice(index, 1)
     }
 
-    const addLead = (index) => {
+    const addLead = () => {
         if(state.form.leadFName == '' &&
             state.form.leadLName == '' &&
             state.form.leadBirthdate == '' &&
@@ -102,7 +103,8 @@ export default function () {
             image: state.form.leadPic,
             description: state.form.descriptionText,
             yesAgree: state.form.yesCondition,
-            noAgree: state.form.noCondition
+            noAgree: state.form.noCondition,
+            status: 'Active',
         }
 
         state.leadList.push(leadItem)
@@ -126,20 +128,29 @@ export default function () {
         state.form.leadSubUrb = ''
         state.form.leadID = ''
         state.form.leadZipCode = ''
-        state.form.descriptionText == ''
-        state.form.yesCondition == '' 
-        state.form.noCondition == ''
+        state.form.descriptionText = ''
+        state.form.yesCondition = '' 
+        state.form.noCondition = ''
+        state.form.leadStatus = ''
 
-        clearInput(index)
+        clearInput()
     }
-
+    const activeStatus = (leads: Object) => {
+        state.form.leadStatus = 'Active'
+    }
+    const coldStatus = (leads: Object) => {
+        state.form.leadStatus = 'Cold'
+    }
+    const deadStatus = (leads: Object) => {
+        state.form.leadStatus = 'Dead'
+    }
     const yesCondition = () => {
         state.form.leadCondition = false
     }
     const noCondition = () => {
         state.form.leadCondition = true
     }
-    const clearInput = (index) => {
+    const clearInput = () => {
         state.form = {
             leadFName: '',
             leadMName: '',
@@ -166,7 +177,7 @@ export default function () {
             yesCondition: '',
             noCondition: '',
         }
-        state.goalList.splice(index)
+         state.goalList = []
 
     }
     
