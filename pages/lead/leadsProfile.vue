@@ -10,13 +10,12 @@
 
     const router = useRouter()
 
-    const { activeStatus } = addLeadFunctionalities()
-
     const closeProfileLead = () => {
         router.push('/lead/leadsDashboard')
     }
 
     const { leadViewItem } = useViewProfile()
+    const { leadStatusItem, useActiveStatus, useColdStatus, useDeadStatus } = useStatusChanger()
 
     const { isLeadOnHoldModalOpen, openOnHoldModal } = modalFunctions()
 
@@ -61,15 +60,15 @@
                                                     <ExclamationCircleIcon class="w-3 h-3 text-[#46DBA8] bg-[#46DBA8] rounded-full"/>
                                                     <p class="text-white font-semibold">Active</p>
                                                 </div>
-                                                <div v-if="useActive" class="flex space-x-2 place-items-center">
+                                                <div v-if="leadStatusItem.status == 'Active'" class="flex space-x-2 place-items-center">
                                                     <ExclamationCircleIcon class="w-3 h-3 text-[#46DBA8] bg-[#46DBA8] rounded-full"/>
                                                     <p class="text-white font-semibold">Active</p>
                                                 </div>
-                                                <div v-if="useHoldOn" class="flex space-x-2 place-items-center">
+                                                <div v-if="leadStatusItem.status == 'Cold'" class="flex space-x-2 place-items-center">
                                                     <ExclamationCircleIcon class="w-3 h-3 text-[#FFCB24] bg-[#FFCB24] rounded-full"/>
                                                     <p class="text-white font-semibold">On Hold</p>
                                                 </div>
-                                                <div v-if="useInactive" class="space-x-2 flex place-items-center">
+                                                <div v-if="leadStatusItem.status == 'Dead'" class="space-x-2 flex place-items-center">
                                                     <ExclamationCircleIcon class="w-3 h-3 text-[#CDCDCD] bg-[#CDCDCD] rounded-full"/>
                                                     <p class="text-white font-semibold">Inactive</p>
                                                 </div>
@@ -103,7 +102,7 @@
                                                             active ? 'bg-[#EAF3F9]' : 'text-gray-900',
                                                             'group flex w-full items-center rounded-md py-2 text-[16px]',
                                                             ]"
-                                                            @click="activeStatus(leads)"
+                                                            @click="useActiveStatus(leadStatusItem)"
                                                         >
                                                             <ExclamationCircleIcon class="ml-6 w-2 h-2 text-[#46DBA8] bg-[#46DBA8] rounded-full"/>
                                                             <EditIcon
@@ -126,7 +125,7 @@
                                                             active ? 'bg-[#EAF3F9]' : 'text-gray-900',
                                                             'group flex w-full items-center rounded-md py-2 text-[16px]',
                                                             ]"
-                                                            @click="openOnHoldModal(leadViewItem)"
+                                                            @click="useColdStatus(leadStatusItem)"
                                                         >
                                                             <ExclamationCircleIcon class="ml-6 w-2 h-2 text-[#FFCB24] bg-[#FFCB24] rounded-full"/>
                                                             <DuplicateIcon

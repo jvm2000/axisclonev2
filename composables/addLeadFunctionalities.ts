@@ -27,11 +27,9 @@ const state = reactive({
         yesCondition: '',
         noCondition: '',
     },
-    leadItem: {},
     addAndGoals: '',
     index: {},
     canOpenLeadModal: false,
-    leadObject: {}
 })
 
 export default function () {
@@ -104,7 +102,7 @@ export default function () {
             description: state.form.descriptionText,
             yesAgree: state.form.yesCondition,
             noAgree: state.form.noCondition,
-            status: 'Active',
+            status: false,
         }
 
         state.leadList.push(leadItem)
@@ -131,18 +129,8 @@ export default function () {
         state.form.descriptionText = ''
         state.form.yesCondition = '' 
         state.form.noCondition = ''
-        state.form.leadStatus = ''
 
         clearInput()
-    }
-    const activeStatus = (leads: Object) => {
-        state.form.leadStatus = 'Active'
-    }
-    const coldStatus = (leads: Object) => {
-        state.form.leadStatus = 'Cold'
-    }
-    const deadStatus = (leads: Object) => {
-        state.form.leadStatus = 'Dead'
     }
     const yesCondition = () => {
         state.form.leadCondition = false

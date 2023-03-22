@@ -2,7 +2,7 @@
 
 import { MagnifyingGlassIcon, FunnelIcon, BarsArrowDownIcon, ArrowLongDownIcon, DocumentTextIcon, ShieldCheckIcon, PhotoIcon, HeartIcon } from '@heroicons/vue/24/outline'
 
-const { leadList, form } = addLeadFunctionalities()
+const { leadList } = addLeadFunctionalities()
 
 const { clickViewProfile } = useViewProfile()
 
@@ -33,7 +33,7 @@ const { clickViewProfile } = useViewProfile()
                         <div class="table w-full border-separate border-spacing-y-6 text-sm">
                             <div class="table-header-group text-gray-400 [&_>_div]">
                                 <div class="table-row font-semibold">
-                                    <div class="table-cell ">
+                                    <div class="table-cell">
                                         <div class="flex place-items-center space-x-2">
                                             <p>LEADS</p>
                                             <BarsArrowDownIcon class="w-4 h-4"/>
@@ -56,46 +56,45 @@ const { clickViewProfile } = useViewProfile()
                             </div>
                             <div class="table-row-group py-4 w-full">
                                 <div 
-                                    class="table-row font-medium h-4 place-items-center border-b-2 border-gray-200"
+                                    class="table-row"
                                     v-for="(leads,index) in leadList"
                                     :key="index"
                                 >
-                                    <div v-if="leads.status == 'Active'">
-                                        <div 
-                                        class="table-cell cursor-pointer"
+                                    <div 
+                                        class="table-cell cursor-pointer pb-3 border-b"
                                         @click="clickViewProfile(leads)"
-                                        >
-                                            <p>{{ leads.firstname }} {{ leads.lastname }}</p>
+                                    >
+                                        <p>{{ leads.firstname }} {{ leads.lastname }}</p>
+                                    </div>
+                                    <div class="table-cell pb-3 border-b">
+                                        <p>{{ leads.mobileno }}</p>
+                                        <p>{{ leads.status }}</p>
+                                    </div>
+                                    <div class="table-cell pb-3 border-b">15</div>
+                                    <div class="table-cell pb-3 border-b">
+                                        <div class="flex space-x-2">
+                                            <DocumentTextIcon class="w-5 h-5 text-[#1376D8]"/>
+                                            <ShieldCheckIcon class="w-5 h-5 text-[#A85CEA]"/>
+                                            <PhotoIcon class="w-5 h-5 text-[#34CE2C]"/>
+                                            <HeartIcon class="w-5 h-5 text-[#01D7D7]"/>
                                         </div>
-                                        <div class="table-cell">
-                                            <p>{{ leads.mobileno }}</p>
+                                    </div>
+                                    <div class="table-cell pb-3 border-b">
+                                        <div class="flex space-x-2 place-items-center">
+                                            <p class="bg-[#FF1D1D] px-2 py-[2px] text-[14px] rounded-lg text-white font-semibold">T</p>
+                                            <p class="bg-[#A1BDD6] px-2 py-[2px] text-[14px] rounded-lg text-white font-semibold">A</p>
+                                            <p class="bg-[#E8EDF4] px-2 py-[2px] text-[14px] rounded-lg text-[#9FB5D1] font-semibold border-2 border-dashed border-gray-400">+</p>
                                         </div>
-                                        <div class="table-cell">15</div>
-                                        <div class="table-cell">
-                                            <div class="flex space-x-2">
-                                                <DocumentTextIcon class="w-5 h-5 text-[#1376D8]"/>
-                                                <ShieldCheckIcon class="w-5 h-5 text-[#A85CEA]"/>
-                                                <PhotoIcon class="w-5 h-5 text-[#34CE2C]"/>
-                                                <HeartIcon class="w-5 h-5 text-[#01D7D7]"/>
-                                            </div>
-                                        </div>
-                                        <div class="table-cell">
-                                            <div class="flex space-x-2 place-items-center">
-                                                <p class="bg-[#FF1D1D] px-2 py-[2px] text-[14px] rounded-lg text-white font-semibold">T</p>
-                                                <p class="bg-[#A1BDD6] px-2 py-[2px] text-[14px] rounded-lg text-white font-semibold">A</p>
-                                                <p class="bg-[#E8EDF4] px-2 py-[2px] text-[14px] rounded-lg text-[#9FB5D1] font-semibold border-2 border-dashed border-gray-400">+</p>
-                                            </div>
-                                        </div>
-                                        <div class="table-cell">
-                                            <p>{{ leads.dateadded }}</p>
-                                        </div>
-                                        <div class="table-cell">
-                                            <p>{{ leads.dateadded }}</p>
-                                        </div>
-                                        <div class="table-cell">Annie Leonheart</div>
-                                        <div class="flex place-items-center">
-                                            <img src="/illustrations/task.svg" class="" alt="">
-                                        </div>
+                                    </div>
+                                    <div class="table-cell pb-3 border-b">
+                                        <p>{{ leads.dateadded }}</p>
+                                    </div>
+                                    <div class="table-cell pb-3 border-b">
+                                        <p>{{ leads.dateadded }}</p>
+                                    </div>
+                                    <div class="table-cell pb-3 border-b">Annie Leonheart</div>
+                                    <div class="table-cell place-items-center pb-[13px] border-b">
+                                        <img src="/illustrations/task.svg" class="" alt="">
                                     </div>
                                 </div>
                             </div>
