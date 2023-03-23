@@ -8,10 +8,8 @@ import {
 } from '@headlessui/vue'
 
 const { cancelOnHoldModal, isLeadOnHoldModalOpen } = modalFunctions()
-const { clearInput, coldStatus } = addLeadFunctionalities()
 const router = useRouter()
-const { leadViewItem } = useViewProfile()
-
+const { leadStatusItem, useColdStatus } = useStatusChanger()
 </script>
 
 <template>
@@ -134,7 +132,7 @@ const { leadViewItem } = useViewProfile()
                         </button>
                         <button 
                             class="text-[16px] px-10 py-3 rounded-lg bg-[#5081F0] text-white"
-                            @click="coldStatus()"
+                            @click="useColdStatus(leadStatusItem)"
                         >
                             Save
                         </button>

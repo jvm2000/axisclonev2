@@ -34,6 +34,21 @@
                 <a href="https://youtu.be/dQw4w9WgXcQ" class="text-blue-800"
                 >Sign Up!</a>
             </div>
+            <div class="flex">
+                <button 
+                    class="text-[10px] font-semibold rounded-full px-4 py-1"
+                    @click="displayCharlie"
+                >
+                    Charlie!!
+                </button>
+                <button 
+                    class="text-[10px] font-semibold rounded-full px-4 py-1"
+                    @click="displayChou"
+                >
+                    CHOU
+                </button>
+            </div>
+            <div>{{ charliename }}</div>
         </div>
     </div>
 </template>
@@ -44,6 +59,8 @@
     import { EyeSlashIcon } from '@heroicons/vue/24/outline'
 
     const router = useRouter()
+
+    const { charliename, displayCharlie, displayChou } = useCharlie()
 
     const username = ref('')
     const password = ref('')

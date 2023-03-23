@@ -5,7 +5,7 @@
             <!-- sidebar -->
             <nav class="z-[20]">
                 <BarMinSideBar :class="[minimizeSideBar ? 'block' : 'hidden']"/>
-                <BarMaxSideBar :class="[!minimizeSideBar ? 'block' : 'hidden']"/>>
+                <BarMaxSideBar :class="[!minimizeSideBar ? 'block' : 'hidden']"/>
             </nav>
             <div class="z-[0] sm:z-[10] absolute">
                 <!-- topbar -->
