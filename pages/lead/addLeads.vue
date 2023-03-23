@@ -6,7 +6,7 @@
     const { form, noCondition, yesCondition, addGoals, addAndGoals, goalList, removeGoal, clearInput } = addLeadFunctionalities()
 
     const { saveLead, isLeadModalOpen } = modalFunctions()
-
+    const { addLead } = addLeadFunctionalities()
     const { handleChange, image } = useUploadImage()
     const selected = ref({})
     const goalLists = reactive([])
@@ -384,7 +384,7 @@
                                 <div class="flex pt-6">
                                     <div class="w-[50rem]"></div>
                                     <button type="submit" class="bg-blue-500 rounded-lg h-[3rem] w-[8rem] px-[2.7rem] text-[18px] text-white font-semibold py-3"
-                                        @click="saveLead()"
+                                        @click="saveLead(), addLead()"
                                     >
                                         Save
                                     </button>

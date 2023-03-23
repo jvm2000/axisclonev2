@@ -1,6 +1,18 @@
+<script setup lang="ts">
+import {
+  TransitionRoot,
+  TransitionChild,
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+} from '@headlessui/vue'
+
+const { openHoldOnModal, isHoldOnModal } = modalFunctions()
+</script>
+
 <template>
-    <TransitionRoot appear :show="isLeadModalOpen" as="template">
-      <Dialog as="div" @close="closeLeadModal" class="relative z-10">
+    <TransitionRoot appear :show="isHoldOnModal" as="template">
+      <Dialog as="div" @close="" class="relative z-10">
         <TransitionChild
           as="template"
           enter="duration-300 ease-out"
@@ -49,14 +61,14 @@
                     <button
                         type="button"
                         class="bg-[#CAD7E8] text-white rounded-lg px-4 py-2"
-                        @click="cancelAddLead"
+                        @click=""
                     >
                         Cancel
                     </button>
                         <button
                         type="button"
                         class="bg-[#527AF5] text-white rounded-lg px-4 py-2"
-                        @click="addMoreLead"
+                        @click=""
                     >
                         Yes, Add More
                     </button>
@@ -68,16 +80,3 @@
       </Dialog>
     </TransitionRoot>
   </template>
-
-<script setup lang="ts">
-import {
-  TransitionRoot,
-  TransitionChild,
-  Dialog,
-  DialogPanel,
-  DialogTitle,
-} from '@headlessui/vue'
-
-const { isLeadModalOpen, closeLeadModal } = modalFunctions()
-
-</script>

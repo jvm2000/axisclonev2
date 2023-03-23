@@ -9,14 +9,21 @@ const state = reactive({
 
 export default function () {
 
+    const timeOut = setTimeout(() => {
+        state.isHoldOnModal = true
+    }, 2000);
+
     const openHoldOnModal = () => {
-        
+        state.isHoldOnModal = true
+        clearTimeout(timeOut)
+    }
+
+    const closeHoldOnModal = () => {
+        state.isHoldOnModal = false
     }
 
     const openLeadModal = () => {
-        setTimeout(() => {
-            state.isLeadModalOpen = true
-        }, 2000);
+        state.isLeadModalOpen = true
     }
 
     const toogleReturnDate = () => {
@@ -32,7 +39,9 @@ export default function () {
     }
 
     const openOnHoldModal = () => {
-        state.isLeadOnHoldModalOpen = true
+        setTimeout(() => {
+            state.isLeadOnHoldModalOpen = true
+        }, 1000);
     }
 
     const cancelOnHoldModal = () => {
@@ -40,8 +49,6 @@ export default function () {
     }
 
     const saveLead = () => {
-        addLead()
-
         setTimeout(() => {
             openLeadModal()
         }, 1000);
@@ -51,10 +58,11 @@ export default function () {
         openLeadModal,
         closeLeadModal,
         saveLead,
-        addLead,
         openOnHoldModal,
         cancelOnHoldModal,
         toogleReturnDate,
         toogleReactivate,
+        openHoldOnModal,
+        closeHoldOnModal,
     }
 }

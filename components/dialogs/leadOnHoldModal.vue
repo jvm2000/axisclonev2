@@ -7,7 +7,7 @@ import {
   DialogTitle,
 } from '@headlessui/vue'
 
-const { cancelOnHoldModal, isLeadOnHoldModalOpen, isToogleReactivate, isToogleReturnDate, toogleReactivate, toogleReturnDate } = modalFunctions()
+const { cancelOnHoldModal, isLeadOnHoldModalOpen, isToogleReactivate, isToogleReturnDate, toogleReactivate, toogleReturnDate, isHoldOnModal, openHoldOnModal } = modalFunctions()
 const { leadViewItem } = useViewProfile()
 const router = useRouter()
 </script>
@@ -118,7 +118,7 @@ const router = useRouter()
                     </div>
                     <div 
                       class="mt-6 flex space-x-10"
-                      :class="[isToogleReactivate ? 'block' : 'hidden']"
+                      :class="[!isToogleReactivate ? 'block' : 'hidden']"
                     >
                         <div class="flex flex-col">
                             <div class="space-y-2 flex flex-col">
@@ -138,7 +138,7 @@ const router = useRouter()
                     </div>
                     <div 
                       class="flex flex-col space-y-4 pt-4"
-                      :class="[isToogleReactivate ? 'block' : 'hidden']"
+                      :class="[!isToogleReactivate ? 'block' : 'hidden']"
                     >
                         <label for="message" class="text-[16px]">Message</label>
                         <textarea id="message" class="border border-[#CAD7E8] w-full h-[7.5rem] resize-none px-4 py-2"></textarea>
@@ -155,7 +155,7 @@ const router = useRouter()
                         </button>
                         <button 
                             class="text-[16px] px-10 py-3 rounded-lg bg-[#5081F0] text-white"
-                            @click="cancelOnHoldModal()"
+                            @click="openHoldOnModal"
                         >
                             Save
                         </button>
