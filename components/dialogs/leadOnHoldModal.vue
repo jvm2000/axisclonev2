@@ -7,9 +7,9 @@ import {
   DialogTitle,
 } from '@headlessui/vue'
 
-const { cancelOnHoldModal, isLeadOnHoldModalOpen } = modalFunctions()
+const { cancelOnHoldModal, isLeadOnHoldModalOpen, isToogleReactivate, isToogleReturnDate, toogleReactivate, toogleReturnDate } = modalFunctions()
+const { leadViewItem } = useViewProfile()
 const router = useRouter()
-const { leadStatusItem, useColdStatus } = useStatusChanger()
 </script>
 
 <template>
@@ -69,37 +69,57 @@ const { leadStatusItem, useColdStatus } = useStatusChanger()
                                 <option value="">On Hospital</option>
                             </select>
                         </div>
-                        <div class="flex space-x-2 place-items-center pt-4">
-                            <input type="checkbox" id="returndate" class="border-[#CAD7E8] w-4 h-4 border cursor-pointer">
+                        <div 
+                          class="flex space-x-2 place-items-center pt-4"
+                          :class="[isToogleReturnDate ? 'hidden' : 'block']"
+                        >
+                            <input type="checkbox" id="returndate"
+                              class="border-[#CAD7E8] w-4 h-4 border cursor-pointer" 
+                            >
                             <label for="returndate" class="text-[16px]">
                                 Reactivate on Return Date
                             </label>
                         </div>
                     </div>
                     <div class="flex flex-col space-y-4">
-                        <div class="flex flex-col space-y-2">
+                        <div 
+                          class="flex flex-col space-y-2"
+                          :class="[isToogleReturnDate ? 'text-gray-300' : '']" 
+                        >
                             <label for="" class="text-[16px]">Return Date</label>
-                            <input type="date" class="w-[14.5rem] py-2 text-[16px] bg-[#FBFCFE] border border-gray-300 rounded-lg px-4" />
+                            <input type="date" 
+                              class="w-[14.5rem] py-2 text-[16px] bg-[#FBFCFE] border border-gray-300 rounded-lg px-4"
+                              :disabled="isToogleReturnDate" 
+                            />
                         </div>
                         <div class="flex space-x-2 place-items-center">
-                            <input type="checkbox" id="returndate" class="border-[#CAD7E8] w-4 h-4 border cursor-pointer">
-                            <label for="returndate" class="text-[16px]">
+                            <input type="checkbox" id="datereturn" 
+                              class="border-[#CAD7E8] w-4 h-4 border cursor-pointer"
+                              @click="toogleReturnDate"
+                              >
+                            <label for="datereturn" class="text-[16px]">
                                 No Return Date
                             </label>
                         </div>
                     </div>
                 </div>
-                <div class="w-full h-[27rem] rounded-lg bg-[#F8FBFE] px-8">
+                <div class="w-full h-auto rounded-lg bg-[#F8FBFE] px-8 pb-4">
                     <div class="flex place-items-center pt-4 space-x-[7.8rem]">
                         <p class="text-[18px]">Follow Up Details</p>
                         <div class="flex space-x-2 place-items-center">
-                            <input type="checkbox" id="returndate" class="border-[#CAD7E8] w-4 h-4 border cursor-pointer">
-                            <label for="returndate" class="text-[16px]">
+                            <input type="checkbox" id="dontfollowup" 
+                              class="border-[#CAD7E8] w-4 h-4 border cursor-pointer"
+                              @click="toogleReactivate"
+                            >
+                            <label for="dontfollowup" class="text-[16px]">
                                 Don't Follow Up
                             </label>
                         </div>
                     </div>
-                    <div class="mt-6 flex space-x-10">
+                    <div 
+                      class="mt-6 flex space-x-10"
+                      :class="[isToogleReactivate ? 'block' : 'hidden']"
+                    >
                         <div class="flex flex-col">
                             <div class="space-y-2 flex flex-col">
                                 <label for="" class="text-[16px]">Follow Up Date</label>
@@ -116,7 +136,10 @@ const { leadStatusItem, useColdStatus } = useStatusChanger()
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-col space-y-4 pt-4">
+                    <div 
+                      class="flex flex-col space-y-4 pt-4"
+                      :class="[isToogleReactivate ? 'block' : 'hidden']"
+                    >
                         <label for="message" class="text-[16px]">Message</label>
                         <textarea id="message" class="border border-[#CAD7E8] w-full h-[7.5rem] resize-none px-4 py-2"></textarea>
                     </div>
@@ -126,13 +149,13 @@ const { leadStatusItem, useColdStatus } = useStatusChanger()
                     <div class="space-x-4">
                         <button 
                             class="text-[16px] px-8 py-3 rounded-lg bg-[#CAD7E8] text-white"
-                            @click="cancelOnHoldModal"
+                            @click="cancelOnHoldModal()"
                         >
                             Cancel
                         </button>
                         <button 
                             class="text-[16px] px-10 py-3 rounded-lg bg-[#5081F0] text-white"
-                            @click="useColdStatus(leadStatusItem)"
+                            @click="cancelOnHoldModal()"
                         >
                             Save
                         </button>

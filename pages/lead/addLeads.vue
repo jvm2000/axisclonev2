@@ -289,7 +289,6 @@
                                                         v-model="form.yesCondition"
                                                     >
                                                     <label class="text-[16px]">Yes</label>
-                                                    <label for="" class="text-[16px]">Yes</label>
                                                 </div>
                                                 <div class="flex space-x-2">
                                                     <input type="radio" class="" name="healthChecker"

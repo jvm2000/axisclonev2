@@ -13,8 +13,13 @@ export default function () {
         router.push('/lead/leadsProfile')
     }
 
-    return {
+    const setStatus = (status: string) => {
+        state.leadViewItem.status = status
+    }
+
+    return {    
         ...toRefs(state),
         clickViewProfile,
+        setStatus,
     }
 }

@@ -1,3 +1,5 @@
+import leadActivePanelVue from "~~/components/panel/leadActivePanel.vue"
+
 const state = reactive({
     goalList: [],
     leadList: [],
@@ -30,6 +32,7 @@ const state = reactive({
     addAndGoals: '',
     index: {},
     canOpenLeadModal: false,
+    leadStatus: false
 })
 
 export default function () {
@@ -102,7 +105,9 @@ export default function () {
             description: state.form.descriptionText,
             yesAgree: state.form.yesCondition,
             noAgree: state.form.noCondition,
-            status: false,
+            status: 'active',
+            status2: false,
+            status3: false
         }
 
         state.leadList.push(leadItem)
@@ -166,8 +171,11 @@ export default function () {
             noCondition: '',
         }
          state.goalList = []
-
     }
+    const activeStatus = (leads: Object) => {
+        state.leadStatus = true
+        console.log("Testings...")
+     }
     
     return {
         ...toRefs(state),
@@ -177,5 +185,6 @@ export default function () {
         addGoals,
         removeGoal,
         clearInput,
+        activeStatus,
     }
 }

@@ -1,14 +1,30 @@
 
 const state = reactive({
+    isHoldOnModal: false,
     isLeadModalOpen: false,
-    isLeadOnHoldModalOpen: false
+    isLeadOnHoldModalOpen: false,
+    isToogleReturnDate: false,
+    isToogleReactivate: false
 })
 
 export default function () {
-    const { addLead, canOpenLeadModal } = addLeadFunctionalities()
+
+    const openHoldOnModal = () => {
+        
+    }
 
     const openLeadModal = () => {
-        state.isLeadModalOpen = true
+        setTimeout(() => {
+            state.isLeadModalOpen = true
+        }, 2000);
+    }
+
+    const toogleReturnDate = () => {
+        state.isToogleReturnDate = !state.isToogleReturnDate
+    }
+
+    const toogleReactivate = () => {
+        state.isToogleReactivate = !state.isToogleReactivate
     }
 
     const closeLeadModal = () => {
@@ -38,5 +54,7 @@ export default function () {
         addLead,
         openOnHoldModal,
         cancelOnHoldModal,
+        toogleReturnDate,
+        toogleReactivate,
     }
 }

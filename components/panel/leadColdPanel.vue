@@ -59,19 +59,19 @@ const { clickViewProfile } = useViewProfile()
                                     class="table-row font-medium h-4 place-items-center border-b-2 border-gray-200"
                                     v-for="(leads,index) in leadList"
                                     :key="index"
-                                    v-if="form.leadStatus == 'Cold'"
                                 >
                                     <div 
                                         class="table-cell cursor-pointer"
                                         @click="clickViewProfile(leads)"
+                                        v-if="leads.status == 'cold'"
                                     >
                                         <p>{{ leads.firstname }} {{ leads.lastname }}</p>
                                     </div>
-                                    <div class="table-cell">
+                                    <div class="table-cell" v-if="leads.status == 'cold'">
                                         <p>{{ leads.mobileno }}</p>
                                     </div>
-                                    <div class="table-cell">15</div>
-                                    <div class="table-cell">
+                                    <div class="table-cell" v-if="leads.status == 'cold'">15</div>
+                                    <div class="table-cell" v-if="leads.status == 'cold'">
                                         <div class="flex space-x-2">
                                             <DocumentTextIcon class="w-5 h-5 text-[#1376D8]"/>
                                             <ShieldCheckIcon class="w-5 h-5 text-[#A85CEA]"/>
@@ -79,21 +79,21 @@ const { clickViewProfile } = useViewProfile()
                                             <HeartIcon class="w-5 h-5 text-[#01D7D7]"/>
                                         </div>
                                     </div>
-                                    <div class="table-cell">
+                                    <div class="table-cell" v-if="leads.status == 'cold'">
                                         <div class="flex space-x-2 place-items-center">
                                             <p class="bg-[#FF1D1D] px-2 py-[2px] text-[14px] rounded-lg text-white font-semibold">T</p>
                                             <p class="bg-[#A1BDD6] px-2 py-[2px] text-[14px] rounded-lg text-white font-semibold">A</p>
                                             <p class="bg-[#E8EDF4] px-2 py-[2px] text-[14px] rounded-lg text-[#9FB5D1] font-semibold border-2 border-dashed border-gray-400">+</p>
                                         </div>
                                     </div>
-                                    <div class="table-cell">
+                                    <div class="table-cell" v-if="leads.status == 'cold'">
                                         <p>{{ leads.dateadded }}</p>
                                     </div>
-                                    <div class="table-cell">
+                                    <div class="table-cell" v-if="leads.status == 'cold'">
                                         <p>{{ leads.dateadded }}</p>
                                     </div>
-                                    <div class="table-cell">Annie Leonheart</div>
-                                    <div class="flex place-items-center">
+                                    <div class="table-cell" v-if="leads.status == 'cold'">Annie Leonheart</div>
+                                    <div class="flex place-items-center" v-if="leads.status == 'cold'">
                                         <img src="/illustrations/task.svg" class="" alt="">
                                     </div>
                                 </div>

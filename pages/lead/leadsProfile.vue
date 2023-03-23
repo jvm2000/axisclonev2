@@ -7,16 +7,13 @@
     const categories = reactive([{ name: 'User Information'}, { name: 'Programs and Grading'}, { name: 'Attendance and Bookings'}, { name: 'Notes and Documents'}, { name: 'Communication'}, { name: 'History'}])
 
     const { menuActive, menuHoldOn, menuInactive, useActive, useHoldOn, useInactive } = useMenuDropdown()
-
     const router = useRouter()
 
     const closeProfileLead = () => {
         router.push('/lead/leadsDashboard')
     }
 
-    const { leadViewItem } = useViewProfile()
-    const { leadStatusItem, useActiveStatus, useColdStatus, useDeadStatus } = useStatusChanger()
-
+    const { leadViewItem, setStatus } = useViewProfile()
     const { isLeadOnHoldModalOpen, openOnHoldModal } = modalFunctions()
 
 </script>
@@ -53,22 +50,15 @@
                                                 <MenuButton
                                                 class="inline-flex w-full justify-center rounded-full bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-opacity-75"
                                                 >
-                                                <div
-                                                    class="flex space-x-2 place-items-center"
-                                                    :class="[useActive ? 'hidden' : 'block', useHoldOn ? 'hidden' : 'block', useInactive ? 'hidden' : 'block']"
-                                                >
+                                                <div v-if="leadViewItem.status == 'active'" class="flex space-x-2 place-items-center">
                                                     <ExclamationCircleIcon class="w-3 h-3 text-[#46DBA8] bg-[#46DBA8] rounded-full"/>
                                                     <p class="text-white font-semibold">Active</p>
                                                 </div>
-                                                <div v-if="leadStatusItem.status == 'Active'" class="flex space-x-2 place-items-center">
-                                                    <ExclamationCircleIcon class="w-3 h-3 text-[#46DBA8] bg-[#46DBA8] rounded-full"/>
-                                                    <p class="text-white font-semibold">Active</p>
-                                                </div>
-                                                <div v-if="leadStatusItem.status == 'Cold'" class="flex space-x-2 place-items-center">
+                                                <div v-if="leadViewItem.status == 'cold'" class="flex space-x-2 place-items-center">
                                                     <ExclamationCircleIcon class="w-3 h-3 text-[#FFCB24] bg-[#FFCB24] rounded-full"/>
                                                     <p class="text-white font-semibold">On Hold</p>
                                                 </div>
-                                                <div v-if="leadStatusItem.status == 'Dead'" class="space-x-2 flex place-items-center">
+                                                <div v-if="leadViewItem.status == 'dead'" class="space-x-2 flex place-items-center">
                                                     <ExclamationCircleIcon class="w-3 h-3 text-[#CDCDCD] bg-[#CDCDCD] rounded-full"/>
                                                     <p class="text-white font-semibold">Inactive</p>
                                                 </div>
@@ -102,7 +92,7 @@
                                                             active ? 'bg-[#EAF3F9]' : 'text-gray-900',
                                                             'group flex w-full items-center rounded-md py-2 text-[16px]',
                                                             ]"
-                                                            @click="useActiveStatus(leadStatusItem)"
+                                                            @click="setStatus('active')"
                                                         >
                                                             <ExclamationCircleIcon class="ml-6 w-2 h-2 text-[#46DBA8] bg-[#46DBA8] rounded-full"/>
                                                             <EditIcon
@@ -125,7 +115,7 @@
                                                             active ? 'bg-[#EAF3F9]' : 'text-gray-900',
                                                             'group flex w-full items-center rounded-md py-2 text-[16px]',
                                                             ]"
-                                                            @click="useColdStatus(leadStatusItem)"
+                                                            @click="setStatus('cold'), openOnHoldModal()"
                                                         >
                                                             <ExclamationCircleIcon class="ml-6 w-2 h-2 text-[#FFCB24] bg-[#FFCB24] rounded-full"/>
                                                             <DuplicateIcon
@@ -140,7 +130,7 @@
                                                     <MenuItem v-slot="{ active }">
                                                     <div 
                                                         class="flex place-items-center"
-                                                        @click="menuInactive"
+                                                        @click="setStatus('dead')"
                                                     >
                                                         <button
                                                             :class="[
