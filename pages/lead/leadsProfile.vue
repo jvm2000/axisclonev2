@@ -215,6 +215,6 @@
             </div>
         </div>
         <DialogsLeadOnHoldModal :isLeadOnHoldModalOpen="openOnHoldModal"/>
-        <DialogsLeadInactiveModal />
+        <DialogsLeadInactiveModal :isInactiveModal="openInactiveModal"/>
     </div>
 </template>
