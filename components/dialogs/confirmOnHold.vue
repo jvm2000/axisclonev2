@@ -7,7 +7,8 @@ import {
   DialogTitle,
 } from '@headlessui/vue'
 
-const { openHoldOnModal, isHoldOnModal } = modalFunctions()
+const { isHoldOnModal } = modalFunctions()
+const { leadViewItem } = useViewProfile()
 </script>
 
 <template>
@@ -39,39 +40,21 @@ const { openHoldOnModal, isHoldOnModal } = modalFunctions()
               leave-to="opacity-0 scale-95"
             >
               <DialogPanel
-                class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
+                class="w-auto max-w-md transform overflow-hidden rounded-2xl bg-white py-2 px-6 text-left align-middle shadow-xl transition-all"
               >
                 <DialogTitle
                   as="h3"
                   class="text-[24px] font-medium leading-6 text-gray-900"
                 >
-                  Add More Lead?
                 </DialogTitle>
-                <div class="mt-4 w-full border-[0.5px] border-gray-300"></div>
                 <div class="mt-2 px-20 py-4">
-                  <img src="/illustrations/addleadmodalpic.svg" alt="">
+                  <img src="/icons/onHold.svg" alt="">
                 </div>
-                <div class="mt-6 text-[16px]">
-                    <p>Cheers! You have successfully added a new student!</p>
-                    <p class="font-semibold">Do you wish to add more?</p>
-                </div>
-  
-                <div class="mt-8 space-x-2 flex">
-                    <div class="w-[9.5rem]"></div>
-                    <button
-                        type="button"
-                        class="bg-[#CAD7E8] text-white rounded-lg px-4 py-2"
-                        @click=""
-                    >
-                        Cancel
-                    </button>
-                        <button
-                        type="button"
-                        class="bg-[#527AF5] text-white rounded-lg px-4 py-2"
-                        @click=""
-                    >
-                        Yes, Add More
-                    </button>
+                <div class="px-10">
+                  <div class="flex flex-col w-full pb-4">
+                    <p class="text-[24px] text-center">{{ leadViewItem.firstname }} {{ leadViewItem.lastname }}</p>
+                    <p class="text-[24px] text-center">is now <b>on hold</b></p>
+                  </div>
                 </div>
               </DialogPanel>
             </TransitionChild>

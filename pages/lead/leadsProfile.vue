@@ -14,7 +14,7 @@
     }
 
     const { leadViewItem, setStatus } = useViewProfile()
-    const { isLeadOnHoldModalOpen, openOnHoldModal } = modalFunctions()
+    const { isLeadOnHoldModalOpen, openOnHoldModal, isInactiveModal, openInactiveModal } = modalFunctions()
 
 </script>
 
@@ -215,5 +215,6 @@
             </div>
         </div>
         <DialogsLeadOnHoldModal :isLeadOnHoldModalOpen="openOnHoldModal"/>
+        <DialogsLeadInactiveModal />
     </div>
 </template>

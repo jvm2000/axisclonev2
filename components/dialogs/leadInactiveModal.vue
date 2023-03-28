@@ -7,14 +7,14 @@ import {
   DialogTitle,
 } from '@headlessui/vue'
 
-const { cancelOnHoldModal, isLeadOnHoldModalOpen, isToogleReactivate, isToogleReturnDate, toogleReactivate, toogleReturnDate, isHoldOnModal, openConfirmHoldOnModal, closeLeadModal } = modalFunctions()
+const { cancelOnHoldModal, isLeadOnHoldModalOpen, isToogleReactivate, isToogleReturnDate, toogleReactivate, toogleReturnDate, isInactiveModal, openInactiveModal } = modalFunctions()
 const { leadViewItem } = useViewProfile()
 const router = useRouter()
 </script>
 
 <template>
     <div>
-      <TransitionRoot appear :show="isLeadOnHoldModalOpen" as="template">
+      <TransitionRoot appear :show="isInactiveModal" as="template">
         <Dialog as="div" @close="cancelOnHoldModal" class="relative z-10">
           <TransitionChild
             as="template"

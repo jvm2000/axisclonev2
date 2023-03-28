@@ -2,6 +2,8 @@
 const state = reactive({
     isHoldOnModal: false,
     isLeadModalOpen: false,
+    isInactiveModal: false,
+    isConfirmActiveModal: false,
     isLeadOnHoldModalOpen: false,
     isToogleReturnDate: false,
     isToogleReactivate: false
@@ -9,15 +11,22 @@ const state = reactive({
 
 export default function () {
 
-    const timeOut = setTimeout(() => {
+    const openConfirmHoldOnModal = () => {
+        cancelOnHoldModal()
         state.isHoldOnModal = true
-    }, 2000);
-
-    const openHoldOnModal = () => {
-        state.isHoldOnModal = true
-        clearTimeout(timeOut)
+        setTimeout(() => {
+            state.isHoldOnModal = false
+        }, 2000);
     }
 
+    const openConfirmInactiveModal = () => {
+        closeInactiveModal()
+        state.isInactiveModal = true
+        setTimeout(() => {
+            state.isInactiveModal = false
+        }, 2000);
+    }
+    
     const closeHoldOnModal = () => {
         state.isHoldOnModal = false
     }
@@ -48,6 +57,14 @@ export default function () {
         state.isLeadOnHoldModalOpen = false
     }
 
+    const openInactiveModal = () => {
+        state.isInactiveModal = true
+    }
+
+    const closeInactiveModal = () => {
+        state.isInactiveModal = false
+    }
+
     const saveLead = () => {
         setTimeout(() => {
             openLeadModal()
@@ -62,7 +79,10 @@ export default function () {
         cancelOnHoldModal,
         toogleReturnDate,
         toogleReactivate,
-        openHoldOnModal,
+        openConfirmHoldOnModal,
         closeHoldOnModal,
+        openInactiveModal,
+        closeInactiveModal,
+        openConfirmInactiveModal,
     }
 }
