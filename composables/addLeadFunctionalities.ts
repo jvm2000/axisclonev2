@@ -54,6 +54,7 @@ export default function () {
     }
 
     const addLead = () => {
+        const { preview } = useUploadImage()
         if(state.form.leadFName == '' &&
             state.form.leadLName == '' &&
             state.form.leadBirthdate == '' &&
@@ -101,7 +102,7 @@ export default function () {
             suburb: state.form.leadSubUrb,
             ID: state.form.leadID,
             zipcode: state.form.leadZipCode,
-            image: state.form.leadPic,
+            image: preview.value,
             description: state.form.descriptionText,
             yesAgree: state.form.yesCondition,
             noAgree: state.form.noCondition,
@@ -144,6 +145,7 @@ export default function () {
         state.form.leadCondition = true
     }
     const clearInput = () => {
+        const { preview } = useUploadImage()
         state.form = {
             leadFName: '',
             leadMName: '',
@@ -171,6 +173,7 @@ export default function () {
             noCondition: '',
         }
          state.goalList = []
+         preview.value = null
     }
     const activeStatus = (leads: Object) => {
         state.leadStatus = true

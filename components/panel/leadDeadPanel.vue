@@ -54,18 +54,25 @@ const { clickViewProfile } = useViewProfile()
                                     <div class="table-cell">TASK</div>
                                 </div>
                             </div>
-                            <div class="table-row-group py-4 w-full">
+                            <div class="table-row-group w-full">
                                 <div 
-                                    class="table-row font-medium h-4 place-items-center border-b-2 border-gray-200"
+                                    class="table-row font-medium place-items-center border-b-2 border-gray-200"
                                     v-for="(leads,index) in leadList"
                                     :key="index"
+                                    :class="[leads.status == 'dead' ? 'block' : 'hidden']"
                                 >
                                     <div 
                                         class="table-cell cursor-pointer"
                                         @click="clickViewProfile(leads)"
-                                        v-if="leads.status == 'dead'"
                                     >
-                                        <p>{{ leads.firstname }} {{ leads.lastname }}</p>
+                                        <div class="flex space-x-2 place-items-center">
+                                            <img
+                                                :src="leads.image"
+                                                alt=""
+                                                class="w-4 h-4 rounded-full border border-[#CAD7E8]"
+                                            >
+                                            <p>{{ leads.firstname }} {{ leads.lastname }}</p>
+                                        </div>
                                     </div>
                                     <div class="table-cell" v-if="leads.status == 'dead'">
                                         <p>{{ leads.mobileno }}</p>

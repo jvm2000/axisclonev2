@@ -8,7 +8,7 @@ import {
 } from '@headlessui/vue'
 
 const { cancelOnHoldModal, isLeadOnHoldModalOpen, isToogleReactivate, isToogleReturnDate, toogleReactivate, toogleReturnDate, isHoldOnModal, openConfirmHoldOnModal, closeLeadModal } = modalFunctions()
-const { leadViewItem } = useViewProfile()
+const { leadViewItem, setStatus } = useViewProfile()
 const router = useRouter()
 </script>
 
@@ -52,7 +52,11 @@ const router = useRouter()
                   </DialogTitle>
                   <div class="border-b border-gray-300 w-full mt-6"></div>
                   <div class="mt-4 w-full border-lg bg-[#4D8BE8] flex place-items-center px-6 py-2 space-x-4 rounded-lg">
-                      <img src="/illustrations/profile2.png" alt="" class="rounded-full border-4 border-white w-auto h-[2.2rem]">
+                      <img 
+                        :src="leadViewItem.image" 
+                        alt="" 
+                        class="rounded-full border-2 border-white w-[2.2rem] h-[2.2rem]"
+                      >
                       <p class="text-[18px] text-white font-semibold">{{ leadViewItem.firstname }} {{ leadViewItem.lastname }}</p>
                   </div>
                   <div class="pl-6 mt-6 flex space-x-10 pb-8">
@@ -156,7 +160,7 @@ const router = useRouter()
                           </button>
                           <button 
                               class="text-[16px] px-10 py-3 rounded-lg bg-[#5081F0] text-white"
-                              @click="openConfirmHoldOnModal()"
+                              @click="setStatus('cold'), openConfirmHoldOnModal()"
                           >
                               Save
                           </button>

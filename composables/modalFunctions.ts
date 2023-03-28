@@ -3,10 +3,12 @@ const state = reactive({
     isHoldOnModal: false,
     isLeadModalOpen: false,
     isInactiveModal: false,
+    isConfirmInactiveModal: false,
     isConfirmActiveModal: false,
     isLeadOnHoldModalOpen: false,
     isToogleReturnDate: false,
-    isToogleReactivate: false
+    isToogleReactivate: false,
+    isToogleInactive: false,
 })
 
 export default function () {
@@ -21,12 +23,12 @@ export default function () {
 
     const openConfirmInactiveModal = () => {
         closeInactiveModal()
-        state.isInactiveModal = true
+        state.isConfirmInactiveModal = true
         setTimeout(() => {
-            state.isInactiveModal = false
+            state.isConfirmInactiveModal = false
         }, 2000);
     }
-    
+
     const closeHoldOnModal = () => {
         state.isHoldOnModal = false
     }
@@ -41,6 +43,10 @@ export default function () {
 
     const toogleReactivate = () => {
         state.isToogleReactivate = !state.isToogleReactivate
+    }
+
+    const toogleInactive = () => {
+        state.isToogleInactive = !state.isToogleInactive
     }
 
     const closeLeadModal = () => {
@@ -58,7 +64,9 @@ export default function () {
     }
 
     const openInactiveModal = () => {
-        state.isInactiveModal = true
+        setTimeout(() => {
+            state.isInactiveModal = true
+        }, 1000);
     }
 
     const closeInactiveModal = () => {
@@ -84,5 +92,6 @@ export default function () {
         openInactiveModal,
         closeInactiveModal,
         openConfirmInactiveModal,
+        toogleInactive,
     }
 }

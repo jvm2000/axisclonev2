@@ -35,10 +35,16 @@
                             <a @click="closeProfileLead" class="cursor-pointer text-[16ax]">Go back to all Leads</a>
                         </div>
                     </div>
-                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 w-full h-[7.5rem] rounded-lg px-8 flex place-items-center">
+                    <div 
+                        class="w-full h-[7.5rem] rounded-lg px-8 flex place-items-center"
+                        :class="[leadViewItem.status == 'dead' ? 'bg-gray-400' : 'bg-gradient-to-r from-blue-500 to-cyan-500']"
+                    >
                         <div class="flex flex-row space-x-4">
                             <div>
-                                <img src="/illustrations/profile2.png" alt="" class="h-[5rem] w-[5rem] rounded-full border-2 border-white">
+                                <img 
+                                    :src="leadViewItem.image" 
+                                    alt="" 
+                                    class="h-[5rem] w-[5rem] rounded-full border-2 border-white">
                             </div>
                             <div class="">
                                 <div class="space-y-[1px] text-white">
@@ -115,7 +121,7 @@
                                                             active ? 'bg-[#EAF3F9]' : 'text-gray-900',
                                                             'group flex w-full items-center rounded-md py-2 text-[16px]',
                                                             ]"
-                                                            @click="setStatus('cold'), openOnHoldModal()"
+                                                            @click="openOnHoldModal()"
                                                         >
                                                             <ExclamationCircleIcon class="ml-6 w-2 h-2 text-[#FFCB24] bg-[#FFCB24] rounded-full"/>
                                                             <DuplicateIcon
@@ -130,7 +136,7 @@
                                                     <MenuItem v-slot="{ active }">
                                                     <div 
                                                         class="flex place-items-center"
-                                                        @click="setStatus('dead')"
+                                                        @click="openInactiveModal()"
                                                     >
                                                         <button
                                                             :class="[

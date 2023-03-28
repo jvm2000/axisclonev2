@@ -7,10 +7,10 @@
 
     const { saveLead, isLeadModalOpen } = modalFunctions()
     const { addLead } = addLeadFunctionalities()
-    const { handleChange, image } = useUploadImage()
+    const { handleChange, image, preview } = useUploadImage()
     const selected = ref({})
     const goalLists = reactive([])
-
+    
     const conditions = reactive([
     {
         value: 'Mild',
@@ -37,6 +37,10 @@
 
     const cancelAddAndGoals = () => {
         isOpenAddAndGoals.value = false
+    }
+  
+    const upload = () => {
+        document.getElementById('profile-photo')?.click()
     }
 </script>
 
@@ -105,7 +109,19 @@
                                         </div>
                                     </div>
                                     <div class="space-y-4 place-items-center px-1">
-                                        <div class="w-[12.3rem] h-[12.3rem] bg-[#EAF3F9] border-2 border-[#CAD7E8] border-dashed rounded-full px-20 py-20">
+                                        <!-- <div v-if="preview"
+                                            class="w-[12.3rem] h-[12.3rem] border-2 border-[#CAD7E8] border-dashed rounded-full px-20 py-20"
+                                            :style="{ backgroundImage: `${preview}` }"
+                                        > -->
+                                        <img 
+                                            v-if="preview"  
+                                            :src="preview" 
+                                            alt=""
+                                            class="w-[12.3rem] h-[12.3rem] border-2 border-[#CAD7E8] rounded-full"
+                                        >
+                                        <div v-if="!preview"
+                                            class="w-[12.3rem] h-[12.3rem] bg-[#EAF3F9] border-2 border-[#CAD7E8] border-dashed rounded-full px-20 py-20"
+                                        >
                                             <div>
                                                 <label for="imageupload">
                                                     <input
@@ -117,7 +133,9 @@
                                                         accept=".jpeg, .jpg, .png, image/jpeg, image/png"
                                                         @change="handleChange"
                                                     />
-                                                    <img src="/illustrations/camera.svg" alt="" class="z-[10]">
+                                                    <img src="/illustrations/camera.svg" alt="" class="z-[10] cursor-pointer"
+                                                        @click="upload()"
+                                                    >
                                                 </label>
                                             </div>
                                         </div>
