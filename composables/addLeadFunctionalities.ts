@@ -166,7 +166,6 @@ export default function () {
             leadZipCode: '',
             leadID: '',
             leadSource: '',
-            leadPic: null,
             leadCondition: false,
             descriptionText: '',
             yesCondition: '',

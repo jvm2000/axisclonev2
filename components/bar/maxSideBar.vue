@@ -1,3 +1,35 @@
+<script setup lang="ts">
+    import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronDownIcon, ChevronUpIcon, HomeIcon, UsersIcon, Cog8ToothIcon, UserPlusIcon, ViewColumnsIcon, StarIcon } from '@heroicons/vue/24/outline'
+
+
+    const userManagementIsOpen = ref(false)
+
+    const openUserManagementDropdown = () => {
+        userManagementIsOpen.value = true
+    }
+
+    const closeUserManagementDropdown = () => {
+        userManagementIsOpen.value = false
+    }
+
+    const { openMinimizeSideBar } = sideBarFunctionalities()
+
+    const router = useRouter()
+
+    const openDashboard = () => {
+        router.push('/home/homeForm')
+    }
+
+    const openLeadsDashboard = () => {
+        router.push('/lead/leadsDashboard')
+    }
+
+    const openStudDashboard = () => {
+        router.push('/stud/studsDashboard')
+    }
+</script>
+
+
 <template>
     <div class="block w-[20rem] h-screen p-4 bg-blue-900 text-white">
         <div class="flex flex-col items-center">
@@ -21,7 +53,7 @@
             <div>
             <div v-if="userManagementIsOpen" class="space-y-8 indent-16">
                 <a class="text-[18px] cursor-pointer" @click="openLeadsDashboard">Leads</a>
-                <p class="text-[18px] cursor-pointer">Students</p>
+                <p class="text-[18px] cursor-pointer" @click="openStudDashboard">Students</p>
                 <p class="text-[18px] cursor-pointer">Instructor</p>
             </div>
             <div v-else></div>
@@ -47,30 +79,3 @@
         </div>
     </div>
 </template>
-
-<script setup lang="ts">
-import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronDownIcon, ChevronUpIcon, HomeIcon, UsersIcon, Cog8ToothIcon, UserPlusIcon, ViewColumnsIcon, StarIcon } from '@heroicons/vue/24/outline'
-
-
-const userManagementIsOpen = ref(false)
-
-const openUserManagementDropdown = () => {
-    userManagementIsOpen.value = true
-}
-
-const closeUserManagementDropdown = () => {
-    userManagementIsOpen.value = false
-}
-
-const { openMinimizeSideBar } = sideBarFunctionalities()
-
-const router = useRouter()
-
-const openDashboard = () => {
-    router.push('/home/homeForm')
-}
-
-const openLeadsDashboard = () => {
-    router.push('/lead/leadsDashboard')
-}
-</script>

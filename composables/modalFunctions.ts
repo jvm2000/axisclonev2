@@ -2,6 +2,7 @@
 const state = reactive({
     isHoldOnModal: false,
     isLeadModalOpen: false,
+    isStudModalOpen: false,
     isInactiveModal: false,
     isConfirmInactiveModal: false,
     isConfirmActiveModal: false,
@@ -35,6 +36,14 @@ export default function () {
 
     const openLeadModal = () => {
         state.isLeadModalOpen = true
+    }
+
+    const openStudModal = () => {
+        state.isStudModalOpen = true
+    }
+
+    const closeStudModal = () => {
+        state.isStudModalOpen = false
     }
 
     const toogleReturnDate = () => {
@@ -78,11 +87,20 @@ export default function () {
             openLeadModal()
         }, 1000);
     }
+
+    const saveStud = () => {
+        setTimeout(() => {
+            openStudModal()
+        }, 1000);
+    }
     return{
         ...toRefs(state),
         openLeadModal,
         closeLeadModal,
+        openStudModal,
+        closeStudModal,
         saveLead,
+        saveStud,
         openOnHoldModal,
         cancelOnHoldModal,
         toogleReturnDate,

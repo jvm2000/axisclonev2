@@ -4,6 +4,7 @@ const state = reactive({
 })
 
 export default function () {
+
     const openMinimizeSideBar = () => {
         state.minimizeSideBar = true
     }
@@ -16,10 +17,18 @@ export default function () {
         router.push('/lead/addLeads')
     }
 
+    const openAddStuds = () => {
+        router.push('/stud/addStuds')
+    }
+
     const router = useRouter()
 
     const closeAddLeads = () => {
         router.push('/lead/leadsDashboard')
+    }
+
+    const closeAddStuds = () => {
+        router.push('/stud/studsDashboard')
     }
 
     return {
@@ -27,7 +36,9 @@ export default function () {
         openMinimizeSideBar,
         closeMinimizeSideBar,
         openAddLeads,
+        openAddStuds,
         closeAddLeads,
+        closeAddStuds,
     }
 
 
