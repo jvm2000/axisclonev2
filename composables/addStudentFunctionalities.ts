@@ -29,7 +29,7 @@ const state = reactive({
     addAndGoals: '',
     index: {},
     canOpenstudModal: false,
-    studStatus: false
+    studStatus: false,
 })
 
 export default function () {
@@ -105,7 +105,8 @@ export default function () {
             noAgree: state.form.noCondition,
             status: 'active',
             status2: false,
-            status3: false
+            status3: false,
+
         }
 
         state.studList.push(studItem)

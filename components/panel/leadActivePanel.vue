@@ -1,10 +1,44 @@
 <script setup lang="ts">
 
-import { MagnifyingGlassIcon, FunnelIcon, BarsArrowDownIcon, ArrowLongDownIcon, DocumentTextIcon, ShieldCheckIcon, PhotoIcon, HeartIcon } from '@heroicons/vue/24/outline'
+    import { MagnifyingGlassIcon, FunnelIcon, BarsArrowDownIcon, ArrowLongDownIcon, DocumentTextIcon, ShieldCheckIcon, PhotoIcon, HeartIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline'
 
-const { leadList, form } = addLeadFunctionalities()
+    const { leadList, form } = addLeadFunctionalities()
 
-const { clickViewProfile } = useViewProfile()
+    const { clickViewProfile } = useViewProfile()
+
+    const currentPage = ref(1)
+    const itemsPerPage = 3
+
+    const pageCount = computed(() => Math.ceil(leadList.value.length / itemsPerPage))
+
+    const paginatedleadList = computed(() => {
+      const startIndex = (currentPage.value - 1) * itemsPerPage
+      const endIndex = startIndex + itemsPerPage
+      return leadList.value.slice(startIndex, endIndex)
+    })
+
+    const nextPage = () => {
+      currentPage.value += 1
+    }
+
+    const prevPage = () => {
+      currentPage.value -= 1
+    }
+
+    const page = ref(1)
+    const pageOne = ref(false)
+    const pageTwo = ref(false)
+    const pageThree = ref(false)
+    const pageClick = (a: number) => {
+        page.value = a
+    }
+
+    const leadData = computed(() => {
+        if(page.value == 1) return leadList.value.slice(1, 9)
+        if(page.value == 2) return leadList.value.slice(9, 18)
+        if(page.value == 3) return leadList.value.slice(19, 26)
+    })
+
 
 </script>
 
@@ -12,7 +46,7 @@ const { clickViewProfile } = useViewProfile()
     <div class="px-2">
         <div class="px-4 py-4 w-fit flex flex-row">
             <div class="text-[20px] font-semibold">
-                <p>Dead Leads</p>
+                <p>Active Leads</p>
             </div>
             <div class="w-[40rem]"></div>
             <div class="space-x-4 flex flex-row">
@@ -57,15 +91,15 @@ const { clickViewProfile } = useViewProfile()
                             <div class="table-row-group w-full">
                                 <div 
                                     class="table-row font-medium place-items-center border-b-2 border-gray-200"
-                                    v-for="(leads,index) in leadList"
+                                    v-for="(leads,index) in leadData"
                                     :key="index"
                                     :class="[leads.status == 'active' ? 'block' : 'hidden']"
                                 >
                                     <div 
-                                        class="table-cell cursor-pointer"
+                                        class="table-cell cursor-pointer border-b border-gray-200 pb-2"
                                         @click="clickViewProfile(leads)"
                                     >
-                                        <div class="flex space-x-2 place-items-center">
+                                        <div class="flex space-x-2 place-items-center ">
                                             <img
                                                 :src="leads.image"
                                                 alt=""
@@ -74,11 +108,11 @@ const { clickViewProfile } = useViewProfile()
                                             <p>{{ leads.firstname }} {{ leads.lastname }}</p>
                                         </div>
                                     </div>
-                                    <div class="table-cell" v-if="leads.status == 'active'">
+                                    <div class="table-cell border-b border-gray-200 pb-2" v-if="leads.status == 'active'">
                                         <p>{{ leads.mobileno }}</p>
                                     </div>
-                                    <div class="table-cell" v-if="leads.status == 'active'">15</div>
-                                    <div class="table-cell" v-if="leads.status == 'active'">
+                                    <div class="table-cell border-b border-gray-200 pb-2" v-if="leads.status == 'active'">15</div>
+                                    <div class="table-cell border-b border-gray-200 pb-2" v-if="leads.status == 'active'">
                                         <div class="flex space-x-2">
                                             <DocumentTextIcon class="w-5 h-5 text-[#1376D8]"/>
                                             <ShieldCheckIcon class="w-5 h-5 text-[#A85CEA]"/>
@@ -86,21 +120,21 @@ const { clickViewProfile } = useViewProfile()
                                             <HeartIcon class="w-5 h-5 text-[#01D7D7]"/>
                                         </div>
                                     </div>
-                                    <div class="table-cell" v-if="leads.status == 'active'">
+                                    <div class="table-cell border-b border-gray-200 pb-2" v-if="leads.status == 'active'">
                                         <div class="flex space-x-2 place-items-center">
                                             <p class="bg-[#FF1D1D] px-2 py-[2px] text-[14px] rounded-lg text-white font-semibold">T</p>
                                             <p class="bg-[#A1BDD6] px-2 py-[2px] text-[14px] rounded-lg text-white font-semibold">A</p>
-                                            <p class="bg-[#E8EDF4] px-2 py-[2px] text-[14px] rounded-lg text-[#9FB5D1] font-semibold border-2 border-dashed border-gray-400">+</p>
+                                            <p class="bg-[#E8EDF4] px-2 py-[2px] text-[14px] rounded-lg text-[#9FB5D1] font-semibold border-2 border-dashed border-gray-200 pb-2">+</p>
                                         </div>
                                     </div>
-                                    <div class="table-cell" v-if="leads.status == 'active'">
+                                    <div class="table-cell border-b border-gray-200 pb-2" v-if="leads.status == 'active'">
                                         <p>{{ leads.dateadded }}</p>
                                     </div>
-                                    <div class="table-cell" v-if="leads.status == 'active'">
+                                    <div class="table-cell border-b border-gray-200 pb-2" v-if="leads.status == 'active'">
                                         <p>{{ leads.dateadded }}</p>
                                     </div>
-                                    <div class="table-cell" v-if="leads.status == 'active'">Annie Leonheart</div>
-                                    <div class="flex place-items-center" v-if="leads.status == 'active'">
+                                    <div class="table-cell border-b border-gray-200 pb-2" v-if="leads.status == 'active'">Annie Leonheart</div>
+                                    <div class="table-cell place-items-center border-gray-200 pb-2 border-b pl-3" v-if="leads.status == 'active'">
                                         <img src="/illustrations/task.svg" class="" alt="">
                                     </div>
                                 </div>
@@ -108,6 +142,25 @@ const { clickViewProfile } = useViewProfile()
                         </div>
                     </div>
                     <div class="border-b-2 border-gray-200"></div>
+                    <div class="flex place-items-center h-[4rem] w-full px-8">
+                        <p class="text-[16px]">Showing 1 to {{ leadData?.length }} of {{ leadData?.length }} results</p>
+                        <div class="w-[40rem]"></div>
+                        <div class="flex text-[16px]">
+                            <button class="px-3 py-1 border border-gray-500">
+                                <ChevronLeftIcon class="w-4 h-4"/>
+                            </button>
+                            <button class="px-3 py-1 border border-gray-500" @click="pageClick(1)">1</button>
+                            <button class="px-3 py-1 border border-gray-500" @click="pageClick(2)">2</button>
+                            <button class="px-3 py-1 border border-gray-500" @click="pageClick(3)">3</button>
+                            <button class="px-3 py-1 border border-gray-500">4</button>
+                            <button class="px-3 py-1 border border-gray-500">5</button>
+                            <button class="px-3 py-1 border border-gray-500">6</button>
+                            <button class="px-3 py-1 border border-gray-500">7</button>
+                            <button class="px-3 py-1 border border-gray-500">
+                                <ChevronRightIcon class="w-4 h-4"/>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
