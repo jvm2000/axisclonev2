@@ -50,6 +50,16 @@ export default function () {
         state.goalList.splice(index, 1)
     }
 
+    const populateStuds = () => {
+        if(state.studList.length) {
+            let i = 1
+            state.studList
+                .forEach(studs => {
+                    studs.id = i++
+                })
+        }
+    }
+
     const addStud = () => {
         const { preview } = useUploadStudImage()
         if(state.form.studFName == '' &&
@@ -103,6 +113,7 @@ export default function () {
             description: state.form.descriptionText,
             yesAgree: state.form.yesCondition,
             noAgree: state.form.noCondition,
+            id: 0,
             status: 'active',
             status2: false,
             status3: false,

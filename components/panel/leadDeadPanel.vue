@@ -6,6 +6,31 @@ const { leadList, form } = addLeadFunctionalities()
 
 const { clickViewProfile } = useViewProfile()
 
+const page = ref(1)
+    const pageClick = (a: number) => {
+        page.value = a
+    }
+
+    const leadData = computed(() => {
+        if(page.value == 1) {
+            return leadList.value.slice(0, 8)
+        }
+        if(page.value == 2) {
+            return leadList.value.slice(8, 19)
+        }
+        if(page.value == 3) return leadList.value.slice(19, 26)
+    })
+
+    const totalPage = computed(() => {
+        let total = 0
+        let page = leadList.value.length / 8
+        let result = (page - Math.floor(page)) !== 0;
+        if ( result ) {
+            total = Math.round(page) + 1
+        }
+        return total
+    })
+
 </script>
 
 <template>
@@ -108,6 +133,41 @@ const { clickViewProfile } = useViewProfile()
                         </div>
                     </div>
                     <div class="border-b-2 border-gray-200"></div>
+                    <div class="flex place-items-center h-[4rem] w-full px-8" v-if="totalPage >= 1">
+                        <p class="text-[16px]" v-if="page == 1">Showing 1 to {{ leadList?.length }} of {{ leadList?.length }} results</p>
+                        <p class="text-[16px]" v-if="page == 2">Showing 9 to {{ leadList?.length }} of {{ leadList?.length }} results</p>
+                        <p class="text-[16px]" v-if="page == 3">Showing 17 to {{ leadList?.length }} of {{ leadList?.length }} results</p>
+                        <div class="w-[40rem]"></div>
+                        <div class="flex text-[16px]">
+                            <button class="px-3 py-1 border border-gray-500">
+                                <ChevronLeftIcon class="w-4 h-4"/>
+                            </button>
+                            <button class="px-3 py-1 border border-gray-500" @click="pageClick(1)"
+                                v-if="totalPage >= 1"
+                            >
+                                1
+                            </button>
+                            <button class="px-3 py-1 border border-gray-500" @click="pageClick(2)" 
+                                :disabled="leadList.length < 9"
+                                v-if="totalPage > 1 && totalPage == 2"
+                            >
+                                2
+                            </button>
+                            <button class="px-3 py-1 border border-gray-500" @click="pageClick(3)"
+                                :disabled="leadList.length < 17"
+                                v-if="totalPage > 1 && totalPage == 3"
+                            >
+                                3
+                            </button>
+                            <!-- <button class="px-3 py-1 border border-gray-500" disabled>4</button>
+                            <button class="px-3 py-1 border border-gray-500" disabled>5</button>
+                            <button class="px-3 py-1 border border-gray-500" disabled>6</button>
+                            <button class="px-3 py-1 border border-gray-500" disabled>7</button> -->
+                            <button class="px-3 py-1 border border-gray-500" disabled>
+                                <ChevronRightIcon class="w-4 h-4"/>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

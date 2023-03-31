@@ -1,6 +1,6 @@
 <template>
-    <div class="h-[3rem] w-full bg-white flex flex-row items-center justify-between">
-        <div class="flex flex-row items-center pl-8 space-x-2">
+    <div class="h-[3rem] w-full bg-white flex flex-row items-center relative">
+        <div class="flex flex-row items-center pl-8 space-x-2 absolute right-0">
             <p class="text-[14px] font-semibold">Students</p>
             <p class="text-[14px] text-gray-500">|</p>
             <p class="text-[13px]">Hapkido International</p>

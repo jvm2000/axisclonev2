@@ -6,29 +6,7 @@
 
     const { clickViewProfile } = useViewProfile()
 
-    const currentPage = ref(1)
-    const itemsPerPage = 3
-
-    const pageCount = computed(() => Math.ceil(leadList.value.length / itemsPerPage))
-
-    const paginatedleadList = computed(() => {
-      const startIndex = (currentPage.value - 1) * itemsPerPage
-      const endIndex = startIndex + itemsPerPage
-      return leadList.value.slice(startIndex, endIndex)
-    })
-
-    const nextPage = () => {
-      currentPage.value += 1
-    }
-
-    const prevPage = () => {
-      currentPage.value -= 1
-    }
-
     const page = ref(1)
-    const pageOne = ref(false)
-    const pageTwo = ref(false)
-    const pageThree = ref(false)
     const pageClick = (a: number) => {
         page.value = a
     }
@@ -155,7 +133,7 @@
                         </div>
                     </div>
                     <div class="border-b-2 border-gray-200"></div>
-                    <div class="flex place-items-center h-[4rem] w-full px-8">
+                    <div class="flex place-items-center h-[4rem] w-full px-8" v-if="totalPage >= 1">
                         <p class="text-[16px]" v-if="page == 1">Showing 1 to {{ leadList?.length }} of {{ leadList?.length }} results</p>
                         <p class="text-[16px]" v-if="page == 2">Showing 9 to {{ leadList?.length }} of {{ leadList?.length }} results</p>
                         <p class="text-[16px]" v-if="page == 3">Showing 17 to {{ leadList?.length }} of {{ leadList?.length }} results</p>
@@ -166,7 +144,9 @@
                             </button>
                             <button class="px-3 py-1 border border-gray-500" @click="pageClick(1)"
                                 v-if="totalPage >= 1"
-                            >1</button>
+                            >
+                                1
+                            </button>
                             <button class="px-3 py-1 border border-gray-500" @click="pageClick(2)" 
                                 :disabled="leadList.length < 9"
                                 v-if="totalPage > 1 && totalPage == 2"

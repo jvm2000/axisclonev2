@@ -1,16 +1,12 @@
 const state = reactive({
-    minimizeSideBar: false,
+    sideBarOpen: false,
     openAddLead: false
 })
 
 export default function () {
 
-    const openMinimizeSideBar = () => {
-        state.minimizeSideBar = true
-    }
-    
-    const closeMinimizeSideBar = () => {
-        state.minimizeSideBar = false
+    const openMaxSideBar = () => {
+        state.sideBarOpen = !state.sideBarOpen
     }
 
     const openAddLeads = () => {
@@ -33,10 +29,9 @@ export default function () {
 
     return {
         ...toRefs(state),
-        openMinimizeSideBar,
-        closeMinimizeSideBar,
         openAddLeads,
         openAddStuds,
+        openMaxSideBar,
         closeAddLeads,
         closeAddStuds,
     }

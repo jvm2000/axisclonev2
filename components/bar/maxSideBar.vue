@@ -12,8 +12,6 @@
         userManagementIsOpen.value = false
     }
 
-    const { openMinimizeSideBar } = sideBarFunctionalities()
-
     const router = useRouter()
 
     const openDashboard = () => {
@@ -31,10 +29,10 @@
 
 
 <template>
-    <div class="block w-[20rem] h-screen p-4 bg-blue-900 text-white">
+    <div class="w-[20rem] h-screen p-4 bg-blue-900 text-white hidden sm:block z-[30]">
         <div class="flex flex-col items-center">
             <ChevronDoubleLeftIcon class="block ml-[16rem] pt-1 w-6 h-6 text-blue-400"
-                                    @click="openMinimizeSideBar"
+                                    @click=""
             />
             <img src="/illustrations/logo_logo -axis 1.svg" alt="" class="block pt-4 pb-10 h-auto w-[13rem]">
         </div>

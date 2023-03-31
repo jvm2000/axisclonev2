@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div 
-                        class="w-full h-[7.5rem] rounded-lg px-8 flex place-items-center"
+                        class="w-full h-[7.5rem] rounded-lg px-8 flex place-items-center relative"
                         :class="[leadViewItem.status == 'dead' ? 'bg-gray-400' : 'bg-gradient-to-r from-blue-500 to-cyan-500']"
                     >
                         <div class="flex flex-row space-x-4">
@@ -54,7 +54,7 @@
                                             <Menu as="div" class="relative inline-block text-left z-[20]">
                                             <div>
                                                 <MenuButton
-                                                class="inline-flex w-full justify-center rounded-full bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-opacity-75"
+                                                class="inline-flex w-full justify-center rounded-full px-4 py-2 text-sm font-medium text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-opacity-75 border-2 border-white"
                                                 >
                                                 <div v-if="leadViewItem.status == 'active'" class="flex space-x-2 place-items-center">
                                                     <ExclamationCircleIcon class="w-3 h-3 text-[#46DBA8] bg-[#46DBA8] rounded-full"/>
@@ -69,7 +69,7 @@
                                                     <p class="text-white font-semibold">Inactive</p>
                                                 </div>
                                                 <ChevronDownIcon
-                                                    class="ml-2 -mr-1 h-5 w-5 text-violet-200 hover:text-violet-100"
+                                                    class="ml-2 -mr-1 h-5 w-5 font-semibold text-white"
                                                     aria-hidden="true"
                                                 />
                                                 </MenuButton>
@@ -96,7 +96,7 @@
                                                         <button
                                                             :class="[
                                                             active ? 'bg-[#EAF3F9]' : 'text-gray-900',
-                                                            'group flex w-full items-center rounded-md py-2 text-[16px]',
+                                                            'flex w-full items-center rounded-md py-2 text-[16px] hover:text-black',
                                                             ]"
                                                             @click="setStatus('active')"
                                                         >
@@ -119,7 +119,7 @@
                                                         <button
                                                             :class="[
                                                             active ? 'bg-[#EAF3F9]' : 'text-gray-900',
-                                                            'group flex w-full items-center rounded-md py-2 text-[16px]',
+                                                            'group flex w-full items-center rounded-md py-2 text-[16px] hover:text-black',
                                                             ]"
                                                             @click="openOnHoldModal()"
                                                         >
@@ -141,7 +141,7 @@
                                                         <button
                                                             :class="[
                                                             active ? 'bg-[#EAF3F9]' : 'text-gray-900',
-                                                            'group flex w-full items-center rounded-md py-2 text-[16px]',
+                                                            'group flex w-full items-center rounded-md py-2 text-[16px] hover:text-black',
                                                             ]"
                                                         >
                                                             <ExclamationCircleIcon class="ml-6 w-2 h-2 text-[#CDCDCD] bg-[#CDCDCD] rounded-full"/>
@@ -171,6 +171,13 @@
                                 </div>
                             </div>
                         </div>   
+                        <div class="absolute right-0 mr-[2rem] space-x-4 flex">
+                            <div class="flex flex-col space-y-[1.2rem] relative">
+                                <img src="/icons/recentuser.svg" alt="">
+                                <img src="/icons/recentsGroup.svg" alt="" class="h-auto w-[9rem] ml-20">
+                            </div>
+                            <img src="/icons/recentDots.svg" alt="" class="mb-5">
+                        </div>
                     </div>
                      <!-- leadProfileTabs
                         leadProfileTabs

@@ -36,9 +36,12 @@
                         <ArrowLeftOnRectangleIcon class="w-6 h-6 text-blue-700"/>
                         <p>Import</p>
                     </div>
-                    <div class="flex space-x-2 text-[16px] cursor-pointer bg-[#5081F0] py-1 pl-4 pr-8 rounded-lg text-white place-items-center">
+                    <div 
+                        class="flex space-x-2 text-[16px] cursor-pointer bg-[#5081F0] py-1 pl-4 pr-8 rounded-lg text-white place-items-center"
+                        @click="openAddStuds()"
+                    >
                         <PlusIcon class="w-4 h-4 font-semibold"/>
-                        <p @click="openAddStuds()">Add Student</p>
+                        <p>Add Student</p>
                     </div>
                 </div>
             </div>
@@ -48,7 +51,7 @@
                     <PanelStudsStudActivePanel/>
                 </TabPanel>
                 <TabPanel>
-                    <PanelStudsStudImportedRecords/>
+                    test
                 </TabPanel>
                 <TabPanel>
                     <PanelLeadDeadPanel/>

@@ -1,12 +1,22 @@
+<script setup lang="ts">
+
+    import { CalendarIcon, CalendarDaysIcon, ChatBubbleOvalLeftEllipsisIcon, BellIcon, ChevronDownIcon, Bars3Icon } from '@heroicons/vue/24/outline'
+
+    const { openMaxSideBar } = sideBarFunctionalities()
+</script>
+
 <template>
-    <div class="h-[3rem] w-full bg-white flex flex-row items-center justify-between">
+    <div class="h-[3rem] w-full bg-white flex flex-row items-center relative">
         <div class="flex flex-row items-center pl-8 space-x-2">
+            <Bars3Icon 
+                class="w-4 h-4 ml-4 cursor-pointer block sm:hidden"
+                @click="openMaxSideBar"
+            />
             <p class="text-[14px] font-semibold">Leads</p>
             <p class="text-[14px] text-gray-500">|</p>
             <p class="text-[13px]">Hapkido International</p>
         </div>
-        <div></div>
-        <div class="flex items-center">
+        <div class="flex items-center absolute right-0 mr-8 sm:mr-80">
             <div class="flex space-x-4 pr-5">
                 <CalendarDaysIcon class="text-gray-500 w-6 h-6"/>
                 <CalendarIcon class="text-gray-500 w-6 h-6"/>
@@ -18,14 +28,6 @@
                 <p class="text-[14px] font-semibold">Pudge Kun</p>
             </div>
             <ChevronDownIcon class="text-gray-900 w-2 h-2"/>
-            <div class="pr-[4rem] sm:pr-96"></div>
-
         </div>
     </div>
 </template>
-<script setup lang="ts">
-import { CalendarIcon, CalendarDaysIcon, ChatBubbleOvalLeftEllipsisIcon, BellIcon, ChevronDownIcon } from '@heroicons/vue/24/outline'
-
-
-
-</script>
