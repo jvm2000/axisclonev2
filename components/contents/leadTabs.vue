@@ -12,12 +12,12 @@ const { openAddLeads } = sideBarFunctionalities()
 </script>
 
 <template>
-    <div>
+    <div class="px-0 sm:lg:xl:px-20">
         <TabGroup>
         <div class="px-10 py-10">
-            <div class="h-[5rem] w-full flex flex-row items-center border-b-2">
+            <div class="h-[5rem] w-full flex flex-col sm:flex-row items-start sm:items-center space-y-1 border-b-2 relative">
                 <TabList>
-                <div class="text-[16px] space-x-6">
+                <div class="text-[16px] space-x-6 ml-24 sm:ml-0">
                     <Tab v-for="category, index in categories" 
                         :key="index"
                         v-slot="{ selected }">
@@ -28,7 +28,7 @@ const { openAddLeads } = sideBarFunctionalities()
                 </div>
                 </TabList>
                 <div class="w-[32rem]"></div>
-                <div class="flex space-x-6 float-right">
+                <div class="flex space-x-6">
                     <div class="flex space-x-2 text-[16px] cursor-pointer">
                         <PlusIcon class="w-6 h-6 text-blue-700"/>
                         <a @click="openAddLeads">Add Lead</a>

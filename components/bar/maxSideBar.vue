@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronDownIcon, ChevronUpIcon, HomeIcon, UsersIcon, Cog8ToothIcon, UserPlusIcon, ViewColumnsIcon, StarIcon } from '@heroicons/vue/24/outline'
+    import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronDownIcon, ChevronUpIcon, HomeIcon, UsersIcon, Cog8ToothIcon, UserPlusIcon, ViewColumnsIcon, StarIcon, SquaresPlusIcon } from '@heroicons/vue/24/outline'
 
 
     const userManagementIsOpen = ref(false)
@@ -25,6 +25,11 @@
     const openStudDashboard = () => {
         router.push('/stud/studsDashboard')
     }
+
+    const openProgramsDashboard = () => {
+        router.push('/programs/programsDashboard')
+    }
+
 </script>
 
 
@@ -57,7 +62,7 @@
             <div v-else></div>
             </div>
             <div class="flex flex-row">
-                <Cog8ToothIcon class="mr-4 w-6 h-6"/>
+                <Cog8ToothIcon class="mr-4 w-6 h-6 cursor-pointer"/>
                 <p class="text-[18px] text-white mr-[5rem]">School Setting</p>
                 <ChevronDownIcon class="block w-6 h-6"/>
             </div>
@@ -66,11 +71,15 @@
                 <p class="text-[18px] text-white mr-[6rem]">Membership</p>
                 <ChevronDownIcon class="block w-6 h-6"/>
             </div>
-            <div class="flex flex-row space-x-4">
+            <div class="flex flex-row space-x-4 cursor-pointer" @click="openProgramsDashboard">
+                <SquaresPlusIcon class="w-6 h-6"/>
+                <p class="text-[18px] text-white">Programs</p>
+            </div>
+            <div class="flex flex-row space-x-4 cursor-pointer">
                 <ViewColumnsIcon class="w-6 h-6"/>
                 <p class="text-[18px] text-white mr-[5rem]">Timetable</p>
             </div>
-            <div class="flex flex-row space-x-4">
+            <div class="flex flex-row space-x-4 cursor-pointer">
                 <StarIcon class="w-6 h-6"/>
                 <p class="text-[18px] text-white">Grading</p>
             </div>

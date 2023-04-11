@@ -59,11 +59,11 @@ const router = useRouter()
                       >
                       <p class="text-[18px] text-white font-semibold">{{ leadViewItem.firstname }} {{ leadViewItem.lastname }}</p>
                   </div>
-                  <div class="pl-6 mt-6 flex space-x-10 pb-8">
+                  <div class="pl-6 mt-6 flex space-x-4 sm:space-x-10 pb-8">
                       <div class="flex flex-col">
                           <div class="space-y-2 flex flex-col">
                               <label for="" class="text-[16px]">Effective Date</label>
-                              <input type="date" class="w-[14.5rem] py-2 text-[16px] bg-[#FBFCFE] border border-gray-300 rounded-lg px-4" />
+                              <input type="date" class="w-[12.5rem] sm:w-[14.5rem] py-2 text-[16px] bg-[#FBFCFE] border border-gray-300 rounded-lg px-4" />
                           </div>
                           <div class="space-y-2 flex flex-col pt-10">
                               <label for="" class="text-[16px]">Reason</label>
@@ -93,7 +93,7 @@ const router = useRouter()
                           >
                               <label for="" class="text-[16px]">Return Date</label>
                               <input type="date" 
-                                class="w-[14.5rem] py-2 text-[16px] bg-[#FBFCFE] border border-gray-300 rounded-lg px-4"
+                                class="w-[12.5rem] sm:w-[14.5rem] py-2 text-[16px] bg-[#FBFCFE] border border-gray-300 rounded-lg px-4"
                                 :disabled="isToogleReturnDate" 
                               />
                           </div>
@@ -150,7 +150,7 @@ const router = useRouter()
                       </div>
                   </div>
                   <div class="flex pt-6 pb-4">
-                      <div class="w-[18.5rem]"></div>
+                      <div class="w-[14rem] sm:w-[18.5rem]"></div>
                       <div class="space-x-4">
                           <button 
                               class="text-[16px] px-8 py-3 rounded-lg bg-[#CAD7E8] text-white"

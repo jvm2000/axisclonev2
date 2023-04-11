@@ -36,25 +36,25 @@
                         </div>
                     </div>
                     <div 
-                        class="w-full h-[7.5rem] rounded-lg px-8 flex place-items-center relative"
+                        class="w-full h-[8rem] sm:h-[7.5rem] rounded-lg py-2 px-8 flex place-items-center relative"
                         :class="[leadViewItem.status == 'dead' ? 'bg-gray-400' : 'bg-gradient-to-r from-blue-500 to-cyan-500']"
                     >
                         <div class="flex flex-row space-x-4">
-                            <div>
+                            <div class="pt-4 sm:pt-0">
                                 <img 
                                     :src="leadViewItem.image" 
                                     alt="" 
                                     class="h-[5rem] w-[5rem] rounded-full border-2 border-white">
                             </div>
-                            <div class="">
+                            <div class="py-2">
                                 <div class="space-y-[1px] text-white">
                                     <div class="flex space-x-4 place-items-center">
                                         <p class="text-[31px]">{{ leadViewItem.firstname }} {{ leadViewItem.lastname }}</p>
                                         <div>
-                                            <Menu as="div" class="relative inline-block text-left z-[20]">
+                                            <Menu as="div" class="relative inline-block text-left z-[20] pb-8 sm:pb-0">
                                             <div>
                                                 <MenuButton
-                                                class="inline-flex w-full justify-center rounded-full px-4 py-2 text-sm font-medium text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-opacity-75 border-2 border-white"
+                                                class="inline-flex w-[8rem] sm:w-[10rem] justify-center rounded-full px-4 py-2 text-sm font-medium text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-opacity-75 border-2 border-white"
                                                 >
                                                 <div v-if="leadViewItem.status == 'active'" class="flex space-x-2 place-items-center">
                                                     <ExclamationCircleIcon class="w-3 h-3 text-[#46DBA8] bg-[#46DBA8] rounded-full"/>
@@ -160,7 +160,7 @@
                                             </Menu>
                                         </div>
                                     </div>
-                                    <div class="flex space-x-4">
+                                    <div class="flex space-x-4 sm:space-x-4">
                                         <p class="text-[14px]">{{ leadViewItem.email }}</p>
                                         <div class="flex space-x-2">
                                             <img src="/illustrations/badges/Frame1.svg" alt="">
@@ -172,11 +172,11 @@
                             </div>
                         </div>   
                         <div class="absolute right-0 mr-[2rem] space-x-4 flex">
-                            <div class="flex flex-col space-y-[1.2rem] relative">
+                            <div class="hidden sm:flex flex-col space-y-[1.2rem] relative">
                                 <img src="/icons/recentuser.svg" alt="">
                                 <img src="/icons/recentsGroup.svg" alt="" class="h-auto w-[9rem] ml-20">
                             </div>
-                            <img src="/icons/recentDots.svg" alt="" class="mb-5">
+                            <img src="/icons/recentDots.svg" alt="" class="mb-5 hidden sm:block">
                         </div>
                     </div>
                      <!-- leadProfileTabs
@@ -186,10 +186,10 @@
                         leadProfileTabs -->
                     <div>
                         <TabGroup>
-                            <div class="px-2 py-10">
-                                <div class="h-[2.5rem] w-full flex flex-row items-center border-b-2 border-gray-200">
+                            <div class="px-2 py-10 z-[20]">
+                                <div class="h-[2.5rem] w-full flex flex-row items-center border-b-0 sm:border-b-2 border-gray-200 pt-4 sm:pt-0 pb-16 sm:pb-0">
                                     <TabList>
-                                    <div class="text-[16px] space-x-8">
+                                    <div class="text-[15px] sm:text-[16px] space-x-8 space-y-2 sm:space-y-0 block h-auto">
                                         <Tab v-for="category, index in categories" 
                                             :key="index"
                                             v-slot="{ selected }">
@@ -207,7 +207,7 @@
                                     User Information Content
                                     User Information Content -->
                                     <TabPanel>
-                                        <LeadProfileUserInformation class="z-[10]"/>
+                                        <LeadProfileUserInformation class="block sm:pt-0"/>
                                     </TabPanel>
 
                                     <TabPanel>Content 2</TabPanel>

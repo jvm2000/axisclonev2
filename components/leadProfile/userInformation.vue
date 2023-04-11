@@ -29,14 +29,14 @@
 </script>
 
 <template>
-    <div class="overflow-y-scroll h-screen space-y-2">
-        <div class="pt-10 space-x-4 flex">
+    <div class="h-screen overflow-y-auto space-y-2 pt-6 sm:pt-0">
+        <div class="pt-4 space-x-4 flex flex-col sm:flex-row">
             <div class="flex flex-col space-y-4">
-                <div class="bg-white block rounded-lg h-auto w-[33rem] px-4 overflow-visible relative">
+                <div class="bg-white block rounded-lg h-auto w-full sm:w-[33rem] px-4 overflow-visible relative">
                     <div class="flex place-items-center space-x-6">
                         <img src="/icons/userI.svg" alt="" class="absolute pb-2">
                         <p class="pl-14 pt-5 text-[14px] font-semibold">BASIC INFORMATON</p>
-                        <div class="w-[13rem]"></div>
+                        <div class="w-[6.5rem] sm:w-[13rem]"></div>
                         <PencilIcon 
                             class="w-4 h-4 text-gray-400 cursor-pointer"
                             :class="[!editBasicInfo ? 'block' : 'hidden']"
@@ -45,7 +45,7 @@
                     </div>
                     <!-- Basic Info -->
                     <div class="">
-                        <div v-if="!editBasicInfo" class="pt-6 pl-20 space-y-2">
+                        <div v-if="!editBasicInfo" class="pt-6 pl-10 sm:pl-20 space-y-2">
                             <div class="flex space-x-20 text-[16px]">
                                 <p class="text-[#5E6E82]">Full Name:</p>
                                 <p>Matthew John Ferrell</p>
@@ -67,7 +67,7 @@
                                 <p>Male</p>
                             </div>
                         </div>
-                        <div v-else class="pt-6 pl-20 place-items-center space-y-4">
+                        <div v-else class="pt-6 pl-8 sm:pl-20 place-items-center space-y-4">
                             <div class="flex flex-col space-y-2">
                                 <label for="firstname" class="text-[16px]">First Name *</label>
                                 <input 
@@ -150,14 +150,14 @@
                         <div class="w-full border-b border-[#E9F0FA] pt-8"></div>
                         <div class="flex">
                             <p class="pl-20 pt-6 text-[14px] font-semibold">ADDRESS</p>
-                            <div class="w-[20rem]"></div>
+                            <div class="w-[16rem] sm:w-[20rem]"></div>
                             <PencilIcon 
                                 class="w-4 h-4 mt-4 text-gray-400 cursor-pointer"
                                 :class="[!editAddressInfo ? 'block' : 'hidden']"
                                 @click="useAddressInfo"
                             />
                         </div>
-                        <div v-if="!editAddressInfo" class="pt-6 pl-20 flex space-x-12">
+                        <div v-if="!editAddressInfo" class="pt-6 pl-10 sm:pl-20  flex space-x-12">
                             <div class="flex flex-col text-[16px] space-y-2 text-[#5E6E82]">
                                 <p>Street Address:</p>
                                 <p>Suburb:</p>
@@ -173,7 +173,7 @@
                                 <p>2570</p>
                             </div>
                         </div>
-                        <div v-else class="pt-6 pl-20 place-items-center space-y-4">
+                        <div v-else class="pt-6 pl-8 sm:pl-20 place-items-center space-y-4">
                             <div class="flex flex-col space-y-2">
                                 <label for="streetaddress" class="text-[16px]">Street Address</label>
                                 <input 
@@ -242,7 +242,7 @@
                                 @click="useContactInfo"
                             />
                         </div>
-                        <div v-if="!editContactInfo" class="pt-6 pl-20 flex space-x-12 pb-12">
+                        <div v-if="!editContactInfo" class="pt-6 pl-10 sm:pl-20  flex space-x-12 pb-12">
                             <div class="flex flex-col text-[16px] space-y-2 text-[#5E6E82]">
                                 <p>Mobile No.</p>
                                 <p>Phone No. (Home)</p>
@@ -254,7 +254,7 @@
                                 <p>(03) 6208 3069</p>
                             </div>
                         </div>
-                        <div v-else class="pt-6 pl-20 place-items-center space-y-4 block">
+                        <div v-else class="pt-6 pl-8 sm:pl-20  place-items-center space-y-4 block">
                             <div class="flex flex-col space-y-2">
                                 <label for="mobileno" class="text-[16px]">Mobile No.</label>
                                 <input 
@@ -299,18 +299,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg h-auto w-[33rem] block px-4 overflow-visible relative">
+                <div class="bg-white rounded-lg h-auto w-full sm:w-[33rem] block px-4 overflow-visible relative">
                     <div class="flex place-items-center space-x-6">
                         <img src="/icons/userCheck.svg" alt="" class="absolute pb-2">
                         <p class="pl-14 pt-5 text-[14px] font-semibold">OTHER INFORMATON</p>
-                        <div class="w-[12rem]"></div>
+                        <div class="w-[6rem] sm:w-[12rem]"></div>
                         <PencilIcon 
                             class="mt-2 w-4 h-4 text-gray-400 cursor-pointer"
                             :class="[!editOtherInfo ? 'block' : 'hidden']"
                             @click="useOtherInfo"
                         />
                     </div>
-                    <div v-if="!editOtherInfo" class="pt-6 pl-20 flex space-x-12">
+                    <div v-if="!editOtherInfo" class="pt-6 pl-10 sm:pl-20  flex space-x-24">
                         <div class="flex flex-col text-[16px] space-y-2 text-[#5E6E82]">
                             <p>Joined Date:</p>
                             <p>Student ID:</p>
@@ -322,7 +322,7 @@
                             <p>Social Media</p>
                         </div>
                     </div>
-                    <div v-else class="pt-6 pl-10 flex flex-col place-items-center">
+                    <div v-else class="pt-6 pl-6 sm:pl-10  flex flex-col place-items-center">
                         <div class="flex flex-col space-y-2">
                                 <label for="joineddate" class="text-[16px]">Joined Date.</label>
                                 <input 
@@ -367,12 +367,12 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col space-y-4">
-                <div class="bg-white rounded-lg h-auto w-[54rem] px-4 overflow-visible relative">
+            <div class="flex flex-col space-y-4 pt-4 sm:pt-0">
+                <div class="bg-white rounded-lg h-auto w-full sm:w-[54rem] px-4 overflow-visible relative">
                     <div class="flex place-items-center space-x-6">
                         <img src="/icons/userMessage.svg" alt="" class="absolute pb-2">
                         <p class="pl-14 pt-5 text-[14px] font-semibold">STICKY NOTE</p>
-                        <div class="w-[36rem]"></div>
+                        <div class="w-[8.5rem] sm:w-[36rem]"></div>
                         <PencilIcon 
                             class="mt-2 w-4 h-4 text-gray-400 cursor-pointer"
                             :class="[!editStickyNote ? 'block' : 'hidden']"
@@ -380,7 +380,7 @@
                         />
                     </div>
                     <div v-if="!editStickyNote" class="pt-6 pl-8 flex space-x-12">
-                        <div class="w-11/12 h-[14rem] text-[16px]">
+                        <div class="w-11/12 h-auto text-[16px] pb-4">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                         </div>
                     </div>
@@ -422,13 +422,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg h-auto w-[54rem] px-4 overflow-visible relative">
+                <div class="bg-white rounded-lg h-auto w-full sm:w-[54rem] px-4 overflow-visible relative">
                     <div class="flex place-items-center space-x-6">
                         <img src="/icons/userH.svg" alt="" class="absolute pb-2">
                         <div class="flex place-items-center space-x-4">
                             <p class="pl-14 pt-5 text-[14px] font-semibold">MEDICAL CONDITION</p>
                             <img src="/icons/userHButton.svg" alt="" class="pt-5">
-                            <div class="w-[25rem]"></div>
+                            <div class="w-[] sm:w-[25rem]"></div>
                             <PencilIcon 
                                 class="mt-2 w-4 h-4 text-gray-400 cursor-pointer"
                                 :class="[!editMedicalCondition ? 'block' : 'hidden']"
@@ -481,11 +481,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg h-auto w-[54rem] px-4 overflow-visible relative">
+                <div class="bg-white rounded-lg h-auto w-full sm:w-[54rem] px-4 overflow-visible relative">
                     <div class="flex place-items-center space-x-6">
                         <img src="/icons/userClothes.svg" alt="" class="absolute pb-2">
                         <p class="pl-14 pt-5 text-[14px] font-semibold">UNIFORM</p>
-                        <div class="w-[36rem]"></div>
+                        <div class="w-[11rem] sm:w-[36rem]"></div>
                             <PencilIcon 
                                 class="mt-2 w-4 h-4 text-gray-400 cursor-pointer"
                                 :class="[!editMedicalCondition ? 'block' : 'hidden']"
@@ -493,30 +493,41 @@
                             />
                     </div>
                     <div class="pb-4">
-                        <div class="flex pl-8 pt-8 space-x-4">
-                            <p class="text-[16px]">1</p>
-                            <p class="text-[16px]">Muai Thai Shorts ADB</p>
-                            <p class="text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Size: S</p>
-                            <p class="text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Belt Size: M</p>
-                            <p class="text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Bust Size: 32</p>
+                        <div class="flex flex-col sm:flex-row pl-8 pt-8 space-x-4 space-y-2 sm:space-y-0">
+                            <div class="flex space-x-4">
+                                <p class="text-[16px]">1. </p>
+                                <p class="text-[16px]">Muai Thai Shorts ADB</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <p class="text-[12px] sm:text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Size: S</p>
+                                <p class="text-[12px] sm:text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Belt Size: M</p>
+                                <p class="text-[12px] sm:text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Bust Size: 32</p>
+                            </div>
                         </div>
                         <div class="w-full border-b border-[#E9F0FA] pt-4"></div>
-                        <div class="flex pl-8 pt-2 space-x-4">
-                            <p class="text-[16px]">2</p>
-                            <p class="text-[16px]">Taekwondo GI Uniform</p>
-                            <p class="text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Size: S</p>
-                            <p class="text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Belt Size: M</p>
-                            <p class="text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Bust Size: 32</p>
-                            <p class="text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Belt Size: M</p>
-
+                        <div class="flex flex-col sm:flex-row pl-8 pt-2 space-x-4 space-y-2 sm:space-y-0">
+                            <div class="flex space-x-2">
+                                <p class="text-[16px]">2</p>
+                                <p class="text-[16px]">Taekwondo GI Uniform</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <p class="text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Size: S</p>
+                                <p class="text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Belt Size: M</p>
+                                <p class="text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Bust Size: 32</p>
+                                <p class="text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6 hidden sm:block">Belt Size: M</p>
+                            </div>
                         </div>
                         <div class="w-full border-b border-[#E9F0FA] pt-4"></div>
-                        <div class="flex pl-8 pt-2 space-x-4">
-                            <p class="text-[16px]">3</p>
-                            <p class="text-[16px]">BJJ Gi Uniform with Belt</p>
-                            <p class="text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Size: S</p>
-                            <p class="text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Belt Size: M</p>
-                            <p class="text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Bust Size: 32</p>
+                        <div class="flex flex-col sm:flex-row pl-8 pt-2 space-x-4 space-y-2 sm:space-y-0">
+                            <div class="space-x-2 flex">
+                                <p class="text-[16px]">3</p>
+                                <p class="text-[16px]">BJJ Gi Uniform with Belt</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <p class="text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Size: S</p>
+                                <p class="text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Belt Size: M</p>
+                                <p class="text-[14px] rounded-full text-[#5081F0]  border-[#5081F0] border bg-[#EAF3F9] cursor-pointer py-[1px] px-6">Bust Size: 32</p>
+                            </div>
                         </div>
                         <div class="w-full border-b border-[#E9F0FA] pt-4"></div>
                         <div v-if="editUniform" class="pt-6 pl-8 flex space-x-4 place-items-center">
@@ -547,9 +558,9 @@
                             </div>
                         </div>
                         <div v-if="addUniform" class="pt-2 pl-8 pb-4 place-items-center">
-                            <div class="flex space-x-4">
-                                <div class="flex flex-col space-y-2">
-                                    <label for="productname" class="text-[16px]">Product Name</label>
+                            <div class="flex flex-col sm:flex-row space-x-4 space-y-2 sm:space-y-0">
+                                <div class="flex flex-col space-y-2 pl-2 sm:pl-0">
+                                    <label for="productname" class="text-[16px]pl-4 sm:pl-0">Product Name</label>
                                     <select name="" id="productname" class="w-[16rem] h-[3rem] rounded-lg border border-[#CDD9DF] px-4 py-1">
                                         <option value="--">--</option>
                                         <option value="">Muai Thai Shorts ADB</option>
@@ -575,7 +586,7 @@
                                 </div>
                                 <div class="flex flex-col">
                                     <p class="invisible pb-4">test</p>
-                                    <p class="px-6 py-1 text-white rounded-lg bg-[#81D3F7] text-[16px]">Add</p>
+                                    <p class="px-6 py-1 text-white rounded-lg bg-[#81D3F7] text-[16px] w-[5rem] sm:w-full">Add</p>
                                 </div>
                             </div>
                             <div class="flex pt-8">
@@ -607,17 +618,17 @@
                         <img src="/icons/userH.svg" alt="" class="absolute pb-2">
                         <p class="pl-14 pt-5 text-[14px] font-semibold">RELATIONSHIPS</p>
                     </div>
-                    <div class="pt-8 flex pl-8 space-x-20">
+                    <div class="pt-8 flex pl-8 space-x-0 sm:space-x-20">
                         <div class="flex flex-col">
                             <p class="text-[16px] text-[#9FB5D1]">NAME</p>
                             <div class="space-y-2">
                                 <div class="flex pt-6 space-x-4">
                                     <p class="text-[16px]">Josephine Ferrell</p>
-                                    <p class="px-6 py-[1px] border border-[#23D374] text-[14px] text-[#23D374] bg-[#d8f5e7e5] rounded-full">Main Contact</p>
+                                    <p class="px-6 py-[1px] border border-[#23D374] text-[14px] text-[#23D374] bg-[#d8f5e7e5] rounded-full hidden sm:block">Main Contact</p>
                                 </div>
                                 <div class="flex pt-4 space-x-4">
                                     <p class="text-[16px]">Daniel John Ferrell</p>
-                                    <p class="px-4 py-[1px] border border-[#E26969] text-[14px] text-[#E26969] bg-[#f9cdcdd1] rounded-full">Emergency Contact</p>
+                                    <p class="px-4 py-[1px] border border-[#E26969] text-[14px] text-[#E26969] bg-[#f9cdcdd1] rounded-full hidden sm:block">Emergency Contact</p>
                                 </div>
                                 <p class="pt-4 text-[16px]">Daniel John Ferrell</p>
                             </div>
@@ -630,7 +641,7 @@
                                 <p class="text-[16px]">Brother</p>
                             </div>
                         </div>
-                        <div class="flex flex-col pl-16">
+                        <div class="flex flex-col pl-2 sm:pl-16">
                             <p class="text-[16px] text-[#9FB5D1]">ACTION</p>
                             <div class="space-y-8 pt-7">
                                 <div class="flex space-x-4">

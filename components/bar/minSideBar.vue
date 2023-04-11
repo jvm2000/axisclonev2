@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronDownIcon, ChevronUpIcon, HomeIcon, UsersIcon, Cog8ToothIcon, UserPlusIcon, ViewColumnsIcon, StarIcon } from '@heroicons/vue/24/outline'
+    import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronDownIcon, ChevronUpIcon, HomeIcon, UsersIcon, Cog8ToothIcon, UserPlusIcon, ViewColumnsIcon, StarIcon, SquaresPlusIcon } from '@heroicons/vue/24/outline'
 
 
     const userManagementIsOpen = ref(false)
@@ -26,6 +26,10 @@
         router.push('/stud/studsDashboard')
     }
 
+    const openProgramsDashboard = () => {
+        router.push('/programs/programsDashboard')
+    }
+
     const { sideBarOpen, openMaxSideBar } = sideBarFunctionalities()
 </script>
 
@@ -36,7 +40,7 @@
         :class="[sideBarOpen ? 'block absolute' : 'hidden']"
     >
         <div class="flex flex-col items-center">
-            <ChevronDoubleLeftIcon class="block ml-[16rem] pt-1 w-6 h-6 text-blue-400"
+            <ChevronDoubleLeftIcon class="block ml-[16rem] pt-1 w-6 h-6 text-blue-400 cursor-pointer"
                                     @click="openMaxSideBar"
             />
             <img src="/illustrations/logo_logo -axis 1.svg" alt="" class="block pt-4 pb-10 h-auto w-[13rem]">
@@ -70,6 +74,10 @@
                 <UserPlusIcon class="mr-4 w-6 h-6"/>
                 <p class="text-[18px] text-white mr-[6rem]">Membership</p>
                 <ChevronDownIcon class="block w-6 h-6"/>
+            </div>
+            <div class="flex flex-row space-x-4 cursor-pointer" @click="openProgramsDashboard">
+                <SquaresPlusIcon class="w-6 h-6"/>
+                <p class="text-[18px] text-white">Programs</p>
             </div>
             <div class="flex flex-row space-x-4">
                 <ViewColumnsIcon class="w-6 h-6"/>

@@ -6,7 +6,7 @@ const { leadList, form } = addLeadFunctionalities()
 
 const { clickViewProfile } = useViewProfile()
 
-const page = ref(1)
+    const page = ref(1)
     const pageClick = (a: number) => {
         page.value = a
     }
@@ -30,16 +30,15 @@ const page = ref(1)
         }
         return total
     })
-    
 </script>
 
 <template>
     <div class="px-2">
-        <div class="px-4 py-4 w-fit flex flex-row">
+        <div class="px-4 py-4 w-fit flex flex-col sm:flex-row space-y-2">
             <div class="text-[20px] font-semibold">
                 <p>Cold Leads</p>
             </div>
-            <div class="w-[40rem]"></div>
+            <div class="w-[40.9rem] hidden sm:block"></div>
             <div class="space-x-4 flex flex-row">
                 <div class="flex place-items-center">
                     <MagnifyingGlassIcon class="ml-3 pr-2 w-7 h-7 absolute border-r-2 border-gray-200 text-gray-400"/>
@@ -52,7 +51,7 @@ const page = ref(1)
             </div>
         </div>
         <div class="place-items-center justify-center pt-2">
-            <div class="h-[42rem] w-[78rem] bg-white rounded-xl">
+            <div class="h-[42rem] w-full bg-white rounded-xl">
                 <div class="w-full">
                     <div class="w-full h-[37rem] px-6 py-4">
                         <div class="table w-full border-separate border-spacing-y-6 text-sm">
@@ -71,11 +70,11 @@ const page = ref(1)
                                             <ArrowLongDownIcon class="w-4 h-4"/>
                                         </div>
                                     </div>
-                                    <div class="table-cell">BADGES</div>
-                                    <div class="table-cell">ACTIVITY</div>
-                                    <div class="table-cell">DATE ADDED</div>
-                                    <div class="table-cell">LAST CHECK IN</div>
-                                    <div class="table-cell">INSTRUCTOR</div>
+                                    <div class="hidden sm:table-cell">BADGES</div>
+                                    <div class="hidden sm:table-cell">ACTIVITY</div>
+                                    <div class="hidden sm:table-cell">DATE ADDED</div>
+                                    <div class="hidden sm:table-cell">LAST CHECK IN</div>
+                                    <div class="hidden sm:table-cell">INSTRUCTOR</div>
                                     <div class="table-cell">TASK</div>
                                 </div>
                             </div>
@@ -103,7 +102,7 @@ const page = ref(1)
                                         <p>{{ leads.mobileno }}</p>
                                     </div>
                                     <div class="table-cell" v-if="leads.status == 'cold'">15</div>
-                                    <div class="table-cell" v-if="leads.status == 'cold'">
+                                    <div class="hidden sm:table-cell" v-if="leads.status == 'cold'">
                                         <div class="flex space-x-2">
                                             <DocumentTextIcon class="w-5 h-5 text-[#1376D8]"/>
                                             <ShieldCheckIcon class="w-5 h-5 text-[#A85CEA]"/>
@@ -111,20 +110,20 @@ const page = ref(1)
                                             <HeartIcon class="w-5 h-5 text-[#01D7D7]"/>
                                         </div>
                                     </div>
-                                    <div class="table-cell" v-if="leads.status == 'cold'">
+                                    <div class="hidden sm:table-cell" v-if="leads.status == 'cold'">
                                         <div class="flex space-x-2 place-items-center">
                                             <p class="bg-[#FF1D1D] px-2 py-[2px] text-[14px] rounded-lg text-white font-semibold">T</p>
                                             <p class="bg-[#A1BDD6] px-2 py-[2px] text-[14px] rounded-lg text-white font-semibold">A</p>
                                             <p class="bg-[#E8EDF4] px-2 py-[2px] text-[14px] rounded-lg text-[#9FB5D1] font-semibold border-2 border-dashed border-gray-400">+</p>
                                         </div>
                                     </div>
-                                    <div class="table-cell" v-if="leads.status == 'cold'">
+                                    <div class="hidden sm:table-cell" v-if="leads.status == 'cold'">
                                         <p>{{ leads.dateadded }}</p>
                                     </div>
-                                    <div class="table-cell" v-if="leads.status == 'cold'">
+                                    <div class="hidden sm:table-cell" v-if="leads.status == 'cold'">
                                         <p>{{ leads.dateadded }}</p>
                                     </div>
-                                    <div class="table-cell" v-if="leads.status == 'cold'">Annie Leonheart</div>
+                                    <div class="hidden sm:table-cell" v-if="leads.status == 'cold'">Annie Leonheart</div>
                                     <div class="flex place-items-center" v-if="leads.status == 'cold'">
                                         <img src="/illustrations/task.svg" class="" alt="">
                                     </div>
@@ -137,7 +136,7 @@ const page = ref(1)
                         <p class="text-[16px]" v-if="page == 1">Showing 1 to {{ leadList?.length }} of {{ leadList?.length }} results</p>
                         <p class="text-[16px]" v-if="page == 2">Showing 9 to {{ leadList?.length }} of {{ leadList?.length }} results</p>
                         <p class="text-[16px]" v-if="page == 3">Showing 17 to {{ leadList?.length }} of {{ leadList?.length }} results</p>
-                        <div class="w-[40rem]"></div>
+                        <div class="w-[5rem] sm:w-[40rem]"></div>
                         <div class="flex text-[16px]">
                             <button class="px-3 py-1 border border-gray-500">
                                 <ChevronLeftIcon class="w-4 h-4"/>

@@ -36,41 +36,43 @@
 
 <template>
     <div class="px-2">
-        <div class="px-4 py-4 w-fit flex flex-row">
+        <div class="px-4 py-4 w-fit flex flex-col sm:flex-row space-y-2 sm:space-y-0">
             <div class="text-[20px] font-semibold">
                 <p>Active Students</p>
             </div>
             <div class="w-[28rem]"></div>
-            <div class="space-x-6 flex flex-row">
+            <div class="space-x-6 flex flex-col sm:flex-row space-y-2 sm:space-y-0">
                 <div class="flex place-items-center">
                     <MagnifyingGlassIcon class="ml-3 pr-2 w-7 h-7 absolute border-r-2 border-gray-200 text-blue-600"/>
                     <input type="text" class="text-[16px] w-[20rem] py-4 h-[2rem] rounded-lg border-2 border-gray-200 pl-14" placeholder="Search Name">
                 </div>
-                <div class="space-x-1 text-[16px] flex place-items-center">
-                    <BarsArrowUpIcon class="w-5 h-5 text-blue-600"/>
-                    <p class="">Last name (asc)</p>
-                </div>
-                <div class="space-x-1 text-[16px] flex place-items-center">
-                    <FunnelIcon class="w-5 h-5 text-blue-600"/>
-                    <p class="">Filter</p>
+                <div class="flex space-x-4 sm:space-x-0">
+                    <div class="space-x-1 text-[16px] flex flex-row  place-items-center">
+                        <BarsArrowUpIcon class="w-5 h-5 text-blue-600"/>
+                        <p class="">Last name (asc)</p>
+                    </div>
+                    <div class="space-x-1 text-[16px] flex place-items-center">
+                        <FunnelIcon class="w-5 h-5 text-blue-600"/>
+                        <p class="">Filter</p>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="place-items-center justify-center pt-2">
             <div class="w-full h-[44rem] overflow-y-auto">
-                <div class="w-full px-6 py-4">
+                <div class="w-full px-0 sm:px-6 py-4">
                     <div class="table w-full border-separate border-spacing-y-3 text-sm">
                         <div class="table-header-group text-gray-400 [&_>_div]">
-                            <div class="table-row font-semibold" style="padding-left: ;">
+                            <div class="table-row font-semibold">
                                 <div class="table-cell">
                                     <div class="flex place-items-center">
                                         <p>LAST NAME</p>
                                         <ArrowLongDownIcon class="w-4 h-4"/>
                                     </div>
                                 </div>
-                                <div class="table-cell">AGE</div>
-                                <div class="table-cell">BADGES</div>
-                                <div class="table-cell">EMAIL</div>
+                                <div class="hidden sm:table-cell">AGE</div>
+                                <div class="hidden sm:table-cell">BADGES</div>
+                                <div class="hidden sm:table-cell">EMAIL</div>
                                 <div class="table-cell">MOBILE NO</div>
                             </div>
                         </div>
@@ -90,11 +92,11 @@
                                         <p class="text-[14px]">{{ studs.firstname }} {{ studs.lastname }}</p>
                                     </div>
                                 </div>
-                                <div class="table-cell bg-white place-items-center" style="padding-right: 2.5rem;">12</div>
-                                <div class="table-cell py-4 px-1 bg-white place-items-center" style="padding-right: 4rem;">
+                                <div class="hidden sm:table-cell bg-white place-items-center">12</div>
+                                <div class="hidden sm:table-cell py-4 px-1 bg-white place-items-center">
                                     <img src="/icons/studIcons.svg" alt="" class="w-auto h-5">
                                 </div>
-                                <div class="table-cell py-4 px-1 bg-white place-items-center" style="padding-right: 4rem;">{{ studs.email }}</div>
+                                <div class="hidden sm:table-cell py-4 px-1 bg-white place-items-center">{{ studs.email }}</div>
                                 <div class="table-cell py-4 px-1 bg-white place-items-center rounded-r-lg">(02) {{ studs.mobileno }}</div>
                             </div>
                         </div>
@@ -108,7 +110,7 @@
                         <PlusIcon class="w-4 h-4 font-semibold"/>
                         <p>Add Student</p>
                     </div>
-                    <div class="w-[40rem]"></div>
+                    <div class="w-[2rem] sm:w-[40rem]"></div>
                     <div class="flex text-[14px]">
                         <button class="px-3 py-1 font-semibold">
                             Previous

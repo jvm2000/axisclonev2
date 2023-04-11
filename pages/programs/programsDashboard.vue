@@ -8,9 +8,9 @@
             </nav>
             <div class="z-[20] w-full sm:z-[10]">
                 <!-- topbar -->
-                <BarLeadTopBar />
+                <BarProgramsTopBar />
                 <!-- tab Leads -->
-                <ContentsLeadTabs/>
+                <ContentsProgramsContent />
             </div>
         </div>
     </div>

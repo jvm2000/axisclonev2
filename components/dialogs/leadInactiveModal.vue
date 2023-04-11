@@ -59,7 +59,7 @@ const router = useRouter()
                       >
                       <p class="text-[18px] text-white font-semibold">{{ leadViewItem.firstname }} {{ leadViewItem.lastname }}</p>
                   </div>
-                  <div class="pl-6 mt-6 flex space-x-10 pb-8">
+                  <div class="pl-6 mt-6 flex space-x-6 sm:space-x-10 pb-8">
                       <div class="flex flex-col">
                             <div 
                                 class="space-y-2 flex flex-col"
@@ -84,7 +84,7 @@ const router = useRouter()
                       <div class="flex flex-col space-y-4">
                         <div class="space-y-2 flex flex-col">
                               <label for="" class="text-[16px]">Reason</label>
-                              <select type="date" class="w-[14.5rem] py-3 text-[16px] bg-[#FBFCFE] border border-gray-300 rounded-lg px-4">
+                              <select type="date" class="w-[12rem] sm:w-[14.5rem] py-3 text-[16px] bg-[#FBFCFE] border border-gray-300 rounded-lg px-4">
                                   <option value="--">Choose Reason</option>
                                   <option value="">Fever</option>
                                   <option value="">Diseased</option>
@@ -94,7 +94,7 @@ const router = useRouter()
                       </div>
                   </div>
                   <div class="flex pt-6 pb-4">
-                      <div class="w-[18.5rem]"></div>
+                      <div class="w-[14.5rem] sm:w-[18.5rem]"></div>
                       <div class="space-x-4">
                           <button 
                               class="text-[16px] px-8 py-3 rounded-lg bg-[#CAD7E8] text-white"

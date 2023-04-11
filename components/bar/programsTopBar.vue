@@ -8,14 +8,14 @@
 
 <template>
     <div class="h-[3rem] w-full bg-white flex flex-row items-center relative">
-        <div class="flex flex-row items-center pl-8 space-x-2">
+        <div class="flex flex-row items-center pl-0 sm:pl-16 space-x-2">
             <Bars3Icon 
                 class="w-4 h-4 ml-1 sm:ml-4 cursor-pointer block sm:hidden"
                 @click="openMaxSideBar"
             />
-            <p class="text-[14px] font-semibold">Students</p>
+            <p class="text-[16px] font-semibold">All Programs</p>
             <p class="text-[14px] text-gray-500">|</p>
-            <p class="text-[13px]">International</p>
+            <p class="text-[13px]">All Syllabuses</p>
         </div>
         <div class="flex items-center absolute right-0 mr-8 sm:mr-80">
             <div class="flex space-x-4 pr-5">

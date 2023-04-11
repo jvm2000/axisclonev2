@@ -54,38 +54,38 @@
                 <!-- topbar -->
                 <BarLeadTopBar />
                 <!-- tab Leads -->
-                <div class="px-20">
+                <div class="px-1 sm:px-20">
                     <div class="flex space-x-2 place-items-center px-10 py-2">
                         <ChevronLeftIcon class="text-blue-400 w-4 h-4"/>
                         <a @click="closeAddLeads" class="cursor-pointer text-[16ax]">Go back to list</a>
                     </div>
-                    <div class="px-[13rem] py-10 place-items-center">
+                    <div class="px-0 sm:px-[13rem] py-10 place-items-center">
                         <div class="w-[64rem] min-h-[103rem] bg-white rounded-xl px-8 py-4">
-                            <div class="overflow-y-scroll h-[50rem]">
+                            <div class="overflow-y-auto h-[50rem]">
                                 <div class="flex flex-row place-items-center">
                                     <p class="text-[24px] text-blue-400 font-semibold">Add Lead</p>
-                                    <div class="w-4/5"></div>
+                                    <div class="w-[20rem] sm:w-4/5"></div>
                                     <p class="text-[16px] text-blue-400 cursor-pointer"
                                         @click="clearInput"
                                     >Clear All</p>
                                 </div>
-                                <div class="flex pt-12 space-x-28">
+                                <div class="flex pt-12 space-x-28 flex-col sm:flex-row">
                                     <div class="space-y-6">
                                         <div class="flex flex-row place-items-center space-x-14">
                                             <p class="text-[16px]">First Name</p>
-                                            <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[24rem] h-[3rem] rounded-lg" placeholder="Enter first name" required
+                                            <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[22rem] sm:w-[24rem] h-[3rem] rounded-lg" placeholder="Enter first name" required
                                                 v-model="form.leadFName"
                                             >
                                         </div>
                                         <div class="flex flex-row place-items-center space-x-[2.3rem]">
                                             <p class="text-[16px]">Middle Name</p>
-                                            <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[24rem] h-[3rem] rounded-lg" placeholder="Enter middle name"
+                                            <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[22rem] sm:w-[24rem] h-[3rem] rounded-lg" placeholder="Enter middle name"
                                                 v-model="form.leadMName"
                                             >
                                         </div>
                                         <div class="flex flex-row place-items-center space-x-[3.7rem]">
                                             <p class="text-[16px]">Last Name</p>
-                                            <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[24rem] h-[3rem] rounded-lg" placeholder="Enter last name" required
+                                            <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[22rem] sm:w-[24rem] h-[3rem] rounded-lg" placeholder="Enter last name" required
                                                 v-model="form.leadLName"    
                                             >
                                         </div>
@@ -108,7 +108,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="space-y-4 place-items-center px-1">
+                                    <div class="space-y-4 place-items-center px-10 sm:px-1 pb-4">
                                         <!-- <div v-if="preview"
                                             class="w-[12.3rem] h-[12.3rem] border-2 border-[#CAD7E8] border-dashed rounded-full px-20 py-20"
                                             :style="{ backgroundImage: `${preview}` }"
@@ -150,77 +150,81 @@
                                     <div class="space-y-6">
                                         <div class="flex flex-row place-items-center space-x-[2.4rem]">
                                             <p class="text-[16px]">Email Address</p>
-                                            <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[24rem] h-[3rem] rounded-lg" placeholder="Enter email address" required
+                                            <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[22rem] sm:w-[24rem] h-[3rem] rounded-lg" placeholder="Enter email address" required
                                                 v-model="form.leadEmailAddress"
                                             >
                                         </div>
-                                        <div class="flex flex-row place-items-center space-x-[2.5rem]">
-                                            <p class="text-[16px]">Phone <i>(home)</i></p>
-                                            <div class="flex flex-row px-2 border-2 border-gray-400 rounded-lg place-items-center">
-                                                <select class="h-[2rem] ring-0 outline-none"
-                                                    v-model="form.leadPhoneHNum"
-                                                >
-                                                    <option value="+0">+0</option>
-                                                    <option value="+1">+1</option>
-                                                    <option value="+2">+2</option>
-                                                    <option value="+3">+3</option>
-                                                    <option value="+4">+4</option>
-                                                    <option value="+5">+5</option>
-                                                    <option value="+6">+6</option>
-                                                    <option value="+7">+7</option>
-                                                    <option value="+8">+8</option>
-                                                    <option value="+9">+9</option>
-                                                </select>
-                                                <div class="w-2"></div>
-                                                <input type="text" class="text-[16px] pl-2 border-l-2 border-gray-400 w-full h-[3rem] outline-none ring-0" placeholder="XXX-XXX-XXXX"
-                                                    v-model="form.leadPhoneHome"
-                                                >
+                                        <div class="flex flex-row place-content-start sm:place-items-center space-x-0 sm:space-x-[2.5rem]">
+                                            <div class="flex flex-col sm:flex-row space-y-4">
+                                                <p class="text-[16px]">Phone <i>(home)</i></p>
+                                                <div class="flex sm:flex-row px-2 border-2 border-gray-400 rounded-lg place-items-center ml-0 sm:ml-10 sm:pl-0 w-[14rem]">
+                                                    <select class="h-[2rem] ring-0 outline-none"
+                                                        v-model="form.leadPhoneHNum"
+                                                    >
+                                                        <option value="+0">+0</option>
+                                                        <option value="+1">+1</option>
+                                                        <option value="+2">+2</option>
+                                                        <option value="+3">+3</option>
+                                                        <option value="+4">+4</option>
+                                                        <option value="+5">+5</option>
+                                                        <option value="+6">+6</option>
+                                                        <option value="+7">+7</option>
+                                                        <option value="+8">+8</option>
+                                                        <option value="+9">+9</option>
+                                                    </select>
+                                                    <div class="w-2"></div>
+                                                    <input type="text" class="text-[16px] pl-2 border-l-2 border-gray-400 w-full h-[3rem] outline-none ring-0" placeholder="XXX-XXX-XXXX"
+                                                        v-model="form.leadPhoneHome"
+                                                    >
+                                                </div>
                                             </div>
-                                            <div class="w-[2.5rem]"></div>
-                                            <p class="text-[16px]">Phone <i>(work)</i></p>
-                                            <div class="flex flex-row px-2 border-2 border-gray-400 rounded-lg place-items-center">
-                                                <select class="h-[2rem] ring-0 outline-none"
-                                                    v-model="form.leadPhoneWNum"
-                                                >
-                                                    <option value="+0">+0</option>
-                                                    <option value="+1">+1</option>
-                                                    <option value="+2">+2</option>
-                                                    <option value="+3">+3</option>
-                                                    <option value="+4">+4</option>
-                                                    <option value="+5">+5</option>
-                                                    <option value="+6">+6</option>
-                                                    <option value="+7">+7</option>
-                                                    <option value="+8">+8</option>
-                                                    <option value="+9">+9</option>
-                                                </select>
-                                                <div class="w-2"></div>
-                                                <input type="text" class="text-[16px] pl-2 border-l-2 border-gray-400 w-full h-[3rem] outline-none ring-0" placeholder="XXX-XXX-XXXX"
-                                                    v-model="form.leadPhoneWork"
-                                                >
+                                            <div class="w-0 sm:w-[2.5rem]"></div>
+                                            <div class="flex flex-col sm:flex-row space-y-4 pl-8 sm:pl-0">
+                                                <p class="text-[16px]">Phone <i>(work)</i></p>
+                                                <div class="flex flex-row px-2 border-2 border-gray-400 rounded-lg place-items-center w-[14rem]">
+                                                    <select class="h-[2rem] ring-0 outline-none"
+                                                        v-model="form.leadPhoneWNum"
+                                                    >
+                                                        <option value="+0">+0</option>
+                                                        <option value="+1">+1</option>
+                                                        <option value="+2">+2</option>
+                                                        <option value="+3">+3</option>
+                                                        <option value="+4">+4</option>
+                                                        <option value="+5">+5</option>
+                                                        <option value="+6">+6</option>
+                                                        <option value="+7">+7</option>
+                                                        <option value="+8">+8</option>
+                                                        <option value="+9">+9</option>
+                                                    </select>
+                                                    <div class="w-2"></div>
+                                                    <input type="text" class="text-[16px] pl-2 border-l-2 border-gray-400 w-full h-[3rem] outline-none ring-0" placeholder="XXX-XXX-XXXX"
+                                                        v-model="form.leadPhoneWork"
+                                                    >
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="flex flex-row place-items-center space-x-[5.6rem]">
                                             <p class="text-[16px]">Mobile</p>
-                                            <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[24rem] h-[3rem] rounded-lg" placeholder="Enter email address" required
+                                            <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[22rem] sm:w-[24rem] h-[3rem] rounded-lg" placeholder="Enter email address" required
                                                 v-model="form.leadMobileNo"
                                             >
                                         </div>
-                                        <div class="flex flex-row place-items-center space-x-[6.2rem]">
+                                        <div class="flex flex-row place-items-center space-x-[6rem]">
                                             <p class="text-[16px]">Street</p>
-                                            <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[24rem] h-[3rem] rounded-lg" placeholder="Enter street" required
+                                            <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[22rem] sm:w-[24rem] h-[3rem] rounded-lg" placeholder="Enter street" required
                                                 v-model="form.leadStreetAddress"
                                             >
                                         </div>
                                         <div class="flex flex-row place-items-center space-x-[5.5rem]">
                                             <p class="text-[16px]">Suburb</p>
-                                            <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[24rem] h-[3rem] rounded-lg" placeholder="Enter suburb"
+                                            <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[22rem] sm:w-[24rem] h-[3rem] rounded-lg" placeholder="Enter suburb"
                                                 v-model="form.leadSubUrb"
                                             >
                                         </div>
-                                        <div class="flex flex-row place-items-center space-x-[6.5rem]">
+                                        <div class="flex flex-row place-items-center space-x-[6.3rem]">
                                             <label for="gender" class="16px">State</label>
                                             <div class="flex flex-row">
-                                                <select name="selected" id="gender" class="text-gray-400 px-4 text-[16px] border-2 border-gray-400 w-[24rem] h-[3rem] rounded-lg"
+                                                <select name="selected" id="gender" class="text-gray-400 px-4 text-[16px] border-2 border-gray-400 w-[22rem] sm:w-[24rem] h-[3rem] rounded-lg"
                                                     v-model="form.leadState"
                                                 >
                                                     <option value="---" selected>Choose State</option>
@@ -237,7 +241,7 @@
                                         <div class="flex flex-row place-items-center space-x-[5.2rem]">
                                             <label for="gender" class="16px">Country</label>
                                             <div class="flex flex-row">
-                                                <select name="selected" id="gender" class="text-gray-400 px-4 text-[16px] border-2 border-gray-400 w-[24rem] h-[3rem] rounded-lg"
+                                                <select name="selected" id="gender" class="text-gray-400 px-4 text-[16px] border-2 border-gray-400 w-[22rem] sm:w-[24rem] h-[3rem] rounded-lg"
                                                     v-model="form.leadCountry"
                                                 >
                                                     <option value="---" selected>Choose State</option>
@@ -272,14 +276,14 @@
                                         </div>
                                         <div class="flex flex-row place-items-center space-x-[5.7rem]">
                                             <p class="text-[16px]">Lead ID</p>
-                                            <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[24rem] h-[3rem] rounded-lg" placeholder="Enter lead ID"
+                                            <input type="text" class="text-[16px] border-2 border-gray-400 pl-6 w-[22rem] sm:w-[24rem] h-[3rem] rounded-lg" placeholder="Enter lead ID"
                                                 v-model="form.leadID"
                                             >
                                         </div>
-                                        <div class="flex flex-row place-items-center space-x-[6.2rem] pb-[2rem]">
+                                        <div class="flex flex-row place-items-center space-x-[6rem] pb-[2rem]">
                                             <label for="gender" class="16px">Source</label>
                                             <div class="flex flex-row">
-                                                <select name="selected" id="gender" class="text-gray-400 px-2 text-[16px] border-2 border-gray-400 w-[24rem] h-[3rem] rounded-lg appearance-none"
+                                                <select name="selected" id="gender" class="text-gray-400 px-2 text-[16px] border-2 border-gray-400 w-[22rem] sm:w-[24rem] h-[3rem] rounded-lg"
                                                     v-model="form.leadSource"
                                                 >
                                                 <ChevronDownIcon class="w-4 h-4 absolute"/>
@@ -318,7 +322,7 @@
                                             </div>
                                         </div>
                                         <div class="pb-10">
-                                            <div v-if="form.leadCondition" class="w-[44rem] h-[20rem] block bg-[#F9FCFD] px-8 py-4 space-y-6">
+                                            <div v-if="form.leadCondition" class="w-[31rem] sm:w-[44rem] h-[20rem] block bg-[#F9FCFD] px-8 py-4 space-y-6">
                                                 <div class="space-y-4">
                                                     <p class="text-[16px]">Choose Status of Condition</p>
                                                     <div class="flex items-center space-x-3">
@@ -339,7 +343,7 @@
                                                 </div>
                                                 <div class="space-y-4">
                                                     <label for="leadNote" class="text-[16px]">Type description or note</label>
-                                                    <textarea id="leadNote" type="text" class="p-4 w-[40rem] h-[8rem] text-[14px] border border-[#CAD7E8] rounded-lg resize-none"
+                                                    <textarea id="leadNote" type="text" class="p-4 w-[28rem] sm:w-[40rem] h-[8rem] text-[14px] border border-[#CAD7E8] rounded-lg resize-none"
                                                         v-model="form.descriptionText"
                                                     ></textarea>
                                                 </div>
@@ -400,7 +404,7 @@
                                     </div>
                                 </div>
                                 <div class="flex pt-6">
-                                    <div class="w-[50rem]"></div>
+                                    <div class="w-[22rem] sm:w-[50rem]"></div>
                                     <button type="submit" class="bg-blue-500 rounded-lg h-[3rem] w-[8rem] px-[2.7rem] text-[18px] text-white font-semibold py-3"
                                         @click="saveLead(), addLead()"
                                     >

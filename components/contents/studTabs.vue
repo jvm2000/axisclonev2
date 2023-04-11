@@ -16,7 +16,7 @@
     <div>
         <TabGroup>
         <div class="px-10 py-10">
-            <div class="h-[5rem] w-full flex flex-row items-center border-b-2">
+            <div class="h-[5rem] w-full flex flex-col sm:flex-row items-start border-b-2">
                 <TabList>
                 <div class="text-[16px] space-x-6">
                     <Tab v-for="category, index in categories" 
@@ -31,7 +31,7 @@
                 </div>
                 </TabList>
                 <div class="w-[42rem]"></div>
-                <div class="flex space-x-6 place-items-center">
+                <div class="pl-52 sm:pl-0 flex space-x-6 place-items-center">
                     <div class="flex space-x-2 text-[16px]">
                         <ArrowLeftOnRectangleIcon class="w-6 h-6 text-blue-700"/>
                         <p>Import</p>

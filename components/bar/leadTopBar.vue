@@ -3,13 +3,14 @@
     import { CalendarIcon, CalendarDaysIcon, ChatBubbleOvalLeftEllipsisIcon, BellIcon, ChevronDownIcon, Bars3Icon } from '@heroicons/vue/24/outline'
 
     const { openMaxSideBar } = sideBarFunctionalities()
+
 </script>
 
 <template>
     <div class="h-[3rem] w-full bg-white flex flex-row items-center relative">
         <div class="flex flex-row items-center pl-8 space-x-2">
             <Bars3Icon 
-                class="w-4 h-4 ml-4 cursor-pointer block sm:hidden"
+                class="w-4 h-4 ml-1 sm:ml-4 cursor-pointer block sm:hidden"
                 @click="openMaxSideBar"
             />
             <p class="text-[14px] font-semibold">Leads</p>
