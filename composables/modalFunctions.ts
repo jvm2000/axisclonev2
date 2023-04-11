@@ -10,6 +10,7 @@ const state = reactive({
     isToogleReturnDate: false,
     isToogleReactivate: false,
     isToogleInactive: false,
+    is
 })
 
 export default function () {
