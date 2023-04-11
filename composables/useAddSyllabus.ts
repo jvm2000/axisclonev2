@@ -5,13 +5,14 @@ const state = reactive({
 })
 
 export default function () {
+    
     const addSyllabus = () => {
 
         if(state.syllabusName == ''){
             return alert('Input Field should not be empty')
         }
         let syllabusItem  = {
-            addedSyllabus: state.syllabusName
+            addedSyllabus: state.syllabusName,
         }
 
         state.syllabusList.push(syllabusItem)
@@ -22,7 +23,7 @@ export default function () {
     const populatSyllabus = () => {
         if(state.syllabusList.length) {
             let i = 1
-            state.syllabusList
+            state.syllabusList  
                 .forEach(studs => {
                     studs.id = i++
                 })

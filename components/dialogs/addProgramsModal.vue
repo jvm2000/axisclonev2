@@ -66,7 +66,7 @@ const { syllabusName, addSyllabus } = useAddSyllabus()
                                 Cancel
                             </button>
                             <button class="px-8 py-2 text-[16px] text-white bg-[#5081F0] rounded-lg"
-                                @click="addSyllabus"
+                                @click="addSyllabus(), closeProgramsModal()"
                             >
                                 Create
                             </button>

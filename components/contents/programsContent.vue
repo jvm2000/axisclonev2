@@ -3,6 +3,7 @@
     
     const { isProgramsModal, openProgramsModal } = useProgramsModal()
 
+    const { syllabusList } = useAddSyllabus()
 </script>
 
 <template>
@@ -37,8 +38,30 @@
                 <PlusIcon class="w-4 h-4"/>
             </div>
         </div>
-        <div class="table w-full">
-            
+        <div class="table w-full border-separate border-spacing-y-2">
+            <div class="table-header-group">
+                <div class="table-row text-gray-500">
+                    <div class="table-cell" style="padding-left: 5%;">SYLLABUS NAME</div>
+                    <div class="table-cell" style="padding-left: 5%;">RANKS</div>
+                    <div class="table-cell" style="padding-left: 5%;">LAST MODIFIED</div>
+                    <div class="table-cell" style="padding-left: 8%;">ACTION</div>
+                </div>
+            </div>
+            <div class="table-row-group">
+                <div 
+                    class="table-row"
+                    v-for="(studs,index) in syllabusList"
+                    :key="index"
+                >
+                    <div class="flex bg-white rounded-l-lg py-4 px-4 place-items-center space-x-4">
+                        <div class="w-[1.4rem] h-[1.4rem] bg-[#7099EA]"></div>
+                        <p>{{ studs.addedSyllabus }}</p>
+                    </div>
+                    <div class="table-cell bg-white py-4" style="padding-left: 5%;">RANKS</div>
+                    <div class="table-cell bg-white py-4" style="padding-left: 5%;">LAST MODIFIED</div>
+                    <div class="table-cell bg-white rounded-r-lg py-4" style="padding-left: 8%;">ACTION</div>
+                </div>
+            </div>
         </div>
         <DialogsAddProgramsModal :isProgramsModal="openProgramsModal"/>
     </div>
