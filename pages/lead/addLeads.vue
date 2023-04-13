@@ -42,6 +42,7 @@
     const upload = () => {
         document.getElementById('profile-photo')?.click()
     }
+    
 </script>
 
 <template>

@@ -10,11 +10,19 @@ const state = reactive({
     isToogleReturnDate: false,
     isToogleReactivate: false,
     isToogleInactive: false,
-    is
+    isSyllabusPreviewModalOpen: false,
 })
 
 export default function () {
 
+    const openSyllabusPreviewModal = () => {
+        state.isSyllabusPreviewModalOpen = true
+    }
+    
+    const closeSyllabusPreviewModal = () => {
+        state.isSyllabusPreviewModalOpen = false
+    }
+    
     const openConfirmHoldOnModal = () => {
         cancelOnHoldModal()
         state.isHoldOnModal = true
@@ -112,5 +120,7 @@ export default function () {
         closeInactiveModal,
         openConfirmInactiveModal,
         toogleInactive,
+        openSyllabusPreviewModal,
+        closeSyllabusPreviewModal,
     }
 }

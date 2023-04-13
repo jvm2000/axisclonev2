@@ -13,6 +13,7 @@ export default function () {
         }
         let syllabusItem  = {
             addedSyllabus: state.syllabusName,
+            syllabusStatus: 'Undefined'
         }
 
         state.syllabusList.push(syllabusItem)
@@ -24,8 +25,8 @@ export default function () {
         if(state.syllabusList.length) {
             let i = 1
             state.syllabusList  
-                .forEach(studs => {
-                    studs.id = i++
+                .forEach(syllabus => {
+                    syllabus.id = i++
                 })
         }
     }
