@@ -1,10 +1,13 @@
 <script setup lang="ts">
     import { ChevronRightIcon, PlusIcon, UserPlusIcon, TrashIcon } from '@heroicons/vue/24/outline'
+    import { ref, watch } from 'vue';
 
     const isBeltRemove = ref(false)
     const removeBelt = () => {
         isBeltRemove.value = true
     }
+
+    const { subR1, subR2, subR3, subR4, subD1, subD2, subD3, subD4, totalDays, totalRanks } = useBeltBlueYellow()
 
 </script>
 
@@ -26,7 +29,7 @@
                     </div>
                     <div class="flex flex-col space-y-2">
                         <p class="text-[10px]">SESSIONS</p>
-                        <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[2rem]">
+                        <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[2rem] px-2" v-model="totalRanks" disabled>
                     </div>
                     <div class="flex flex-col space-y-2">
                         <div class="invisible h-4"></div>
@@ -36,7 +39,7 @@
                     </div>
                     <div class="flex flex-col space-y-2">
                         <p class="text-[10px]">DAYS</p>
-                        <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[2rem]">
+                        <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[2rem] px-2" v-model="totalDays" disabled>
                     </div>
                 </div>
             </div>
@@ -52,25 +55,25 @@
                     <div class="flex flex-col space-y-[1.30rem]">
                         <p class="text-[#9FB5D1]">SESSIONS</p>
                         <div class="flex space-x-4 place-items-center">
-                            <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem]">
+                            <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem] px-2 [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" v-model.number="subR1">
                             <select type="text" class="border border-gray-400 rounded-sm w-[4rem] h-[1.5rem] px-1">
                                 <option value="">And</option>
                             </select>
                         </div>
                         <div class="flex space-x-4 place-items-center">
-                            <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem]">
+                            <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem] px-2 [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" v-model.number="subR2">
                             <select type="text" class="border border-gray-400 rounded-sm w-[4rem] h-[1.5rem] px-1">
                                 <option value="">And</option>
                             </select>
                         </div>
                         <div class="flex space-x-4 place-items-center">
-                            <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem]">
+                            <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem] px-2 [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" v-model.number="subR3">
                             <select type="text" class="border border-gray-400 rounded-sm w-[4rem] h-[1.5rem] px-1">
                                 <option value="">And</option>
                             </select>
                         </div>
                         <div class="flex space-x-4 place-items-center">
-                            <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem]">
+                            <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem] px-2 [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" v-model.number="subR4">
                             <select type="text" class="border border-gray-400 rounded-sm w-[4rem] h-[1.5rem] px-1">
                                 <option value="">And</option>
                             </select>
@@ -79,10 +82,10 @@
                 </div>
                 <div class="pl-4 flex flex-col space-y-[1.3rem]">
                     <p class="text-[#9FB5D1]">DAYS</p>
-                    <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem]">
-                    <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem]">
-                    <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem]">
-                    <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem]">
+                    <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem] px-2 [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" v-model.number="subD1">
+                    <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem] px-2 [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" v-model.number="subD2">
+                    <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem] px-2 [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" v-model.number="subD3">
+                    <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem] px-2 [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" v-model.number="subD4">
                 </div>
                 <div class="pl-20 flex flex-col place-items-end space-y-[1.7rem]">
                     <p class="text-[#9FB5D1]">ACTION</p>

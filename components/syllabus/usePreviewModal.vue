@@ -10,6 +10,12 @@
 
     const { isSyllabusPreviewModalOpen, closeSyllabusPreviewModal } = modalFunctions()
     const { programViewItem } = usePrograms()   
+    const { subR1, subR2, subR3, subR4, subD1, subD2, subD3, subD4, totalDays, totalRanks } = useBeltBlueYellow()
+    const { GsubR1, GsubR2, GsubR3, GsubR4, GsubD1, GsubD2, GsubD3, GsubD4, GtotalDays, GtotalRanks } = useBeltGreen()
+    const { OsubR1, OsubR2, OsubR3, OsubR4, OsubD1, OsubD2, OsubD3, OsubD4, OtotalDays, OtotalRanks } = useBeltOrange()
+    const { PsubR1, PsubR2, PsubR3, PsubR4, PsubD1, PsubD2, PsubD3, PsubD4, PtotalDays, PtotalRanks } = useBeltPurple()
+    const { YsubR1, YsubR2, YsubR3, YsubR4, YsubD1, YsubD2, YsubD3, YsubD4, YtotalDays, YtotalRanks } = useBeltYellow()
+
 
 </script>
 
@@ -81,70 +87,68 @@
                     </div>
                     <div class="table-row-group">
                         <div class="table-cell">Sub Rank Dummy 001</div>
-                        <div class="table-cell" style="padding-left: 13.5%;">18</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="subR1" disabled>
+                        </div>
                         <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
-                        <div class="table-cell" style="padding-left: 1.5%;">20</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="subD1" disabled>
+                            
+                        </div>
                     </div>
                     <div class="table-row-group">
                         <div class="table-cell">Sub Rank Dummy 001</div>
-                        <div class="table-cell" style="padding-left: 13.5%;">18</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="subR2" disabled>
+                        </div>
                         <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
-                        <div class="table-cell" style="padding-left: 1.5%;">20</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="subD2" disabled>
+                        </div>
                     </div>
                     <div class="table-row-group">
                         <div class="table-cell">Sub Rank Dummy 001</div>
-                        <div class="table-cell" style="padding-left: 13.5%;">18</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="subR3" disabled>
+                        </div>
                         <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
-                        <div class="table-cell" style="padding-left: 1.5%;">20</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="subD3" disabled>
+                        </div>
                     </div>
                     <div class="table-row-group">
                         <div class="table-cell">Sub Rank Dummy 001</div>
-                        <div class="table-cell" style="padding-left: 13.5%;">18</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="subR4" disabled>
+                        </div>
                         <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
-                        <div class="table-cell" style="padding-left: 1.5%;">20</div>
-                    </div>
-                    <div class="table-row-group">
-                        <div class="table-cell">Sub Rank Dummy 001</div>
-                        <div class="table-cell" style="padding-left: 13.5%;">18</div>
-                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
-                        <div class="table-cell" style="padding-left: 1.5%;">20</div>
-                    </div>
-                    <div class="table-row-group">
-                        <div class="table-cell">Sub Rank Dummy 001</div>
-                        <div class="table-cell" style="padding-left: 13.5%;">18</div>
-                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
-                        <div class="table-cell" style="padding-left: 1.5%;">20</div>
-                    </div>
-                    <div class="table-row-group">
-                        <div class="table-cell">Sub Rank Dummy 001</div>
-                        <div class="table-cell" style="padding-left: 13.5%;">18</div>
-                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
-                        <div class="table-cell" style="padding-left: 1.5%;">20</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="subD4" disabled>
+                        </div>
                     </div>
                     <div class="table-row-group text-[15px]">
                         <div class="table-cell text-sm" style="padding-left: 40%;">TOTAL</div>
-                        <div class="table-cell" style="padding-left: 13.7%;">18</div>
+                        <div class="table-cell" style="padding-left: 13%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="totalRanks" disabled>
+                        </div>
                         <div class="table-cell" style="padding-left: 3.6%;">And</div>
-                        <div class="table-cell" style="padding-left: 1.5%;">20</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13 %;" v-model.number="totalDays" disabled>
+                        </div>
                     </div>
                   </div>
+                  <!-- GREEN BELT 
+                  GREEN BELT 
+                  GREEN BELT 
+                  GREEN BELT  -->
                   <div class="border-t border-gray-400 w-full"></div>
-                  <div class="flex space-x-6 place-items-center border-b border-gray-400 pb-4 text-[15px]">
-                      <img src="/icons/orangebelt.svg" alt="" class="w-[2rem] h-[2rem] ml-6">
-                      <p class="text-xl">Orange Belt</p>
-                      <div class="pl-[16.6rem] flex">
-                        <p>18</p>
-                        <p class="pl-16">And</p>
-                        <p class="pl-12">20</p>
-                      </div>
-                  </div>
                   <div class="flex space-x-6">
-                      <img src="/icons/blueyellowbelt.svg" alt="" class="w-[2rem] h-[2rem] ml-6">
-                      <p class="text-xl">Blue Yellow Belt</p>
+                      <img src="/icons/greenbelt.svg" alt="" class="w-[2rem] h-[2rem] ml-6">
+                      <p class="text-xl">Green Belt</p>
                   </div>
                   <div class="table pl-20 border-spacing-2 text-sm">
                     <div class="table-header-group">
-                        <div class="table-row invisible text-sm text-gray-500">
+                        <div class="table-row text-sm text-gray-500 invisible">
                             <div class="table-cell">SUB RANKS</div>
                             <div class="table-cell" style="padding-left: 10%;">SESSIONS</div>
                             <div class="table-cell invisible">CLASS</div>
@@ -153,63 +157,271 @@
                     </div>
                     <div class="table-row-group">
                         <div class="table-cell">Sub Rank Dummy 001</div>
-                        <div class="table-cell" style="padding-left: 13.5%;">18</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="GsubR1" disabled>
+                        </div>
                         <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
-                        <div class="table-cell" style="padding-left: 1.5%;">20</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="GsubD1" disabled>
+                            
+                        </div>
                     </div>
                     <div class="table-row-group">
                         <div class="table-cell">Sub Rank Dummy 001</div>
-                        <div class="table-cell" style="padding-left: 13.5%;">18</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="GsubR2" disabled>
+                        </div>
                         <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
-                        <div class="table-cell" style="padding-left: 1.5%;">20</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="GsubD2" disabled>
+                        </div>
                     </div>
                     <div class="table-row-group">
                         <div class="table-cell">Sub Rank Dummy 001</div>
-                        <div class="table-cell" style="padding-left: 13.5%;">18</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="GsubR3" disabled>
+                        </div>
                         <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
-                        <div class="table-cell" style="padding-left: 1.5%;">20</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="GsubD3" disabled>
+                        </div>
                     </div>
                     <div class="table-row-group">
                         <div class="table-cell">Sub Rank Dummy 001</div>
-                        <div class="table-cell" style="padding-left: 13.5%;">18</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="GsubR4" disabled>
+                        </div>
                         <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
-                        <div class="table-cell" style="padding-left: 1.5%;">20</div>
-                    </div>
-                    <div class="table-row-group">
-                        <div class="table-cell">Sub Rank Dummy 001</div>
-                        <div class="table-cell" style="padding-left: 13.5%;">18</div>
-                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
-                        <div class="table-cell" style="padding-left: 1.5%;">20</div>
-                    </div>
-                    <div class="table-row-group">
-                        <div class="table-cell">Sub Rank Dummy 001</div>
-                        <div class="table-cell" style="padding-left: 13.5%;">18</div>
-                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
-                        <div class="table-cell" style="padding-left: 1.5%;">20</div>
-                    </div>
-                    <div class="table-row-group">
-                        <div class="table-cell">Sub Rank Dummy 001</div>
-                        <div class="table-cell" style="padding-left: 13.5%;">18</div>
-                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
-                        <div class="table-cell" style="padding-left: 1.5%;">20</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="GsubD4" disabled>
+                        </div>
                     </div>
                     <div class="table-row-group text-[15px]">
                         <div class="table-cell text-sm" style="padding-left: 40%;">TOTAL</div>
-                        <div class="table-cell" style="padding-left: 13.7%;">18</div>
+                        <div class="table-cell" style="padding-left: 13%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="GtotalRanks" disabled>
+                        </div>
                         <div class="table-cell" style="padding-left: 3.6%;">And</div>
-                        <div class="table-cell" style="padding-left: 1.5%;">20</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13 %;" v-model.number="GtotalDays" disabled>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- ORANGE BELT
+                  ORANGE BELT
+                  ORANGE BELT
+                  ORANGE BELT
+                  ORANGE BELT -->
+                  <div class="border-t border-gray-400 w-full"></div>
+                  <div class="flex space-x-6">
+                      <img src="/icons/orangebelt.svg" alt="" class="w-[2rem] h-[2rem] ml-6">
+                      <p class="text-xl">Orange Belt</p>
+                  </div>
+                  <div class="table pl-20 border-spacing-2 text-sm">
+                    <div class="table-header-group">
+                        <div class="table-row text-sm text-gray-500 invisible">
+                            <div class="table-cell">SUB RANKS</div>
+                            <div class="table-cell" style="padding-left: 10%;">SESSIONS</div>
+                            <div class="table-cell invisible">CLASS</div>
+                            <div class="table-cell">DAYS</div>
+                        </div>
+                    </div>
+                    <div class="table-row-group">
+                        <div class="table-cell">Sub Rank Dummy 001</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="OsubR1" disabled>
+                        </div>
+                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="OsubD1" disabled>
+                            
+                        </div>
+                    </div>
+                    <div class="table-row-group">
+                        <div class="table-cell">Sub Rank Dummy 001</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="OsubR2" disabled>
+                        </div>
+                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="OsubD2" disabled>
+                        </div>
+                    </div>
+                    <div class="table-row-group">
+                        <div class="table-cell">Sub Rank Dummy 001</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="OsubR3" disabled>
+                        </div>
+                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="OsubD3" disabled>
+                        </div>
+                    </div>
+                    <div class="table-row-group">
+                        <div class="table-cell">Sub Rank Dummy 001</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="OsubR4" disabled>
+                        </div>
+                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="OsubD4" disabled>
+                        </div>
+                    </div>
+                    <div class="table-row-group text-[15px]">
+                        <div class="table-cell text-sm" style="padding-left: 40%;">TOTAL</div>
+                        <div class="table-cell" style="padding-left: 13%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="OtotalRanks" disabled>
+                        </div>
+                        <div class="table-cell" style="padding-left: 3.6%;">And</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13 %;" v-model.number="OtotalDays" disabled>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- PURPLE BELT
+                  PURPLE BELT
+                  PURPLE BELT
+                  PURPLE BELT
+                  PURPLE BELT -->
+                  <div class="border-t border-gray-400 w-full"></div>
+                  <div class="flex space-x-6">
+                      <img src="/icons/purplebelt.svg" alt="" class="w-[2rem] h-[2rem] ml-6">
+                      <p class="text-xl">Purple Belt</p>
+                  </div>
+                  <div class="table pl-20 border-spacing-2 text-sm">
+                    <div class="table-header-group">
+                        <div class="table-row text-sm text-gray-500 invisible">
+                            <div class="table-cell">SUB RANKS</div>
+                            <div class="table-cell" style="padding-left: 10%;">SESSIONS</div>
+                            <div class="table-cell invisible">CLASS</div>
+                            <div class="table-cell">DAYS</div>
+                        </div>
+                    </div>
+                    <div class="table-row-group">
+                        <div class="table-cell">Sub Rank Dummy 001</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="PsubR1" disabled>
+                        </div>
+                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="PsubD1" disabled>
+                            
+                        </div>
+                    </div>
+                    <div class="table-row-group">
+                        <div class="table-cell">Sub Rank Dummy 001</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="PsubR2" disabled>
+                        </div>
+                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="PsubD2" disabled>
+                        </div>
+                    </div>
+                    <div class="table-row-group">
+                        <div class="table-cell">Sub Rank Dummy 001</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="PsubR3" disabled>
+                        </div>
+                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="PsubD3" disabled>
+                        </div>
+                    </div>
+                    <div class="table-row-group">
+                        <div class="table-cell">Sub Rank Dummy 001</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="PsubR4" disabled>
+                        </div>
+                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="PsubD4" disabled>
+                        </div>
+                    </div>
+                    <div class="table-row-group text-[15px]">
+                        <div class="table-cell text-sm" style="padding-left: 40%;">TOTAL</div>
+                        <div class="table-cell" style="padding-left: 13%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="PtotalRanks" disabled>
+                        </div>
+                        <div class="table-cell" style="padding-left: 3.6%;">And</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13 %;" v-model.number="PtotalDays" disabled>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- YELLOW BELT
+                  YELLOW BELT
+                  YELLOW BELT
+                  YELLOW BELT
+                  YELLOW BELT -->
+                  <div class="border-t border-gray-400 w-full"></div>
+                  <div class="flex space-x-6">
+                      <img src="/icons/yellowbelt.svg" alt="" class="w-[2rem] h-[2rem] ml-6">
+                      <p class="text-xl">Yellow Belt</p>
+                  </div>
+                  <div class="table pl-20 border-spacing-2 text-sm">
+                    <div class="table-header-group">
+                        <div class="table-row text-sm text-gray-500 invisible">
+                            <div class="table-cell">SUB RANKS</div>
+                            <div class="table-cell" style="padding-left: 10%;">SESSIONS</div>
+                            <div class="table-cell invisible">CLASS</div>
+                            <div class="table-cell">DAYS</div>
+                        </div>
+                    </div>
+                    <div class="table-row-group">
+                        <div class="table-cell">Sub Rank Dummy 001</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="YsubR1" disabled>
+                        </div>
+                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="YsubD1" disabled>
+                            
+                        </div>
+                    </div>
+                    <div class="table-row-group">
+                        <div class="table-cell">Sub Rank Dummy 001</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="YsubR2" disabled>
+                        </div>
+                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="YsubD2" disabled>
+                        </div>
+                    </div>
+                    <div class="table-row-group">
+                        <div class="table-cell">Sub Rank Dummy 001</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="YsubR3" disabled>
+                        </div>
+                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="YsubD3" disabled>
+                        </div>
+                    </div>
+                    <div class="table-row-group">
+                        <div class="table-cell">Sub Rank Dummy 001</div>
+                        <div class="table-cell" style="padding-left: 13.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="YsubR4" disabled>
+                        </div>
+                        <div class="table-cell text-gray-500" style="padding-left: 3.5%;">And</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="YsubD4" disabled>
+                        </div>
+                    </div>
+                    <div class="table-row-group text-[15px]">
+                        <div class="table-cell text-sm" style="padding-left: 40%;">TOTAL</div>
+                        <div class="table-cell" style="padding-left: 13%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13.5%;" v-model.number="YtotalRanks" disabled>
+                        </div>
+                        <div class="table-cell" style="padding-left: 3.6%;">And</div>
+                        <div class="table-cell" style="padding-left: 1.5%;">
+                            <input class="table-cell bg-white border-none disabled w-6" style="padding-left: 13 %;" v-model.number="YtotalDays" disabled>
+                        </div>
                     </div>
                   </div>
                   <div class="border-t border-gray-400 w-full"></div>
-                  <div class="flex space-x-6 place-items-center pb-4 text-[15px]">
-                      <img src="/icons/purplebelt.svg" alt="" class="w-[2rem] h-[2rem] ml-6">
-                      <p class="text-xl">Purple Belt</p>
-                      <div class="pl-[17.5rem] flex">
-                        <p>18</p>
-                        <p class="pl-16">And</p>
-                        <p class="pl-12">20</p>
-                      </div>
-                  </div>
+                  <div class="w-full h-4 invisible"></div>
                 </div>
               </DialogPanel>
             </TransitionChild>

@@ -6,6 +6,8 @@
         isBeltRemove.value = true
     }
 
+    const { PsubR1, PsubR2, PsubR3, PsubR4, PsubD1, PsubD2, PsubD3, PsubD4, PtotalDays, PtotalRanks } = useBeltPurple()
+    
 </script>
 
 <template>
@@ -14,7 +16,7 @@
         :class="[isBeltRemove ? 'hidden' : '']"
     >
         <div class="h-auto w-auto bg-white px-2 py-2 space-y-4 space-x-16 flex flex-col place-items-center rounded-lg">
-            <div class="flex space-x-16 w-full border-b border-gray-400 py-4 px-4">
+            <div class="flex space-x-28 w-full border-b border-gray-400 py-4 px-4">
                 <div class="flex flex-row place-items-center space-x-4">
                     <img src="/icons/purplebelt.svg" alt="">    
                     <p class="text-[18px]">Purple Belt</p>
@@ -26,7 +28,7 @@
                     </div>
                     <div class="flex flex-col space-y-2">
                         <p class="text-[10px]">SESSIONS</p>
-                        <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[2rem]">
+                        <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[2rem] px-2" v-model="PtotalRanks" disabled>
                     </div>
                     <div class="flex flex-col space-y-2">
                         <div class="invisible h-4"></div>
@@ -36,7 +38,7 @@
                     </div>
                     <div class="flex flex-col space-y-2">
                         <p class="text-[10px]">DAYS</p>
-                        <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[2rem]">
+                        <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[2rem] px-2" v-model="PtotalDays" disabled>
                     </div>
                 </div>
             </div>
@@ -52,25 +54,25 @@
                     <div class="flex flex-col space-y-[1.30rem]">
                         <p class="text-[#9FB5D1]">SESSIONS</p>
                         <div class="flex space-x-4 place-items-center">
-                            <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem]">
+                            <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem] px-2 [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" v-model.number="PsubR1">
                             <select type="text" class="border border-gray-400 rounded-sm w-[4rem] h-[1.5rem] px-1">
                                 <option value="">And</option>
                             </select>
                         </div>
                         <div class="flex space-x-4 place-items-center">
-                            <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem]">
+                            <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem] px-2 [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" v-model.number="PsubR2">
                             <select type="text" class="border border-gray-400 rounded-sm w-[4rem] h-[1.5rem] px-1">
                                 <option value="">And</option>
                             </select>
                         </div>
                         <div class="flex space-x-4 place-items-center">
-                            <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem]">
+                            <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem] px-2 [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" v-model.number="PsubR3">
                             <select type="text" class="border border-gray-400 rounded-sm w-[4rem] h-[1.5rem] px-1">
                                 <option value="">And</option>
                             </select>
                         </div>
                         <div class="flex space-x-4 place-items-center">
-                            <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem]">
+                            <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem] px-2 [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" v-model.number="PsubR4">
                             <select type="text" class="border border-gray-400 rounded-sm w-[4rem] h-[1.5rem] px-1">
                                 <option value="">And</option>
                             </select>
@@ -79,10 +81,10 @@
                 </div>
                 <div class="pl-4 flex flex-col space-y-[1.3rem]">
                     <p class="text-[#9FB5D1]">DAYS</p>
-                    <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem]">
-                    <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem]">
-                    <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem]">
-                    <input type="text" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem]">
+                    <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem] px-2 [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" v-model.number="PsubD1">
+                    <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem] px-2 [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" v-model.number="PsubD2">
+                    <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem] px-2 [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" v-model.number="PsubD3">
+                    <input type="number" class="border border-gray-400 rounded-sm w-[3rem] h-[1.5rem] px-2 [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none" v-model.number="PsubD4">
                 </div>
                 <div class="pl-20 flex flex-col place-items-end space-y-[1.7rem]">
                     <p class="text-[#9FB5D1]">ACTION</p>

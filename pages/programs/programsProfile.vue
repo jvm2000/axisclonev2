@@ -4,7 +4,8 @@
     const { sideBarOpen, openAddLeads, closeAddLeads } = sideBarFunctionalities()
     const { programViewItem, setSyllabusStatus } = usePrograms()
     const router = useRouter()
-    const { openSyllabusPreviewModal, isSyllabusPreviewModalOpen } = modalFunctions()
+    const { openSyllabusPreviewModal, openDraftModal, openPublishModal,
+            isDraftModalOpen, isPublishModalOpen } = modalFunctions()
 
     const useAllSyllabus = () => {
         router.push('/programs/programsDashboard')
@@ -22,15 +23,15 @@
             </nav>
             <div class="z-[0] w-full sm:z-[10]">
                 <!-- topbar -->
-                <BarStudTopBar />
+                <BarProgramsTopBar/>
                 <!-- tab Leads -->
                 <div class="px-20 py-10 flex flex-col space-y-8">
                     <div class="flex flex-row text-[16px] text-[#9FB5D1] space-x-2 place-items-center">
                         <p>All Programs</p>
                         <ChevronRightIcon class="w-5 h-5"/>
-                        <p class="cursor-pointer" @click="useAllSyllabus">Hapkido International</p>
+                        <p>Hapkido International</p>
                         <ChevronRightIcon class="w-5 h-5"/>
-                        <p>All Syllabus</p>
+                        <p class="cursor-pointer" @click="useAllSyllabus">All Syllabus</p>
                         <ChevronRightIcon class="w-5 h-5"/>
                         <p class="text-[#527AF5] font-semibold">{{ programViewItem.addedSyllabus }}</p>
                     </div>
@@ -53,13 +54,15 @@
                         <div class="absolute right-0 flex flex-col space-y-2 justify-end">
                             <div class="flex space-x-2 place-items-center">
                                 <div class="w-48 invisible"></div>
-                                <UserPlusIcon class="w-4 h-4"/>
-                                <p>Assigned Student</p>
+                                <div class="cursor-pointer flex place-items-center space-x-2">
+                                    <UserPlusIcon class="w-4 h-4"/>
+                                    <p>Assign Student</p>
+                                </div>
                             </div>
                             <div class="space-x-2 flex">
-                                <p class="px-6 py-1 bg-[#D6E4F8] rounded-lg cursor-pointer" @click="setSyllabusStatus('Draft')">Save As Draft</p>
+                                <p class="px-6 py-1 bg-[#D6E4F8] rounded-lg cursor-pointer" @click="openDraftModal(), setSyllabusStatus('Draft')">Save As Draft</p>
                                 <p class="px-6 py-1 bg-[#D6E4F8] rounded-lg cursor-pointer" @click="openSyllabusPreviewModal">Preview</p>
-                                <p class="px-6 py-1 bg-[#47D37F] rounded-lg cursor-pointer" @click="setSyllabusStatus('Publish')">Publish</p>
+                                <p class="px-6 py-1 bg-[#47D37F] rounded-lg cursor-pointer" @click="setSyllabusStatus('Publish'), openPublishModal()">Publish</p>
                             </div>
                         </div>
                     </div>
@@ -77,5 +80,7 @@
             </div>
         </div>
         <SyllabusUsePreviewModal :isSyllabusPreviewModalOpen="openSyllabusPreviewModal"/>
+        <DialogsConfirmDraftModal :isDraftModalOpen="openDraftModal"/>
+        <DialogsConfirmPublishModal :isPublishModalOpen="openPublishModal"/>
     </div>
 </template>

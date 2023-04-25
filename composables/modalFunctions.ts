@@ -11,10 +11,34 @@ const state = reactive({
     isToogleReactivate: false,
     isToogleInactive: false,
     isSyllabusPreviewModalOpen: false,
+    isDraftModalOpen: false,
+    isPublishModalOpen: false,
+    isAssignStudentModalOpen: false
 })
 
 export default function () {
 
+    const openAssignStudentModal = () => {
+        state.isAssignStudentModalOpen = true
+    }
+
+    const closeAssignStudentModal = () => {
+        state.isAssignStudentModalOpen = false
+    }
+
+    const openDraftModal = () => {
+        state.isDraftModalOpen = true
+        setTimeout(() => {
+            state.isDraftModalOpen = false
+        }, 2000);
+    }
+
+    const openPublishModal = () => {
+        state.isPublishModalOpen = true
+        setTimeout(() => {
+            state.isPublishModalOpen = false
+        }, 2000);
+    }
     const openSyllabusPreviewModal = () => {
         state.isSyllabusPreviewModalOpen = true
     }
@@ -122,5 +146,9 @@ export default function () {
         toogleInactive,
         openSyllabusPreviewModal,
         closeSyllabusPreviewModal,
+        openDraftModal,
+        openPublishModal,
+        openAssignStudentModal,
+        closeAssignStudentModal,
     }
 }
