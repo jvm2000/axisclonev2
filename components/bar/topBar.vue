@@ -23,7 +23,7 @@ const { openMaxSideBar } = sideBarFunctionalities()
             <div class="flex flex-row pr-5">
                 <BellIcon class="text-gray-500 ml-3 w-6 h-6"/>
             </div>
-            <div class="flex flex-row space-x-2 space-y-1 pr-3">
+            <div class="flex flex-row space-x-2 space-y-1 pr-0">
                 <img src="/illustrations/avatar.jpeg" class="w-8 h-8 rounded-lg"/>
                 <p class="text-[14px] font-semibold">Pudge Kun</p>
             </div>

@@ -29,7 +29,6 @@
                 <p class="text-[14px] font-semibold">Pudge Kun</p>
             </div>
             <ChevronDownIcon class="text-gray-900 w-2 h-2"/>
-            Yap
         </div>
     </div>
 </template>

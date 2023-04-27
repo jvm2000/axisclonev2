@@ -13,17 +13,27 @@ const state = reactive({
     isSyllabusPreviewModalOpen: false,
     isDraftModalOpen: false,
     isPublishModalOpen: false,
-    isAssignStudentModalOpen: false
+    isAssignStudentModalOpen: false,
+    isConfirmAssignStudentModal: false
 })
 
 export default function () {
 
-    const openAssignStudentModal = () => {
-        state.isAssignStudentModalOpen = true
-    }
 
     const closeAssignStudentModal = () => {
         state.isAssignStudentModalOpen = false
+    }
+    
+    const openConfirmAssignStudent = () => {
+        closeAssignStudentModal()
+        state.isConfirmAssignStudentModal = true
+        setTimeout(() => {
+            state.isConfirmAssignStudentModal = false
+        }, 2000);
+    }
+
+    const openAssignStudentModal = () => {
+        state.isAssignStudentModalOpen = true
     }
 
     const openDraftModal = () => {
@@ -150,5 +160,6 @@ export default function () {
         openPublishModal,
         openAssignStudentModal,
         closeAssignStudentModal,
+        openConfirmAssignStudent,
     }
 }

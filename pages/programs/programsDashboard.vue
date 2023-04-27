@@ -1,3 +1,7 @@
+<script setup lang="ts">
+    const {  openAssignStudentModal, isAssignStudentModalOpen } = modalFunctions()
+</script>
+
 <template>
     <div class="bg-[#F2F6FB] w-full h-full overflow-hidden">
         <div class="relative flex items-start h-screen min-h-screen">
@@ -15,7 +19,3 @@
         </div>
     </div>
 </template>
-<script setup lang="ts">
-
-
-</script>

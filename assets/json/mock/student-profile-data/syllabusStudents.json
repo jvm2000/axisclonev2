@@ -1,0 +1,24 @@
+{
+    "data": [
+        {"id": 1, "fullname": "John Anthony Gabutan", "studentStatus": "Not Assigned"},
+        {"id": 2, "fullname": "John Bayotas Migo", "studentStatus": "Not Assigned"},
+        {"id": 3, "fullname": "Juan Vicente Miñoza", "studentStatus": "Not Assigned"},
+        {"id": 4, "fullname": "Adrian Paul Casserva", "studentStatus": "Not Assigned"},
+        {"id": 5, "fullname": "Raidel Ducay Mangubat", "studentStatus": "Not Assigned"},
+        {"id": 6, "fullname": "Nathaniel Cabual Tiempo", "studentStatus": "Not Assigned"},
+        {"id": 7, "fullname": "Sanny Malubay", "studentStatus": "Not Assigned"},
+        {"id": 8, "fullname": "John Kevin Cadungog", "studentStatus": "Not Assigned"},
+        {"id": 9, "fullname": "Donald Roda Jr.", "studentStatus": "Not Assigned"},
+        {"id": 10, "fullname": "Mityak Ate", "studentStatus": "Not Assigned"},
+        {"id": 11, "fullname": "Kent Armelia", "studentStatus": "Not Assigned"},
+        {"id": 12, "fullname": "Chester Ace Saagundo", "studentStatus": "Not Assigned"},
+        {"id": 13, "fullname": "Charles John Canete", "studentStatus": "Not Assigned"},
+        {"id": 14, "fullname": "James Kaiser", "studentStatus": "Not Assigned"},
+        {"id": 15, "fullname": "Cathlyn Mae Yap", "studentStatus": "Not Assigned"},
+        {"id": 16, "fullname": "Christus Christ", "studentStatus": "Not Assigned"},
+        {"id": 17, "fullname": "Alfredo Wayne", "studentStatus": "Not Assigned"},
+        {"id": 18, "fullname": "Trisha Ann Cempron", "studentStatus": "Not Assigned"},
+        {"id": 19, "fullname": "Prince Gimena", "studentStatus": "Not Assigned"},
+        {"id": 20, "fullname": "Joross Daniel Miñoza", "studentStatus": "Not Assigned"}
+    ]
+}

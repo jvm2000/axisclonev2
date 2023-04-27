@@ -2,9 +2,11 @@
     import { ChevronRightIcon, PlusIcon, UserPlusIcon, Square2StackIcon, TrashIcon } from '@heroicons/vue/24/outline'
     
     const { isProgramsModal, openProgramsModal } = useProgramsModal()
+    const {  openAssignStudentModal, isAssignStudentModalOpen } = modalFunctions()
+
 
     const { syllabusList } = useAddSyllabus()
-    const { clickViewProgram } = usePrograms()
+    const { clickViewProgram, programViewItem } = usePrograms()
     const router = useRouter()
 
     const openProgramsContent = () => {
@@ -89,7 +91,7 @@
                     <div class="table-cell bg-white py-4" style="padding-left: 6%;">Will Harvey</div>
                     <div class="table-cell bg-white rounded-r-lg py-4 space-x-2" style="padding-left: 7.5%;">
                         <div class="flex space-x-6">
-                            <UserPlusIcon class="w-5 h-5"/>
+                            <UserPlusIcon class="w-5 h-5 cursor-pointer" @click="openAssignStudentModal(), clickViewProgram(syllabus)"/>
                             <Square2StackIcon class="w-5 h-5"/>
                             <TrashIcon class="w-5 h-5"/>
                         </div>
@@ -98,6 +100,8 @@
             </div>
         </div>
         <DialogsAddProgramsModal :isProgramsModal="openProgramsModal"/>
+        <DialogsAssignStudentModal :isAssignStudentModalOpen="openAssignStudentModal"/>
+
     </div>
 </template>
 

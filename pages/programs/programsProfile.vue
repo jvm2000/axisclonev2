@@ -4,8 +4,8 @@
     const { sideBarOpen, openAddLeads, closeAddLeads } = sideBarFunctionalities()
     const { programViewItem, setSyllabusStatus } = usePrograms()
     const router = useRouter()
-    const { openSyllabusPreviewModal, openDraftModal, openPublishModal,
-            isDraftModalOpen, isPublishModalOpen } = modalFunctions()
+    const { openSyllabusPreviewModal, openDraftModal, openPublishModal, openAssignStudentModal,
+            isDraftModalOpen, isPublishModalOpen, isAssignStudentModalOpen } = modalFunctions()
 
     const useAllSyllabus = () => {
         router.push('/programs/programsDashboard')
@@ -54,7 +54,9 @@
                         <div class="absolute right-0 flex flex-col space-y-2 justify-end">
                             <div class="flex space-x-2 place-items-center">
                                 <div class="w-48 invisible"></div>
-                                <div class="cursor-pointer flex place-items-center space-x-2">
+                                <div class="cursor-pointer flex place-items-center space-x-2"
+                                    @click="openAssignStudentModal"
+                                >
                                     <UserPlusIcon class="w-4 h-4"/>
                                     <p>Assign Student</p>
                                 </div>
@@ -82,5 +84,6 @@
         <SyllabusUsePreviewModal :isSyllabusPreviewModalOpen="openSyllabusPreviewModal"/>
         <DialogsConfirmDraftModal :isDraftModalOpen="openDraftModal"/>
         <DialogsConfirmPublishModal :isPublishModalOpen="openPublishModal"/>
+        <DialogsAssignStudentModal :isAssignStudentModalOpen="openAssignStudentModal"/>
     </div>
 </template>

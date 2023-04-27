@@ -1,5 +1,9 @@
 const state = reactive({
-    programViewItem: {}
+    programViewItem: {},
+    studentViewItem: {},
+    selectedID: [],
+    assignedStudent: null,
+    canViewAssignedStudents: false
 })
 
 export default function () {
@@ -12,9 +16,14 @@ export default function () {
         state.programViewItem.syllabusStatus = syllabusStatus 
     }
 
+    const viewAssignedStudents = () => {
+        state.canViewAssignedStudents = !state.canViewAssignedStudents
+    }
+
     return {
         ...toRefs(state),
         clickViewProgram,
         setSyllabusStatus,
+        viewAssignedStudents,
     }
 }
