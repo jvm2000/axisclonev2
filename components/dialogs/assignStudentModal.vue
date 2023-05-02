@@ -13,7 +13,9 @@ import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 
-const { isAssignStudentModalOpen, closeAssignStudentModal, openConfirmAssignStudent, isConfirmAssignStudentModal } = modalFunctions()
+const { isAssignStudentModalOpen, closeAssignStudentModal, openConfirmAssignStudent, isConfirmAssignStudentModal,
+    openAssignConfirm, isAssignStudentModal, isUnassignStudentModal, openUnassignConfirm
+} = modalFunctions()
 const { programViewItem, selectedID, assignedStudent, canViewAssignedStudents, viewAssignedStudents } = usePrograms()
 const categories = reactive([{name: 'Assigned'}, {name: 'Not Assigned'}])
 const { data: syllabusStudents } = await import('@/assets/json/mock/student-profile-data/syllabusStudents.json');
@@ -26,19 +28,18 @@ const assign = () => {
                 data['studentStatus'] = 'Assigned';
             }
         })
-    
-    initializeAssignedStudents()
+    selectedID.value = []
 }
 
 const deassign = () => {
-        selectedID.value
-        .forEach(ID => {
-            let data = syllabusStudents.find(student => student.id == ID);
-            if(data) {
-                data['studentStatus'] = 'Not Assigned';
-            }
-        })
-        selectedID.value = []
+    selectedID.value
+    .forEach(ID => {
+        let data = syllabusStudents.find(student => student.id == ID);
+        if(data) {
+            data['studentStatus'] = 'Not Assigned';
+        }
+    })
+    selectedID.value = []
 }
 
 const totalAssignedStudent = reactive([])
@@ -116,7 +117,7 @@ const initializeAssignedStudents = () => {
                                 @click="viewAssignedStudents"
                             >
                                 <ArrowLongLeftIcon class="w-6 h-6 text-[#5081F0]"/>
-                                <p class="text-[16px] text-[#5081F0]">See Assigned Students</p>
+                                <p class="text-[16px] text-[#5081F0]">See Unassigned Students</p>
                             </div>
                         </div>
                         <div 
@@ -240,16 +241,16 @@ const initializeAssignedStudents = () => {
                                         >
                                             <div class="w-7 h-7 border-full rounded-full bg-[#39D0B5]"></div>
                                             <p class="text-[16px]">{{ student.fullname }}</p>
-                                            <input type="checkbox" v-model="selectedID" :value="student.id" class="absolute mt-[1rem] right-4 w-5 h-5">
+                                            <input type="checkbox" v-model="selectedID" :value="student.id" class="absolute mb-[0.1px] right-4 w-5 h-5">
                                         </div>
-                                        <div class="w-full border-b pt-2"></div>
+                                        <div class="w-full border-b pt-4"></div>
                                     </div>
                                     
                                 </div>
                                 <div class="text-white relative mt-10">
                                     <div class="absolute right-0 space-x-2">
                                         <button class="bg-[#CAD7E8] px-6 py-3 cursor-pointer rounded-lg" @click="closeAssignStudentModal">Cancel</button>
-                                        <button @click="assign(), openConfirmAssignStudent(syllabusStudents.studentStatus)" class="bg-[#527AF5] px-6 py-3 cursor-pointer rounded-lg">Assign</button>
+                                        <button @click="assign(), openAssignConfirm()" class="bg-[#527AF5] px-6 py-3 cursor-pointer rounded-lg">Assign</button>
                                     </div>
                                 </div>
                             </div>
@@ -282,7 +283,7 @@ const initializeAssignedStudents = () => {
                                 <div class="text-white relative mt-10">
                                     <div class="absolute right-0 space-x-2">
                                         <button class="bg-[#CAD7E8] px-6 py-3 cursor-pointer rounded-lg" @click="closeAssignStudentModal">Cancel</button>
-                                        <button @click="deassign(), openConfirmAssignStudent(syllabusStudents.studentStatus)" class="bg-[#E26969] px-6 py-3 cursor-pointer rounded-lg">Unassign</button>
+                                        <button @click="deassign(), openUnassignConfirm()" class="bg-[#E26969] px-6 py-3 cursor-pointer rounded-lg">Unassign</button>
                                     </div>
                                 </div>
                             </div>
@@ -294,6 +295,8 @@ const initializeAssignedStudents = () => {
             </div>
         </Dialog>
         </TransitionRoot>
-        <DialogsConfirmAssigned :isConfirmAssignStudentModal="openConfirmAssignStudent"/>
+        <!-- <DialogsConfirmAssigned :isConfirmAssignStudentModal="openConfirmAssignStudent"/> -->
+        <DialogsConfirmAssignStudent :isAssignStudentModal="openAssignConfirm" />
+        <DialogsConfirmUnassignStudent :isUnassignStudentModal="openUnassignConfirm" />
     </div>
 </template>

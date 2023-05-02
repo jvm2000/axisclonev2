@@ -14,11 +14,28 @@ const state = reactive({
     isDraftModalOpen: false,
     isPublishModalOpen: false,
     isAssignStudentModalOpen: false,
-    isConfirmAssignStudentModal: false
+    isConfirmAssignStudentModal: false,
+    isAssignStudentModal: false,
+    isUnassignStudentModal: false
 })
 
 export default function () {
 
+    const openAssignConfirm = () => {
+        state.isAssignStudentModal = true
+    }
+
+    const closeAssignConfirm = () => {
+        state.isAssignStudentModal = false
+    }
+
+    const openUnassignConfirm = () => {
+        state.isUnassignStudentModal = true
+    }
+
+    const closeUnassignConfirm = () => {
+        state.isUnassignStudentModal = false
+    }
 
     const closeAssignStudentModal = () => {
         state.isAssignStudentModalOpen = false
@@ -161,5 +178,9 @@ export default function () {
         openAssignStudentModal,
         closeAssignStudentModal,
         openConfirmAssignStudent,
+        openAssignConfirm,
+        closeAssignConfirm,
+        openUnassignConfirm,
+        closeUnassignConfirm,
     }
 }
