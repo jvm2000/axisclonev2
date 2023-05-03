@@ -3,7 +3,8 @@ const state = reactive({
     studentViewItem: {},
     selectedID: [],
     assignedStudent: null,
-    canViewAssignedStudents: false
+    canViewAssignedStudents: false,
+    assignedSelectedID: []
 })
 
 export default function () {

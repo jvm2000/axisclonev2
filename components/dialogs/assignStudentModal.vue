@@ -22,13 +22,12 @@ const { data: syllabusStudents } = await import('@/assets/json/mock/student-prof
 
 const assign = () => {
     selectedID.value
-        .forEach(ID => {
-            let data = syllabusStudents.find(student => student.id == ID);
-            if(data) {
-                data['studentStatus'] = 'Assigned';
-            }
-        })
-    selectedID.value = []
+    .forEach(ID => {
+        let data = syllabusStudents.find(student => student.id == ID);
+        if(data) {
+            data['studentStatus'] = 'Assigned';
+        }
+    })
 }
 
 const deassign = () => {
@@ -39,17 +38,7 @@ const deassign = () => {
             data['studentStatus'] = 'Not Assigned';
         }
     })
-    selectedID.value = []
 }
-
-const totalAssignedStudent = reactive([])
-const initializeAssignedStudents = () => {
-    let total = syllabusStudents.filter(student => student.studentStatus == 'Assigned')
-    assignedStudent.value = total
-    totalAssignedStudent.push(assignedStudent)
-
-}
-
 
 </script>
 

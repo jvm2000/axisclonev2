@@ -7,9 +7,25 @@ import {
   DialogTitle,
 } from '@headlessui/vue'
 
+import Vue from "vue";
+import Toast, { useToast, POSITION } from "vue-toastification";
+import toasterUnconfirm from "/components/toaster/addedUnAssignStudents.vue"
+
 import { ExclamationTriangleIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 const { isUnassignStudentModal, closeUnassignConfirm, isAssignStudentModalOpen } = modalFunctions()
 const { programViewItem, assignedStudent, selectedID, viewAssignedStudents } = usePrograms()
+
+const toast = useToast()
+const successUnassignStud = () => {
+    toast.success(toasterUnconfirm, {
+        position: POSITION.BOTTOM_RIGHT,
+        icon: false,
+        timeout: 3000,
+    });
+    setTimeout(() => {
+        selectedID.value = []
+    }, 4000);
+}
 </script>
 
 <template>
@@ -77,7 +93,7 @@ const { programViewItem, assignedStudent, selectedID, viewAssignedStudents } = u
                             <div class="flex relative w-full pb-4 px-4 pt-10">
                                 <div class="absolute right-4 space-x-4 text-white">
                                     <button class="bg-[#CAD7E8] px-6 py-3 cursor-pointer rounded-lg" @click="closeUnassignConfirm">Cancel</button>
-                                    <button @click="closeUnassignConfirm(), viewAssignedStudents()" class="bg-red-400 px-6 py-3 cursor-pointer rounded-lg">Unassign</button>
+                                    <button @click="closeUnassignConfirm(), viewAssignedStudents(), successUnassignStud()" class="bg-red-400 px-6 py-3 cursor-pointer rounded-lg">Unassign</button>
                                 </div>
                                 <div class="invisible h-14"></div>
                             </div>

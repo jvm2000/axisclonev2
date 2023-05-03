@@ -5,7 +5,7 @@
     const {  openAssignStudentModal, isAssignStudentModalOpen } = modalFunctions()
 
 
-    const { syllabusList } = useAddSyllabus()
+    const { syllabusList, duplicateSyllabus } = useAddSyllabus()
     const { clickViewProgram, programViewItem } = usePrograms()
     const router = useRouter()
 
@@ -92,7 +92,7 @@
                     <div class="table-cell bg-white rounded-r-lg py-4 space-x-2" style="padding-left: 7.5%;">
                         <div class="flex space-x-6">
                             <UserPlusIcon class="w-5 h-5 cursor-pointer" @click="openAssignStudentModal(), clickViewProgram(syllabus)"/>
-                            <Square2StackIcon class="w-5 h-5"/>
+                            <Square2StackIcon class="w-5 h-5 cursor-pointer" @click="duplicateSyllabus"/>
                             <TrashIcon class="w-5 h-5"/>
                         </div>
                     </div>

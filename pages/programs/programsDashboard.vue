@@ -1,5 +1,7 @@
 <script setup lang="ts">
+   
     const {  openAssignStudentModal, isAssignStudentModalOpen } = modalFunctions()
+  
 </script>
 
 <template>

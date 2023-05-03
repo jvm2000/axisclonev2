@@ -1,7 +1,28 @@
+<style>
+    .Vue-Toastification__toast {
+        background: #FFFFFF;
+        border-left: 5px solid green;
+    }
+    .Vue-Toastification__toast--success.success-toast {
+        background: #FFFFFF;
+        padding: 0;
+        min-height: fit-content
+    }
+    /* reset toast body, to fully show content only */
+    .Vue-Toastification__toast--error.error-toast {
+        background: #FFFFFF;
+        padding: 0;
+        min-height: fit-content
+    }
+</style>
+
 <script setup lang="ts">
+
+
 import Vue from "vue";
-import { useToast } from "vue-toastification";
-import "vue-toastification/dist/index.css";
+import Toast, { useToast, POSITION } from "vue-toastification";
+import toasterConfirm from "/components/toaster/addedAssignStudents.vue"
+import toasterUnconfirm from "/components/toaster/addedUnAssignStudents.vue"
 
 import {
   TransitionRoot,
@@ -13,19 +34,33 @@ import {
 
 import { MagnifyingGlassIcon, XMarkIcon, ArrowLongRightIcon, ChevronDownIcon, ArrowLongLeftIcon, FunnelIcon } from '@heroicons/vue/24/outline'
 
-const toastrRef = ref(null)
-
 const { isAssignStudentModal, closeAssignConfirm, isAssignStudentModalOpen } = modalFunctions()
 const { programViewItem, assignedStudent, selectedID, viewAssignedStudents } = usePrograms()
+
+const toast = useToast()
 const successAssignStud = () => {
-    
+    toast.success(toasterConfirm, {
+        position: POSITION.BOTTOM_RIGHT,
+        icon: false,
+        timeout: 3000,
+    });
+    setTimeout(() => {
+        selectedID.value = []
+    }, 4000);
 }
 
-const toastrF = () => {
-    this.toastrRef = this.$refs.toastr
+const successUnassignStud = () => {
+    toast.success(toasterConfirm, {
+        position: POSITION.BOTTOM_RIGHT,
+        icon: false,
+        timeout: 3000,
+    });
+    setTimeout(() => {
+        selectedID.value = []
+    }, 4000);
 }
-
 </script>
+
 
 <template>
     <div>
@@ -91,7 +126,7 @@ const toastrF = () => {
                             <div class="flex relative w-full pb-4 px-4 pt-10">
                                 <div class="absolute right-4 space-x-4 text-white">
                                     <button class="bg-[#CAD7E8] px-6 py-3 cursor-pointer rounded-lg" @click="closeAssignConfirm">Cancel</button>
-                                    <button @click="closeAssignConfirm(), viewAssignedStudents()" class="bg-[#5081F0] px-6 py-3 cursor-pointer rounded-lg">Assign</button>
+                                    <button @click="closeAssignConfirm(), viewAssignedStudents(), successAssignStud()" class="bg-[#5081F0] px-6 py-3 cursor-pointer rounded-lg">Assign</button>
                                 </div>
                                 <div class="invisible h-14"></div>
                             </div>
