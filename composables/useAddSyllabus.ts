@@ -1,7 +1,8 @@
 const state = reactive({
     syllabusList: [],
     syllabusName: '',
-    isSyllabusAdded: false
+    isSyllabusAdded: false,
+    syllabusViewObject: {}
 })
 
 export default function () {
@@ -31,8 +32,19 @@ export default function () {
         }
     }
 
+    const duplicateSyllabus = (syllabus: Object) => {
+        state.syllabusViewObject = syllabus
+        let syllabusItem = {
+            addedSyllabus: state.syllabusViewObject.addedSyllabus,
+            syllabusStatus: 'Undefined'
+        }
+        state.syllabusList.push(syllabusItem)
+        state.syllabusName = ''
+    }
+
     return{
         ...toRefs(state),
         addSyllabus,
+        duplicateSyllabus,
     }
 }
