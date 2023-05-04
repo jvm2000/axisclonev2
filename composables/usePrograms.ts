@@ -4,7 +4,8 @@ const state = reactive({
     selectedID: [],
     assignedStudent: null,
     canViewAssignedStudents: false,
-    assignedSelectedID: []
+    assignedSelectedID: [],
+    isAssignedStudent: false
 })
 
 export default function () {
@@ -19,6 +20,10 @@ export default function () {
 
     const viewAssignedStudents = () => {
         state.canViewAssignedStudents = !state.canViewAssignedStudents
+    }
+
+    const trueAssignStudent = () => {
+        
     }
 
     return {

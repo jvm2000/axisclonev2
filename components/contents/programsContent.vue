@@ -1,16 +1,49 @@
+<style>
+    .Vue-Toastification__toast {
+        background: #FFFFFF;
+        border-left: 5px solid green;
+    }
+    .Vue-Toastification__toast--success.success-toast {
+        background: #FFFFFF;
+        padding: 0;
+        min-height: fit-content
+    }
+    /* reset toast body, to fully show content only */
+    .Vue-Toastification__toast--error.error-toast {
+        background: #FFFFFF;
+        padding: 0;
+        min-height: fit-content
+    }
+</style>
+
+
 <script setup lang="ts">
     import { ChevronRightIcon, PlusIcon, UserPlusIcon, Square2StackIcon, TrashIcon } from '@heroicons/vue/24/outline'
     
+    import Vue from "vue";
+    import Toast, { useToast, POSITION } from "vue-toastification";
+    import toasterDelete from "/components/toaster/deleteSyllabus.vue"
+
     const { isProgramsModal, openProgramsModal } = useProgramsModal()
     const {  openAssignStudentModal, isAssignStudentModalOpen } = modalFunctions()
 
 
-    const { syllabusList, duplicateSyllabus } = useAddSyllabus()
+    const { syllabusList, duplicateSyllabus, deleteSyllabus } = useAddSyllabus()
     const { clickViewProgram, programViewItem } = usePrograms()
     const router = useRouter()
 
     const openProgramsContent = () => {
         router.push('/programs/programsProfile')
+    }
+
+
+    const toast = useToast()
+    const deleteSuccessfully = () => {
+        toast.success(toasterDelete, {
+            position: POSITION.BOTTOM_RIGHT,
+            icon: false,
+            timeout: 3000,
+        });
     }
 
 </script>
@@ -92,8 +125,8 @@
                     <div class="table-cell bg-white rounded-r-lg py-4 space-x-2" style="padding-left: 7.5%;">
                         <div class="flex space-x-6">
                             <UserPlusIcon class="w-5 h-5 cursor-pointer" @click="openAssignStudentModal(), clickViewProgram(syllabus)"/>
-                            <Square2StackIcon class="w-5 h-5 cursor-pointer" @click="duplicateSyllabus"/>
-                            <TrashIcon class="w-5 h-5"/>
+                            <Square2StackIcon class="w-5 h-5 cursor-pointer" @click="duplicateSyllabus(syllabus)"/>
+                            <TrashIcon class="w-5 h-5 cursor-pointer" @click="deleteSyllabus(syllabus), deleteSuccessfully(), clickViewProgram(syllabus)"/>
                         </div>
                     </div>
                 </div>
