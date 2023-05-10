@@ -18,10 +18,15 @@ const state = reactive({
     isAssignStudentModal: false,
     isUnassignStudentModal: false,
     isUnpublishModal: false,
-    isUpdateModal: false
+    isUpdateModal: false,
+    isCreateTimeTable: false
 })
 
 export default function () {
+
+    const openCreateTimeTable = () => {
+        state.isCreateTimeTable = !state.isCreateTimeTable
+    }
 
     const openUpdateProgramModal = () => {
         state.isUpdateModal = !state.isUpdateModal
@@ -194,5 +199,6 @@ export default function () {
         closeUnassignConfirm,
         openUnpublishModal,
         openUpdateProgramModal,
+        openCreateTimeTable,
     }
 }

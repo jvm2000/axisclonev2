@@ -30,11 +30,15 @@
         router.push('/programs/programsDashboard')
     }
 
+    const openTimeTableDashboard = () => {
+        router.push('/timetable/timeTableDashboard')
+    }
+
 </script>
 
 
 <template>
-    <div class="w-[20rem] h-screen p-4 bg-blue-900 text-white hidden sm:block z-[30]">
+    <div class="w-[20rem] h-screen p-4 bg-blue-900 text-white z-[30] hidden sm:block">
         <div class="flex flex-col items-center">
             <ChevronDoubleLeftIcon class="block ml-[16rem] pt-1 w-6 h-6 text-blue-400"
                                     @click=""
@@ -77,7 +81,7 @@
             </div>
             <div class="flex flex-row space-x-4 cursor-pointer">
                 <ViewColumnsIcon class="w-6 h-6"/>
-                <p class="text-[18px] text-white mr-[5rem]">Timetable</p>
+                <p class="text-[18px] text-white mr-[5rem]" @click="openTimeTableDashboard">Timetable</p>
             </div>
             <div class="flex flex-row space-x-4 cursor-pointer">
                 <StarIcon class="w-6 h-6"/>
