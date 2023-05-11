@@ -7,6 +7,8 @@
     const categories = reactive([{name: 'List'}, {name: 'Archived'}, {name: 'Location'}])
 
     const {isCreateTimeTable, openCreateTimeTable } = modalFunctions()
+
+    const { timeTableList } = addListTimetable()
     
 
 </script>
@@ -40,6 +42,14 @@
             <TabPanels>
                 <TabPanel>
                     <TimetableTimeTablePanelsList/>
+                    <div 
+                        v-if="timeTableList.length > 0"
+                        class="flex px-4 py-1 bg-[#5081F0] place-items-center text-white space-x-4 rounded-lg cursor-pointer w-[12.2rem]"
+                        @click="openCreateTimeTable"
+                    >
+                        <PlusIcon class="w-4 h-4"/>
+                        <p class="text-[16px]">Create Timetable</p>
+                    </div>
                 </TabPanel>
                 <TabPanel>
 

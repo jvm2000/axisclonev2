@@ -3,6 +3,9 @@
 
     import { PencilIcon, InboxArrowDownIcon } from '@heroicons/vue/24/outline'
 
+    const { isArchiveTable, openArchiveTable, isEditTable, openEditTable } = modalFunctions()
+    
+    const { objList, objectList } = addListTimetable()
 </script>
 
 <template>
@@ -30,17 +33,25 @@
                 </div>
                 <div class="table-row-group">
                     <div 
-                        class="table-row bg-white h-[3.5rem] w-full rounded-lg"
+                        class="table-row bg-white h-[3.5rem] w-full rounded-lg drop-shadow-sm"
                         v-for="(list, index) in timeTableList"
                         :key="index"
                     >
-                        <div class="table-cell place-items-center space-x-4" style="padding-left: 2%; margin-top: 2px;">
-                            <div class="flex place-items-center space-x-6">
-                                <div class="w-4 h-4 bg-yellow-500"></div>
+                        <div class="table-cell place-items-center space-x-4" style="padding-left: 2%; padding-top: 0.8%;">
+                            <div class="flex place-items-center space-x-6 absolute">
+                                <img 
+                                    v-if="list.image"
+                                    :src="list.image"
+                                    class="w-8 h-8 rounded-lg"
+                                >
+                                <img 
+                                    v-else
+                                    :src="list.default"
+                                >
                                 <p>{{ list.name }}</p>
                             </div>
                         </div>
-                        <div class="table-cell place-items-center">
+                        <div class="table-cell place-items-center" style="margin-bottom: 5%;">
                             <p>{{ list.fromdate }} - {{ list.todate }}</p>
                         </div>
                         <div class="table-cell">
@@ -48,8 +59,14 @@
                         </div>
                         <div class="table-cell place-items-center space-x-4 text-[#5E6E82]" style="padding-left: 8%;">
                             <div class="flex space-x-4 mt-4">
-                                <PencilIcon class="w-4 h-4"/>
-                                <InboxArrowDownIcon class="w-4 h-4"/>
+                                <PencilIcon 
+                                    class="w-4 h-4 cursor-pointer"
+                                    @click="openEditTable(), objList(list)"
+                                />
+                                <InboxArrowDownIcon 
+                                    class="w-4 h-4 cursor-pointer"
+                                    @click="openArchiveTable(), objList(list)"
+                                />
                                 <div class="w-8 invisible"></div>
                             </div>
                         </div>
@@ -57,6 +74,7 @@
                 </div>
             </div>
         </div>
-
+        <TimetableDialogsArchiveTable :isArchiveTable="openArchiveTable"/>
+        <TimetableDialogsEditTimeTable :isEditTable="openEditTable"/>
     </div>
 </template>

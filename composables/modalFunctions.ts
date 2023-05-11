@@ -19,10 +19,20 @@ const state = reactive({
     isUnassignStudentModal: false,
     isUnpublishModal: false,
     isUpdateModal: false,
-    isCreateTimeTable: false
+    isCreateTimeTable: false,
+    isArchiveTable: false,
+    isEditTable: false
 })
 
 export default function () {
+
+    const openEditTable = () => {
+        state.isEditTable = !state.isEditTable
+    }
+
+    const openArchiveTable = () => {
+        state.isArchiveTable = !state.isArchiveTable
+    }
 
     const openCreateTimeTable = () => {
         state.isCreateTimeTable = !state.isCreateTimeTable
@@ -200,5 +210,7 @@ export default function () {
         openUnpublishModal,
         openUpdateProgramModal,
         openCreateTimeTable,
+        openArchiveTable,
+        openEditTable,
     }
 }
