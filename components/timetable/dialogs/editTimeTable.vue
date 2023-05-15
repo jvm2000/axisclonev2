@@ -12,7 +12,7 @@ import { PlusIcon, ArrowLeftOnRectangleIcon, ArrowRightOnRectangleIcon } from '@
 
 
 const { isEditTable, openEditTable } = modalFunctions()
-const { timeTableList, timeTableName, addList, fromTimeTable, toTimeTable, objectList, updateList, objList } = addListTimetable()
+const { timeTableName, addList, fromTimeTable, toTimeTable, objectList, updateList, objList } = addListTimetable()
 const { handleChange, image, preview } = useUploadList()
 
 const checkbox = ref(false)

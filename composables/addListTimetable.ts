@@ -41,9 +41,9 @@ export default function () {
 
     const updateList = (list: Object) => {
         state.objectList = list
-        state.timeTableName = state.objectList.name,
-        state.fromTimeTable = state.objectList.fromdate,
-        state.toTimeTable = state.objectList.todate,
+        state.objectList.name = state.timeTableName,
+        state.objectList.fromdate = state.fromTimeTable,
+        state.objectList.todate = state.toTimeTable,
         openEditTable()
         state.timeTableName = ''
         state.fromTimeTable = ''

@@ -89,7 +89,8 @@
                 @click="openTimetable"
             >
                 <ViewColumnsIcon class="w-6 h-6"/>
-                <p class="text-[18px] text-white mr-12">Timetable</p>
+                <p class="text-[18px] text-white">Timetable</p>
+                <div class="w-[5.2rem]"></div>
                 <ChevronDownIcon class="w-6 h-6"/>
             </div>
             <div v-if="isTimetable" class="space-y-8 indent-16">

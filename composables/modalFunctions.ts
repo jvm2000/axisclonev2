@@ -21,10 +21,15 @@ const state = reactive({
     isUpdateModal: false,
     isCreateTimeTable: false,
     isArchiveTable: false,
-    isEditTable: false
+    isEditTable: false,
+    isRestoreTable: false
 })
 
 export default function () {
+
+    const openRestoreTable = () => {
+        state.isRestoreTable = !state.isRestoreTable
+    }
 
     const openEditTable = () => {
         state.isEditTable = !state.isEditTable
@@ -212,5 +217,6 @@ export default function () {
         openCreateTimeTable,
         openArchiveTable,
         openEditTable,
+        openRestoreTable,
     }
 }

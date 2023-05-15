@@ -3,16 +3,9 @@
 
     import { PencilIcon, InboxArrowDownIcon } from '@heroicons/vue/24/outline'
 
-    const { isArchiveTable, openArchiveTable, isEditTable, openEditTable } = modalFunctions()
+    const { isArchiveTable, openArchiveTable, openRestoreTable, isRestoreTable } = modalFunctions()
     
     const { objList, objectList } = addListTimetable()
-
-    const router = useRouter()
-
-    const openTimetableView = () => {
-        router.push('/timetable/timeTableProfile')
-    }
-
 </script>
 
 <template>
@@ -43,13 +36,9 @@
                         class="table-row bg-white h-[3.5rem] w-full rounded-lg drop-shadow-sm"
                         v-for="(list, index) in timeTableList"
                         :key="index"
-                        :class="[list.status == 'default' ? 'block' : 'hidden']"
+                        :class="[list.status == 'archived' ? 'block' : 'hidden']"
                     >
-                        <div 
-                            class="table-cell place-items-center space-x-4 cursor-pointer" 
-                            style="padding-left: 2%; padding-top: 0.8%;"
-                            @click="openTimetableView(), objList(list)"
-                        >
+                        <div class="table-cell place-items-center space-x-4" style="padding-left: 2%; padding-top: 0.8%;">
                             <div class="flex place-items-center space-x-6 absolute">
                                 <img 
                                     v-if="list.image"
@@ -73,11 +62,11 @@
                             <div class="flex space-x-4 mt-4">
                                 <PencilIcon 
                                     class="w-4 h-4 cursor-pointer"
-                                    @click="openEditTable(), objList(list)"
+                                    @click="openRestoreTable(), objList(list)"
                                 />
                                 <InboxArrowDownIcon 
                                     class="w-4 h-4 cursor-pointer"
-                                    @click="openArchiveTable(), objList(list)"
+                                    @click="openRestoreTable(), objList(list)"
                                 />
                                 <div class="w-8 invisible"></div>
                             </div>
@@ -87,6 +76,6 @@
             </div>
         </div>
         <TimetableDialogsArchiveTable :isArchiveTable="openArchiveTable"/>
-        <TimetableDialogsEditTimeTable :isEditTable="openEditTable"/>
+        <TimetableDialogsRestoreTable :isRestoreTable="openRestoreTable" />
     </div>
 </template>
