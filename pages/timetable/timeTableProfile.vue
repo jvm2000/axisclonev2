@@ -15,8 +15,8 @@
                 <!-- topbar -->
                 <BarTopBar/>
             </div>
-            <div class="z-[10]">
-                <TimetableTimeTableView class="overflow-hidden"/>
+            <div class="z-[10] w-full">
+                <TimetableTimeTableView/>
             </div>
         </div>
     </div>

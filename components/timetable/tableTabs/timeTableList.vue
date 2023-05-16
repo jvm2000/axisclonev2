@@ -29,7 +29,7 @@
                     </Tab>
                 </div>
                 </TabList>
-                <div class="w-[66rem] z-[10]"></div>
+                <div class="w-[62rem] z-[10]"></div>
                 <div 
                     class="flex px-4 py-1 bg-[#5081F0] place-items-center text-white space-x-4 rounded-lg cursor-pointer"
                     @click="openCreateTimeTable"
