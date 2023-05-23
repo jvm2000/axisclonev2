@@ -44,7 +44,7 @@
                         class="table-row bg-white h-[3.5rem] w-full rounded-lg drop-shadow-sm"
                         v-for="(list, index) in timeTableList"
                         :key="index"
-                        :class="[list.status == 'default' ? 'block' : 'hidden']"
+                        :class="[list.status == 'inactive' ? 'block' : 'hidden']"
                     >
                         <div 
                             class="table-cell place-items-center space-x-4 cursor-pointer" 

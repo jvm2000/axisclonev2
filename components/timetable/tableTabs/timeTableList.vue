@@ -4,7 +4,7 @@
 
     import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 
-    const categories = reactive([{name: 'List'}, {name: 'Archived'}, {name: 'Location'}])
+    const categories = reactive([{name: 'Active'}, {name: 'Inactive'}, {name: 'Archived'}, {name: 'Location'}, {name: 'Custom Message'}])
 
     const {isCreateTimeTable, openCreateTimeTable } = modalFunctions()
 
@@ -29,7 +29,7 @@
                     </Tab>
                 </div>
                 </TabList>
-                <div class="w-[62rem] z-[10]"></div>
+                <div class="w-[45rem]"></div>
                 <div 
                     class="flex px-4 py-1 bg-[#5081F0] place-items-center text-white space-x-4 rounded-lg cursor-pointer"
                     @click="openCreateTimeTable"
@@ -52,10 +52,16 @@
                     </div>
                 </TabPanel>
                 <TabPanel>
+                    <TimetableTimeTablePanelsInactive/>
+                </TabPanel>
+                <TabPanel>
                     <TimetableTimeTablePanelsArchive/>
                 </TabPanel>
                 <TabPanel>
-                    
+                    <TimetableTimeTablePanelsLocation/>
+                </TabPanel>
+                <TabPanel>
+
                 </TabPanel>
             </TabPanels>
         </div>

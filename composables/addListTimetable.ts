@@ -21,7 +21,8 @@ export default function () {
             todate: state.toTimeTable,
             image: preview.value,
             default: '/timetable/default_pic.svg',
-            status: 'default'
+            status: 'default',
+            itemStatus: 'Active'
         }
         state.timeTableList.push(listItem)
         state.timeTableName = ''
