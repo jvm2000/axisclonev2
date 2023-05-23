@@ -11,7 +11,7 @@
                 <!-- topbar -->
                 <BarTopBar/>
             </div>
-            <div class="z-[10]">
+            <div class="z-[10] w-full">
                 <TimetableTableTabsTimeTableList class="overflow-hidden"/>
             </div>
         </div>
