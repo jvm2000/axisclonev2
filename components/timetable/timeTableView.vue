@@ -118,6 +118,7 @@
                     </div>
                 </div>
             </div>
+            <div class="h-[0.5rem]"></div>
             <TimetableTimeTableContentW :class="[dropdown_c == 'Week' ? 'block' : 'hidden']" class="z-[0]"/>
             <TimetableTimeTableContentM :class="[dropdown_c == 'Month' ? 'block' : 'hidden']" class="z-[0]"/>
             <TimetableTimeTableContentD :class="[dropdown_c == 'Day' ? 'block' : 'hidden']" class="z-[0]"/>

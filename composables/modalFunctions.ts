@@ -1,4 +1,3 @@
-
 const state = reactive({
     isHoldOnModal: false,
     isLeadModalOpen: false,
