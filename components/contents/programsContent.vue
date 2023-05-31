@@ -36,7 +36,6 @@
         router.push('/programs/programsProfile')
     }
 
-
     const toast = useToast()
     const deleteSuccessfully = () => {
         toast.success(toasterDelete, {

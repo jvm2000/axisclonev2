@@ -7,7 +7,7 @@ const state = reactive({
     nameObj: {},
     objName: {},
     isDup: false,
-    i: 0,
+    class: []
 })
 
 export default function () {
@@ -22,6 +22,10 @@ export default function () {
         state.locationUp = state.nameObj.name
     }
 
+    const delLoc = (canDelete: Boolean) => {
+        state.locationObj.canDelete = canDelete
+    }
+
     const classAdd = (classes: Object) => {
         if(state.classN == '')
             return alert('Invalid! Input should not be empty.')
@@ -30,6 +34,7 @@ export default function () {
 
         let classesObj = {
             name: state.classN,
+            canDelete: false
         }
 
         state.locationObj.classes.push(classesObj)
@@ -37,8 +42,9 @@ export default function () {
 
     }
 
-    const classDel = (index) => {
-        state.locationObj.classes.splice(index, 1)
+    const classDel = () => {
+        let element = state.locationObj
+        let found = state.locationList.findIndex(element)
     }
 
     const add = () => {
@@ -57,7 +63,8 @@ export default function () {
             classes: [],
             classOn: false,
             classInput: false,
-            locUpdate: false
+            locUpdate: false,
+            canDelete: false
         }
         state.locationList.push(location)
         state.locationN = ''
@@ -92,5 +99,6 @@ export default function () {
         updateLocation,
         isUpdate,
         updateObj,
+        delLoc,
     }
 }

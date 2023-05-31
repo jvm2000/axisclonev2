@@ -14,6 +14,8 @@
         isClassLocation.value = !isClassLocation.value
     }
 
+    const {isDelLoc, openDelLoc, isDelClassArea, openClassAreaDel} = modalFunctions()
+
 
 </script>
 
@@ -40,6 +42,7 @@
                 class="w-full h-auto px-2 py-3 bg-white rounded-lg drop-shadow-sm text-[16px] flex flex-col relative"
                 v-for="(locals, index) in locationList"
                 :key="index"
+                :class="[locals.canDelete ? 'hidden' : '']"
             >
                 <div 
                     v-if="locals.locUpdate"
@@ -87,7 +90,10 @@
                     <p class="text-[16px]">
                         {{ locals.classes.length }}
                     </p>
-                    <XMarkIcon class="w-4 h-4 text-[#9FB5D1] cursor-pointer absolute right-4 mt-1"/>
+                    <XMarkIcon 
+                        class="w-4 h-4 text-[#9FB5D1] cursor-pointer absolute right-4 mt-1"
+                        @click="openDelLoc(), objL(locals)"
+                    />
                 </div>
 
                 <div
@@ -98,26 +104,27 @@
 
                     <div 
                         class="relative bg-[#F1F6FC] h-auto space-y-4 grid rounded-lg"
-                        :class="[locals.classes.length > 0 ? 'py-2' : '']"
+                        :class="[locals.classes.length > 0 ? '' : '']"
                     >
                         <div 
                             v-for="classess, index in locals.classes"
                             :key="index"
                             class="w-full py-1 place-items-center border-b-2 border-[#E9F0FA]"
+                            :class="[classess.canDelete ? 'hidden' : '']"
                         >
                             <div class="pl-4 flex place-items-center space-x-4 h-[2rem] text-sm relative">
                                 <span class="w-2 h-2 bg-[#46DBA8]"></span>
                                 <p>{{ classess.name }}</p>
                                 <XMarkIcon 
                                     class="w-4 h-4 text-[#5E6E82] absolute right-6 cursor-pointer"
-                                    @click="objL(classess),classDel(index)"
+                                    @click="objL(classess),openClassAreaDel()"
                                 />
                             </div>
                         </div>
                         <div 
                             v-if="locationObj.classInput"
                             class="w-full"
-                            :class="locals.classes.length > 0 ? 'py-2' : 'py-6'"
+                            :class="locals.classes.length > 0 ? 'pb-4' : 'py-6'"
                         >
                             <div 
                                 class="w-11/12 h-[2.5rem] rounded-lg border-2 drop-shadow-lg bg-[#F1F6FC] flex relative border-[#5081F0] place-items-center ml-8"
@@ -134,6 +141,7 @@
                                 />
                             </div>
                         </div>
+                        <div v-else></div>
                     </div>
                     <div class="w-full relative h-[3rem]">
                         <div 
@@ -179,5 +187,7 @@
             <PlusIcon class="w-4 h-4"/>
             <p class="font-semibold">Add New Location</p>
         </div>
+        <TimetableDialogsDelLocation :isDelLoc="openDelLoc"/>
+        <!-- <TimetableDialogsDelClassArea :isDelClassArea="openClassAreaDel"/> -->
     </div>
 </template>

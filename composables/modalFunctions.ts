@@ -22,10 +22,20 @@ const state = reactive({
     isArchiveTable: false,
     isEditTable: false,
     isRestoreTable: false,
-    isClassTable: false
+    isClassTable: false,
+    isDelLoc: false,
+    isDelClassArea: false
 })
 
 export default function () {
+
+    const openClassAreaDel = () => {
+        state.isDelClassArea = !state.isDelClassArea
+    }
+
+    const openDelLoc = () => {
+        state.isDelLoc = !state.isDelLoc
+    }
 
     const openClassTable = () => {
         state.isClassTable = !state.isClassTable
@@ -189,6 +199,7 @@ export default function () {
     }
     return{
         ...toRefs(state),
+        openClassAreaDel,
         openLeadModal,
         closeLeadModal,
         openStudModal,
@@ -223,5 +234,6 @@ export default function () {
         openEditTable,
         openRestoreTable,
         openClassTable,
+        openDelLoc,
     }
 }

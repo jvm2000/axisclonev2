@@ -61,7 +61,7 @@
                     <TimetableTimeTablePanelsLocation/>
                 </TabPanel>
                 <TabPanel>
-
+                    <TimetableTimeTablePanelsCustomMessage/>
                 </TabPanel>
             </TabPanels>
         </div>
