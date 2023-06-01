@@ -39,6 +39,10 @@
         router.push('/timetable/timeTableDashboard')
     }
 
+    const openClassesDashboard = () => {
+        router.push('/classes/classesDashboard')
+    }
+
 </script>
 
 
@@ -95,7 +99,7 @@
             </div>
             <div v-if="isTimetable" class="space-y-8 indent-16">
                 <a class="text-[18px] cursor-pointer" @click="openTimeTableDashboard">Timetables</a>
-                <p class="text-[18px] cursor-pointer" @click="openStudDashboard">Classes</p>
+                <p class="text-[18px] cursor-pointer" @click="openClassesDashboard">Classes</p>
                 <p class="text-[18px] cursor-pointer">Instructor</p>
             </div>
             <div class="flex flex-row space-x-4 cursor-pointer">

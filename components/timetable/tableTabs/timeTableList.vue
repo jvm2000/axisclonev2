@@ -4,7 +4,13 @@
 
     import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 
-    const categories = reactive([{name: 'Active'}, {name: 'Inactive'}, {name: 'Archived'}, {name: 'Location'}, {name: 'Custom Message'}])
+    const categories = reactive([
+            {name: 'Active', img: '/timetable/tabs/icon1.svg'},
+            {name: 'Inactive', img: '/timetable/tabs/icon2.svg'},
+            {name: 'Archived', img: '/timetable/tabs/icon3.svg'},
+            {name: 'Location', img: '/timetable/tabs/icon4.svg'}, 
+            {name: 'Custom Message', img: '/timetable/tabs/icon5.svg'}
+    ])
 
     const {isCreateTimeTable, openCreateTimeTable } = modalFunctions()
 
@@ -22,16 +28,21 @@
                 <div class="text-[16px] space-x-6 ml-24 sm:ml-0 z-[20]">
                     <Tab v-for="category, index in categories" 
                         :key="index"
-                        v-slot="{ selected }">
-                        <button :class="[selected ? 'w-auto h-[3.6rem] border-b-4 border-blue-400 text-blue-400 ring-0 outline-none space-x-2' : 'w-auto space-x-2']">
-                            {{ category.name }}
-                        </button>
+                        v-slot="{ selected }"
+                    >
+                        <div class="flex space-x-4 h-[3.6rem] w-auto place-items-center px-1"
+                            :class="[selected ? 'border-b-4 border-blue-400 text-blue-400 ring-0 outline-none space-x-2' : 'space-x-2']"
+                        >
+                            <img :src="category.img" alt="" class="w-4 h-4">
+                            <p>
+                                {{ category.name }}
+                            </p>
+                        </div>
                     </Tab>
                 </div>
                 </TabList>
-                <div class="w-[45rem]"></div>
                 <div 
-                    class="flex px-4 py-1 bg-[#5081F0] place-items-center text-white space-x-4 rounded-lg cursor-pointer"
+                    class="flex px-4 py-1 bg-[#5081F0] place-items-center text-white space-x-4 rounded-lg cursor-pointer absolute right-0"
                     @click="openCreateTimeTable"
                 >
                     <PlusIcon class="w-4 h-4"/>

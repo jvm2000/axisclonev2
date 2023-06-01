@@ -1,18 +1,24 @@
 <script setup lang="ts">
 
     const inMessage = ref('')
+    const inputEmpty = ref(false)
     const isInput = ref(false)
     const needInput = ref(false)
 
     const clearInput = () => {
         inMessage.value = ''
+        isInput.value = false
     }
 
     const submitMsg = () => {
         if(inMessage.value == ''){
-
+            return inputEmpty.value = true
         }
         isInput.value = !isInput.value
+    }
+
+    const returnNormal = () => {
+        return inputEmpty.value = false
     }
 
 </script>
@@ -29,19 +35,27 @@
                 </div>
 
                 <div class="grid space-y-6">
-                    <textarea
-                        type="text"
-                        class="w-[41rem] h-[15rem] rounded-lg border border-gray-300 px-6 py-4 text-[16px] resize-none"
-                        :class="[isInput ? 'bg-white' : '']"
-                        v-model="inMessage"
-                        :disabled="isInput"
-                        required
-                    ></textarea>
+                    <div>
+                        <textarea
+                            type="text"
+                            class="w-[41rem] h-[15rem] rounded-lg border border-gray-300 px-6 py-4 text-[16px] resize-none"
+                            :class="[isInput ? 'bg-white' : '',
+                                    inputEmpty ? 'border-[#E73C3C] border-2' : 'border-gray-300']"
+                            v-model="inMessage"
+                            :disabled="isInput"
+                            required
+                            @click="returnNormal"
+                        ></textarea>
+                        <p 
+                            v-if="inputEmpty"
+                            class="text-[#E73C3C] text-[16px]"
+                        >
+                            Should have a custom message
+                        </p>
+                    </div>
                     <div class="w-full relative">
                         <button
                             class="text-[#5081F0] border rounded-lg border-[#5081F0] px-8 py-2 text-lg"
-                            :class="[isInput ? 'text-[#CAD7E8] border-[#CAD7E8]' : 'text-[#5081F0]']"
-                            :disabled="isInput"
                             @click="clearInput"
                         >
                             Clear Text

@@ -24,11 +24,17 @@ const state = reactive({
     isRestoreTable: false,
     isClassTable: false,
     isDelLoc: false,
-    isDelClassArea: false
+    isDelClassArea: false,
+    isCreateClass: false
 })
 
 export default function () {
 
+    
+    const openCreateClass = () => {
+        state.isCreateClass = !state.isCreateClass
+    }
+    
     const openClassAreaDel = () => {
         state.isDelClassArea = !state.isDelClassArea
     }
@@ -199,6 +205,7 @@ export default function () {
     }
     return{
         ...toRefs(state),
+        openCreateClass,
         openClassAreaDel,
         openLeadModal,
         closeLeadModal,
