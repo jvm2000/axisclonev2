@@ -8,23 +8,9 @@
       DialogTitle,
     } from '@headlessui/vue'
 
-    import { PlusIcon, ArrowLeftOnRectangleIcon, ArrowRightOnRectangleIcon } from '@heroicons/vue/24/outline'
-
 
     const { isArchiveTable, openArchiveTable } = modalFunctions()
     const { timeTableList, timeTableName, addList, fromTimeTable, toTimeTable, objectList, objStatus } = addListTimetable()
-    const { handleChange, image, preview } = useUploadList()
-
-    const checkbox = ref(false)
-    const checkSeasonal = ref(false)
-
-    const toogle = () => {
-      checkSeasonal.value = !checkSeasonal.value
-    }
-
-    const upload = () => {
-        document.getElementById('profile-photo')?.click()
-    }
 
     const confirm = ref('archive')
     const confirmationMessage = ref('')
