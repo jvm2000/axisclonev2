@@ -11,7 +11,7 @@ import {
 import { PlusIcon, CheckIcon } from '@heroicons/vue/24/outline'
 
 const { isCreateClass, openCreateClass } = modalFunctions()
-const { className, classProgram, classSyllabus, createClass, classColor, classRanks, ranksList } = useCreateClasses()
+const { className, classProgram, classSyllabus, createClass, classColor, classRanks, getClassColor, getClassValue, colorObj, ranksObj, getClassRanks, selectRank, classList, valueObj } = useCreateClasses()
 const { handleChange, image, preview } = useCreateClasses()
 
 const upload = () => {
@@ -24,8 +24,12 @@ const nextStage = () => {
         return alert('Input should not be empty!')
     }
     else{
-        return proceed.value = true
+        return proceed.value = !proceed.value
     }
+}
+
+const reset = () => {
+    proceed.value = false
 }
 
 const colorsList = reactive([
@@ -48,6 +52,39 @@ const colorsList2 = reactive([
     {color: 'bg-[#FFFFFF]'},
 ])
 
+const ranksList = reactive([
+        {
+            color: 'bg-[#FFFFFF]', 
+            cvalue: 'White Belt', 
+            selected: false,
+        },
+        {
+            color: 'bg-[#FFE351]', 
+            cvalue: 'Yellow Belt', 
+            selected: false,
+        },
+        {
+            color: 'bg-[#9BEA87]', 
+            cvalue: 'Green Belt', 
+            selected: false,
+        },
+        {
+            color: 'bg-[#5F7EEF]', 
+            cvalue: 'Blue Belt', 
+            selected: false,
+        },
+        {
+            color: 'bg-[#E075F1]', 
+            cvalue: 'Purple Belt', 
+            selected: false,
+        }
+    ])
+
+const clearSelectedRanks = () => {
+    ranksList.forEach((ranksList, index) => {
+        ranksList.selected = false;
+    })
+}
 
 </script>
 
@@ -169,7 +206,10 @@ const colorsList2 = reactive([
                 v-else
                 class="relative w-[36rem] h-auto"
             >
-                <div class="w-full h-[5.5rem] rounded-tl-lg rounded-tr-lg z-[10] bg-yellow-300"></div>
+                <div 
+                    class="w-full h-[5.5rem] rounded-tl-lg rounded-tr-lg z-[10]"
+                    :class="`${colorObj.color}`"
+                ></div>
 
                 <div class="w-full h-[3rem] z-[20] grid place-items-center">
                     <img 
@@ -195,20 +235,25 @@ const colorsList2 = reactive([
                     <div class="grid space-y-4">
                         <p class="text-[16px]">Choose class color</p>
                         <div class="flex space-x-6 place-items-center">
-                            <span class="rounded-full h-[6.3rem] w-[6.3rem] bg-yellow-400"></span>
+                            <span 
+                                class="rounded-full h-[6.3rem] w-[6.3rem]"
+                                :class="`${colorObj.color}`"
+                            ></span>
                             <div class="grid space-y-6">
                                 <div class="flex space-x-8">
                                     <span 
                                         v-for="cols, index in colorsList"
                                         :key="index"
-                                        :class="`w-6 h-6 rounded-full border border-[#D1E4EE] ${cols.color}`"
+                                        :class="`w-6 h-6 rounded-full border border-[#D1E4EE] cursor-pointer ${cols.color}`"
+                                        @click="getClassColor(cols)"
                                     ></span>    
                                 </div>
                                 <div class="flex space-x-8">
                                     <span 
                                         v-for="cols, index in colorsList2"
                                         :key="index"
-                                        :class="`w-6 h-6 rounded-full border border-[#D1E4EE] ${cols.color}`"
+                                        :class="`w-6 h-6 rounded-full border border-[#D1E4EE] cursor-pointer ${cols.color}`"
+                                        @click="getClassColor(cols)"
                                     ></span>
                                 </div>
                             </div>
@@ -217,7 +262,12 @@ const colorsList2 = reactive([
 
                     <div class="grid space-y-2">
                         <p class="text-[16px]">Choose Program</p>
-                        <select name="" id="" class="w-full h-[3rem] border border-[#CAD7E8] bg-[#FBFCFE] text-[16px] rounded-lg px-4">
+                        <select 
+                            name="" 
+                            id="" 
+                            class="w-full h-[3rem] border border-[#CAD7E8] bg-[#FBFCFE] text-[16px] rounded-lg px-4"
+                            v-model="classProgram"
+                        >
                             <option value="--" selected>Choose a Program</option>
                             <option value="Taeguk Summer 1">Taeguk Summer 1</option>
                             <option value="Taeguk Summer 2">Taeguk Summer 2</option>
@@ -229,7 +279,12 @@ const colorsList2 = reactive([
 
                     <div class="grid space-y-2">
                         <p class="text-[16px]">Choose Syllabus</p>
-                        <select name="" id="" class="w-full h-[3rem] border border-[#CAD7E8] bg-[#FBFCFE] text-[16px] rounded-lg px-4">
+                        <select 
+                            name="" 
+                            id="" 
+                            class="w-full h-[3rem] border border-[#CAD7E8] bg-[#FBFCFE] text-[16px] rounded-lg px-4"
+                            v-model="classSyllabus"
+                        >
                             <option value="--" selected>Choose a Syllabus</option>
                             <option value="Syllabus Summer 001">Syllabus Summer 001</option>
                             <option value="Syllabus Summer 002">Syllabus Summer 002</option>
@@ -239,7 +294,7 @@ const colorsList2 = reactive([
                         </select>
                     </div>
 
-                    <div class="grid space-y-4">
+                    <div class="grid space-y-6">
                         <div class="w-full relative flex text-[16px] place-items-center">
                             <p>Choose Ranks</p>
                             <div class="flex space-x-2 place-items-center absolute right-0">
@@ -249,16 +304,22 @@ const colorsList2 = reactive([
                                 <p>Select All</p>
                             </div>
                         </div>
-                        <div class="flex space-x-10">
+                        <div class="flex space-x-10 w-full px-4">
                             <div 
                                 v-for="ranks, index in ranksList"
                                 :key="index"
                                 class="grid space-y-2 place-items-center"
                             >
-                                <div class="w-auto h-auto rounded-lg border-2 border-[#527AF5] px-[1px] py-[1px]">
+                                <div 
+                                    class="w-auto h-auto rounded-lg border-2 border-[#527AF5] px-[1px] py-[1px] cursor-pointer"
+                                    @click="getClassRanks(ranks), selectRank(true)"
+                                >
                                     <div :class="`rounded-lg w-auto h-auto ${ranks.color} border border-[#DCF2F6]`">
                                         <div class="px-4 py-4">
-                                            <CheckIcon class="w-6 h-auto text-white"/>
+                                            <CheckIcon 
+                                                class="w-6 h-auto"
+                                                :class="[ranks.selected ? 'text-black' : 'text-white']"
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -266,9 +327,20 @@ const colorsList2 = reactive([
                             </div>
                         </div>
                     </div>
-                    <div class="w-full relative">
-                        <div class="">
-                            test
+                    <div class="w-full relative flex h-[4rem] text-white">
+                        <div class="absolute right-0 flex space-x-4 place-items-center">
+                            <p 
+                                class="text-[18px] px-8 py-3 bg-[#CAD7E8] rounded-lg cursor-pointer" 
+                                @click="nextStage"
+                            >
+                            Back
+                            </p>
+                            <button 
+                                class="text-[18px] px-10 py-3 rounded-lg bg-blue-500 cursor-pointer"
+                                @click="createClass(), openCreateClass(), clearSelectedRanks(), reset()"
+                            >
+                            Create
+                            </button>
                         </div>
                     </div>
                 </div>

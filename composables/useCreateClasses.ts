@@ -4,39 +4,14 @@ const state = reactive({
     classProgram: '',
     classSyllabus: '',
     classColor: '',
-    classRanks: '',
+    classRanks: [],
     image: null,
     file: null,
     preview: null,
     notEmpty: false,
-    ranksList: 
-    [
-        {
-            color: 'bg-[#FFFFFF]', 
-            value: 'White Belt', 
-            selected: false,
-        },
-        {
-            color: 'bg-[#FFE351]', 
-            value: 'Yellow Belt', 
-            selected: false,
-        },
-        {
-            color: 'bg-[#9BEA87]', 
-            value: 'Green Belt', 
-            selected: false,
-        },
-        {
-            color: 'bg-[#5F7EEF]', 
-            value: 'Blue Belt', 
-            selected: false,
-        },
-        {
-            color: 'bg-[#E075F1]', 
-            value: 'Purple Belt', 
-            selected: false,
-        }
-    ]
+    colorObj: {},
+    valueObj: {},
+    ranksObj: {},
 })
 
 export default function () {
@@ -46,7 +21,8 @@ export default function () {
         let item = {
             name: state.className,
             image: state.preview,
-            color: state.classColor,
+            color: state.colorObj.color,
+            value: state.valueObj,
             program: state.classProgram,
             syllabus: state.classSyllabus,
             ranks: state.classRanks,
@@ -56,10 +32,32 @@ export default function () {
         state.className = ''
         state.classProgram = ''
         state.classSyllabus = ''
-        state.classColor = ''
-        state.classRanks = ''
+        state.colorObj = {}
+        state.classRanks = []
         state.preview = null
 
+    }
+
+    const getClassValue = (cvalue: Object) => {
+        state.valueObj = cvalue
+    }
+
+    // const getClassColor = (color: Object) => {
+    //     state.colorObj.color = color
+    // }
+
+    const getClassColor = (cols: Object) => {
+        state.colorObj = cols
+    }
+
+
+    const getClassRanks = (ranks: Object) => {
+        state.ranksObj = ranks
+        state.classRanks.push(state.ranksObj)
+    }
+
+    const selectRank = (selected: Boolean) => {
+        state.ranksObj.selected = selected
     }
 
     const handleChange = () => {
@@ -88,6 +86,10 @@ export default function () {
     return {
         ...toRefs(state),
         createClass,
+        getClassColor,
+        getClassValue,
+        selectRank,
+        getClassRanks,
         handleChange,
         selectNewImage,
     }
