@@ -5,22 +5,20 @@ const state = reactive({
     classSyllabus: '',
     classColor: '',
     classRanks: [],
-    image: null,
-    file: null,
-    preview: null,
     notEmpty: false,
     colorObj: {},
     valueObj: {},
     ranksObj: {},
+    classObj: {},
 })
 
 export default function () {
     
     const createClass = () => {
-
+        const { preview } = useUploadClass()
         let item = {
             name: state.className,
-            image: state.preview,
+            image: preview.value,
             color: state.colorObj.color,
             value: state.valueObj,
             program: state.classProgram,
@@ -28,23 +26,17 @@ export default function () {
             ranks: state.classRanks,
         }
         state.classList.push(item)
-        state.image = null
         state.className = ''
         state.classProgram = ''
         state.classSyllabus = ''
         state.colorObj = {}
         state.classRanks = []
-        state.preview = null
+        preview.value = null
 
     }
-
-    const getClassValue = (cvalue: Object) => {
-        state.valueObj = cvalue
+    const getClassObj = (classes: Object) => {
+        state.classObj = classes
     }
-
-    // const getClassColor = (color: Object) => {
-    //     state.colorObj.color = color
-    // }
 
     const getClassColor = (cols: Object) => {
         state.colorObj = cols
@@ -60,37 +52,12 @@ export default function () {
         state.ranksObj.selected = selected
     }
 
-    const handleChange = () => {
-        if (!state.image.files.length) return
-        
-        if (state.image.files[0].size > 10000 * 1000) {
-          useErrorToast({ message: 'File size exceeds 10MB' })
-    
-          return
-        }
-    
-        const reader = new FileReader();
-    
-        reader.onload = (e) => {
-          state.preview = e.target.result;
-        };
-    
-        reader.readAsDataURL(state.image.files[0]);
-        state.file = state.image.files[0]
-      }
-    
-      const selectNewImage = () => {
-        state.image.click();
-      }
-
     return {
         ...toRefs(state),
         createClass,
         getClassColor,
-        getClassValue,
         selectRank,
         getClassRanks,
-        handleChange,
-        selectNewImage,
+        getClassObj,
     }
 }

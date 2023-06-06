@@ -17,8 +17,6 @@ const state = reactive({
       const reader = new FileReader();
   
       reader.onload = (e) => {
-        console.log(e, 111);
-        
         state.preview = e.target.result;
       };
   
