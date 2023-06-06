@@ -9,6 +9,7 @@
     ])
 
     const { isCreateClass, openCreateClass } = modalFunctions()
+    const { classList } = useCreateClasses()
 
 </script>
 
@@ -37,12 +38,14 @@
                 </TabList>
 
                 <div 
+                    v-if="classList.length == 0"
                     class="flex bg-[#2955DE] rounded-lg px-6 py-1 text-white space-x-4 place-items-center absolute right-0 cursor-pointer"
                     @click="openCreateClass"
                 >
                     <p class="text-[16px]">Create Class</p>
                     <PlusIcon class="w-4 h-4"/>
                 </div>
+                <div v-else></div>
 
             </div>
         

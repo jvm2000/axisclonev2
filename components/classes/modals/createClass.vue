@@ -11,13 +11,13 @@ import {
 import { PlusIcon, CheckIcon } from '@heroicons/vue/24/outline'
 
 const { isCreateClass, openCreateClass } = modalFunctions()
-const { className, classProgram, classSyllabus, createClass, classColor, classRanks, getClassColor, getClassValue, colorObj, ranksObj, getClassRanks, selectRank, classList, valueObj } = useCreateClasses()
-const { handleChange, image, preview } = useCreateClasses()
+const { className, classProgram, classSyllabus, createClass, classColor, classRanks, getClassColor, colorObj, ranksObj, getClassRanks, selectRank, classList, valueObj } = useCreateClasses()
+
+const { handleChange, image, preview } = useUploadClass()
 
 const upload = () => {
     document.getElementById('profile-photo')?.click()
-}
-
+}   
 const proceed = ref(false)
 const nextStage = () => {
     if(className.value == ''){
@@ -150,24 +150,24 @@ const clearSelectedRanks = () => {
                             class="w-[10rem] h-[10rem] bg-[#E7F3FF] rounded-lg border-[3px] border-dashed border-[#97B3C2]"
                             >
                                 <div class="py-6 grid place-items-center space-y-2">
-                                <label for="imageupload">
-                                    <input
-                                        ref="image"
-                                        type="file"
-                                        id="profile-photo"
-                                        name="profile-photo"
-                                        class="invisible z-[20] absolute cursor-pointer"
-                                        accept=".jpeg, .jpg, .png, image/jpeg, image/png"
-                                        @change="handleChange"
-                                    />
-                                    <div 
+                                    <label for="imageupload">
+                                        <input
+                                            ref="image"
+                                            type="file"
+                                            id="profile-photo"
+                                            name="profile-photo"
+                                            class="invisible z-[20] absolute cursor-pointer"
+                                            accept=".jpeg, .jpg, .png, image/jpeg, image/png"
+                                            @change="handleChange"
+                                        />
+                                        <div 
                                         class="px-2 py-2 bg-[#527AF5] rounded-full z-[10] cursor-pointer"
                                         @click="upload()"
-                                    >
+                                        >
                                         <PlusIcon class="w-10 h-10 text-white" />
-                                    </div>
+                                        </div>
                                     </label>
-                                <p class="text-[#2E304F] text-[16px] text-center">Add Image <br>Here</p>
+                                    <p class="text-[#2E304F] text-[16px] text-center">Add Image <br>Here</p>
                                 </div>
                             </div>
 
