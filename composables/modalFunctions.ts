@@ -25,7 +25,9 @@ const state = reactive({
     isClassTable: false,
     isDelLoc: false,
     isDelClassArea: false,
-    isCreateClass: false
+    isCreateClass: false,
+    isArchiveClass: false,
+    isEditClass: false
 })
 
 export default function () {
