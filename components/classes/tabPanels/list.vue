@@ -9,6 +9,10 @@
         router.push('/classes/classView')
     }
 
+    const openTimeTable = () => {
+        router.push('/timetable/timeTableDashboard')
+    }
+
 </script>
 
 <template>
@@ -95,7 +99,10 @@
             <div class="flex absolute right-20 place-items-center space-x-4">
                 <p class="text-lg">If you wish to create <b>schedule</b> for these classes. Create your timetable now</p>
                 <ArrowLongRightIcon class="w-4 h-4"/>
-                <div class="flex place-items-center space-x-4 text-[#163BC1] text-lg border-2 border-[#163BC1] px-6 py-4 rounded-lg">
+                <div 
+                    class="flex place-items-center space-x-4 text-[#163BC1] text-lg border-2 border-[#163BC1] px-6 py-4 rounded-lg cursor-pointer"
+                    @click="openTimeTable"
+                >
                     <p>Create Timetable</p>
                     <img src="/icons/classes/timeTable.svg" alt="">
                 </div>
