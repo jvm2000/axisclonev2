@@ -9,7 +9,7 @@ export default function () {
     }
 
     const checkStudObj = (checked: Boolean) => {
-        state.studObj = checked
+        state.studObj.checked.checked = checked
     }
 
     return {

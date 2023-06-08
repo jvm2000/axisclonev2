@@ -2,14 +2,20 @@
 
     import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
     import { PlusIcon } from '@heroicons/vue/24/outline'
+import { ClassesTabPanelsArchive } from '~~/.nuxt/components'
 
     const categories = reactive([
             {name: 'List', img: '/timetable/tabs/icon1.svg'},
             {name: 'Archived', img: '/timetable/tabs/icon3.svg'},
     ])
 
-    const { isCreateClass, openCreateClass } = modalFunctions()
-    const { classList } = useCreateClasses()
+    const 
+    { 
+        isCreateClass, isEditClass, isArchiveClasses,
+        openCreateClass, openEditClass, openArchiveClass
+    } = modalFunctions()
+
+    const { classList, classListArchive } = useCreateClasses()
 
 </script>
 
@@ -54,11 +60,13 @@
                     <ClassesTabPanelsList/>
                 </TabPanel>
                 <TabPanel>
-
+                    <ClassesTabPanelsArchivedClass/>
                 </TabPanel>
             </TabPanels>
         </div>
     </TabGroup>
-    <ClassesModalsCreateClass :isCreateClass="openCreateClass"/>
+    <ClassesModalsAddClass :isCreateClass="openCreateClass" />
+    <ClassesModalsEditClass :isEditClass="openEditClass"/>
+    <ClassesModalsArchiveClass :isArchiveClasses="openArchiveClass" />
     </div>
 </template>

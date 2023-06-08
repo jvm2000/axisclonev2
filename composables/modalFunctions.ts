@@ -27,12 +27,20 @@ const state = reactive({
     isDelClassArea: false,
     isCreateClass: false,
     isArchiveClass: false,
-    isEditClass: false
+    isEditClass: false,
+    isArchiveClasses: false
 })
 
 export default function () {
 
-    
+    const openArchiveClass = () => {
+        state.isArchiveClasses = !state.isArchiveClasses
+    }
+
+    const openEditClass = () => {
+        state.isEditClass = !state.isEditClass
+    }
+
     const openCreateClass = () => {
         state.isCreateClass = !state.isCreateClass
     }
@@ -207,7 +215,9 @@ export default function () {
     }
     return{
         ...toRefs(state),
+        openEditClass,
         openCreateClass,
+        openArchiveClass,
         openClassAreaDel,
         openLeadModal,
         closeLeadModal,

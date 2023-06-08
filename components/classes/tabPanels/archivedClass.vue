@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
     import { PencilIcon, InboxArrowDownIcon, PlusIcon, ArrowLongRightIcon } from '@heroicons/vue/24/outline'
-    const { classList, getClassObj, indexObj, getIndex } = useCreateClasses()
+    const { classListArchive, getClassObj, indexObj, getIndex } = useCreateClasses()
     const 
     { 
         isCreateClass, openCreateClass, 
@@ -24,7 +24,7 @@
     <div class="w-full pt-8">
 
         <div 
-            v-if="classList.length == 0"
+            v-if="classListArchive.length == 0"
             class="grid w-full place-items-center space-y-10"
         >
             <img src="/classess/no_class.svg" alt="">
@@ -48,7 +48,7 @@
             </div>
 
             <div
-                v-for="classes, index in classList" 
+                v-for="classes, index in classListArchive" 
                 :key="index"
                 class="flex place-items-center space-x-4 w-full"   
             >
@@ -77,18 +77,8 @@
                         ></span>
                     </div>
                     <div class="w-[8rem] flex space-x-6 place-items-center">
-                        <img 
-                            src="/icons/classes/calendar.svg" 
-                            alt="" 
-                            class="cursor-pointer"
-                            @click="clickViewClass(), getClassObj(classes)"
-                        >
-                        <PencilIcon 
-                            class="w-5 h-5 text-[#9FB5D1] cursor-pointer"
-                            @click="openEditClass(), getClassObj(classes)"
-                        />
                         <InboxArrowDownIcon 
-                            class="w-5 h-5 text-[#9FB5D1] cursor-pointer"
+                            class="ml-5 w-5 h-5 text-[#9FB5D1] cursor-pointer"
                             @click="openArchiveClass(), getClassObj(classes), getIndex(index)"
                         />
                     </div>
@@ -97,33 +87,5 @@
             </div>
 
         </div>
-
-        <div
-            v-if="classList.length > 0"
-            class="grid w-full space-y-20 pt-8 px-10"
-        >
-
-            <div 
-                class="flex space-x-4 text-white bg-[#3CC7BC] rounded-lg place-items-center px-4 py-1 w-[11rem] cursor-pointer"
-                @click="openCreateClass"
-            >
-                <p class="text-lg">Create Class</p>
-                <PlusIcon class="w-6 h-6"/>
-            </div>
-
-            <div class="flex absolute right-20 place-items-center space-x-4">
-                <p class="text-lg">If you wish to create <b>schedule</b> for these classes. Create your timetable now</p>
-                <ArrowLongRightIcon class="w-4 h-4"/>
-                <div 
-                    class="flex place-items-center space-x-4 text-[#163BC1] text-lg border-2 border-[#163BC1] px-6 py-4 rounded-lg cursor-pointer"
-                    @click="openTimeTable"
-                >
-                    <p>Create Timetable</p>
-                    <img src="/icons/classes/timeTable.svg" alt="">
-                </div>
-            </div>
-
-        </div>
-        <div v-else></div>
     </div>
 </template>

@@ -10,10 +10,20 @@ const state = reactive({
     valueObj: {},
     ranksObj: {},
     classObj: {},
+    classListArchive: [],
+    indexObj: {}
 })
 
 export default function () {
-    
+
+    const clearClass = () => {
+        state.className = ''
+        state.classProgram = ''
+        state.classSyllabus = ''
+        state.colorObj = {}
+        state.classRanks = []
+    }
+
     const createClass = () => {
         const { preview } = useUploadClass()
         let item = {
@@ -23,23 +33,57 @@ export default function () {
             value: state.valueObj,
             program: state.classProgram,
             syllabus: state.classSyllabus,
-            ranks: state.classRanks,
+            ranks: state.classRanks.splice(0,5),
         }
         state.classList.push(item)
-        state.className = ''
-        state.classProgram = ''
-        state.classSyllabus = ''
-        state.colorObj = {}
-        state.classRanks = []
+        clearClass()
         preview.value = null
 
     }
+
+    const archiveClass = (classes: Object) => {
+        state.classObj = classes
+        let item = {
+            name: state.classObj.name,
+            image: state.classObj.image,
+            color: state.classObj.color,
+            program: state.classObj.program,
+            syllabus: state.classObj.syllabus,
+            ranks: state.classObj.ranks,
+        }
+        state.classListArchive.push(item)
+        state.classList.splice(state.indexObj, 1)
+        clearClass()
+    }
+
+    const getIndex = (index: Object) => {
+        state.indexObj = index
+    }
+
     const getClassObj = (classes: Object) => {
         state.classObj = classes
+        state.className = state.classObj.name
+        state.classProgram = state.classObj.program
+        state.classSyllabus = state.classObj.syllabus
+    }
+
+    const updateClass = (classes: Object) => {
+        state.classObj = classes
+        state.classObj.name = state.className
+        state.classObj.syllabus = state.classSyllabus
+        state.classObj.program = state.classProgram
+        state.className = ''
+        state.classSyllabus = ''
+        state.classProgram = ''
+
     }
 
     const getClassColor = (cols: Object) => {
         state.colorObj = cols
+    }
+
+    const getClassObjColor = (cols: Object) => {
+        state.classObj = cols
     }
 
 
@@ -55,9 +99,14 @@ export default function () {
     return {
         ...toRefs(state),
         createClass,
+        updateClass,
+        clearClass,
+        archiveClass,
         getClassColor,
+        getClassObjColor,
         selectRank,
         getClassRanks,
         getClassObj,
+        getIndex,
     }
 }
