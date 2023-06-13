@@ -14,7 +14,7 @@ const { syllabusName, addSyllabus } = useAddSyllabus()
 
 <template>
     <TransitionRoot appear :show="isProgramsModal" as="template">
-      <Dialog as="div" @close="" class="relative z-10">
+      <Dialog as="div" @close="" class="relative z-20">
         <TransitionChild
           as="template"
           enter="duration-300 ease-out"
@@ -24,7 +24,7 @@ const { syllabusName, addSyllabus } = useAddSyllabus()
           leave-from="opacity-100"
           leave-to="opacity-0"
         >
-          <div class="fixed inset-0 bg-black bg-opacity-25" />
+        <div class="fixed inset-0 bg-black bg-opacity-25" />
         </TransitionChild>
   
         <div class="fixed inset-0 overflow-y-auto">

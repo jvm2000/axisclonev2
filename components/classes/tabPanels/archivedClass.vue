@@ -4,9 +4,7 @@
     const { classListArchive, getClassObj, indexObj, getIndex } = useCreateClasses()
     const 
     { 
-        isCreateClass, openCreateClass, 
-        isEditClass, openEditClass,
-        openArchiveClass 
+        openRestoreClass 
     } = modalFunctions()
 
     const router = useRouter()
@@ -28,7 +26,7 @@
             class="grid w-full place-items-center space-y-10"
         >
             <img src="/classess/no_class.svg" alt="">
-            <p class="text-2xl">You have not yet created any classes</p>
+            <p class="text-2xl">You have no archived classes yet.</p>
         </div>
         
         <div
@@ -79,7 +77,7 @@
                     <div class="w-[8rem] flex space-x-6 place-items-center">
                         <InboxArrowDownIcon 
                             class="ml-5 w-5 h-5 text-[#9FB5D1] cursor-pointer"
-                            @click="openArchiveClass(), getClassObj(classes), getIndex(index)"
+                            @click="openRestoreClass(), getClassObj(classes), getIndex(index)"
                         />
                     </div>
                 </div>

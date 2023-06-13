@@ -65,7 +65,7 @@ const successUnassignStud = () => {
 <template>
     <div>
         <TransitionRoot appear :show="isAssignStudentModal" as="template">
-            <Dialog as="div" @close="" class="relative z-10">
+            <Dialog as="div" @close="" class="relative z-30">
                 <TransitionChild
                 as="template"
                 enter="duration-300 ease-out"

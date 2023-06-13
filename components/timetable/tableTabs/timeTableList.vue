@@ -20,17 +20,17 @@
 </script>
 
 <template>
-    <div class="px-20 py-20">
+    <div class="px-4 sm:px-20 py-20">
         <TabGroup>
         <div class="">
-            <div class="h-[3.5rem] w-full flex flex-col sm:flex-row items-start sm:items-center border-b-2 relative">
+            <div class="h-[3.5rem] w-full flex flex-col sm:flex-row items-start sm:items-center border-b-2 relative space-y-4">
                 <TabList>
-                <div class="text-[16px] space-x-6 ml-24 sm:ml-0 z-[20]">
+                <div class="text-sm sm:text-[16px] space-x-2 sm:space-x-6 ml-0 sm:ml-0 z-[20]">
                     <Tab v-for="category, index in categories" 
                         :key="index"
                         v-slot="{ selected }"
                     >
-                        <div class="flex space-x-4 h-[3.6rem] w-auto place-items-center px-1"
+                        <div class="flex space-x-0 sm:space-x-4 h-[3.6rem] w-auto place-items-center px-1"
                             :class="[selected ? 'border-b-4 border-blue-400 text-blue-400 ring-0 outline-none space-x-2' : 'space-x-2']"
                         >
                             <img :src="category.img" alt="" class="w-4 h-4">
@@ -42,7 +42,14 @@
                 </div>
                 </TabList>
                 <div 
-                    class="flex px-4 py-1 bg-[#5081F0] place-items-center text-white space-x-4 rounded-lg cursor-pointer absolute right-0"
+                    class="hidden sm:flex px-4 py-1 bg-[#5081F0] place-items-center text-white space-x-4 rounded-lg cursor-pointer absolute right-0"
+                    @click="openCreateTimeTable"
+                >
+                    <PlusIcon class="w-4 h-4"/>
+                    <p class="text-[16px]">Create Timetable</p>
+                </div>
+                <div 
+                    class="flex sm:hidden px-4 py-1 bg-[#5081F0] place-items-center text-white space-x-4 rounded-lg cursor-pointer"
                     @click="openCreateTimeTable"
                 >
                     <PlusIcon class="w-4 h-4"/>

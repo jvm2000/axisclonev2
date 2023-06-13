@@ -56,6 +56,21 @@ export default function () {
         clearClass()
     }
 
+    const restoreClass = (classes: Object) => {
+        state.classObj = classes
+        let item = {
+            name: state.classObj.name,
+            image: state.classObj.image,
+            color: state.classObj.color,
+            program: state.classObj.program,
+            syllabus: state.classObj.syllabus,
+            ranks: state.classObj.ranks,
+        }
+        state.classList.push(item)
+        state.classListArchive.splice(state.indexObj, 1)
+        clearClass()
+    }
+
     const getIndex = (index: Object) => {
         state.indexObj = index
     }
@@ -102,6 +117,7 @@ export default function () {
         updateClass,
         clearClass,
         archiveClass,
+        restoreClass,
         getClassColor,
         getClassObjColor,
         selectRank,

@@ -6,7 +6,7 @@
 </script>
 
 <template>
-    <div class="w-full bg-white h-full text-sm">
+    <div class="w-full bg-white h-full text-sm z-20">
         <div class="flex space-x-4 place-items-center">
             <img src="/icons/checkIcon.svg" alt="">
             <p class="text-green-600">Students Assigned to Syllabus</p>

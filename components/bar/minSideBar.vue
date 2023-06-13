@@ -12,6 +12,11 @@
         userManagementIsOpen.value = false
     }
 
+    const isTimetable = ref(false)
+    const openTimetable = () => {
+        isTimetable.value = !isTimetable.value
+    }
+
     const router = useRouter()
 
     const openDashboard = () => {
@@ -28,6 +33,14 @@
 
     const openProgramsDashboard = () => {
         router.push('/programs/programsDashboard')
+    }
+
+    const openTimeTableDashboard = () => {
+        router.push('/timetable/timeTableDashboard')
+    }
+
+    const openClassesDashboard = () => {
+        router.push('/classes/classesDashboard')
     }
 
     const { sideBarOpen, openMaxSideBar } = sideBarFunctionalities()
@@ -79,9 +92,19 @@
                 <SquaresPlusIcon class="w-6 h-6"/>
                 <p class="text-[18px] text-white">Programs</p>
             </div>
-            <div class="flex flex-row space-x-4">
+            <div 
+                class="flex flex-row space-x-4 cursor-pointer place-items-center"
+                @click="openTimetable"
+            >
                 <ViewColumnsIcon class="w-6 h-6"/>
-                <p class="text-[18px] text-white mr-[5rem]">Timetable</p>
+                <p class="text-[18px] text-white">Timetable</p>
+                <div class="w-[5.2rem]"></div>
+                <ChevronDownIcon class="w-6 h-6"/>
+            </div>
+            <div v-if="isTimetable" class="space-y-8 indent-16">
+                <a class="text-[18px] cursor-pointer" @click="openTimeTableDashboard">Timetables</a>
+                <p class="text-[18px] cursor-pointer" @click="openClassesDashboard">Classes</p>
+                <p class="text-[18px] cursor-pointer">Instructor</p>
             </div>
             <div class="flex flex-row space-x-4">
                 <StarIcon class="w-6 h-6"/>

@@ -28,10 +28,15 @@ const state = reactive({
     isCreateClass: false,
     isArchiveClass: false,
     isEditClass: false,
-    isArchiveClasses: false
+    isArchiveClasses: false,
+    isRestoreClass: false
 })
 
 export default function () {
+
+    const openRestoreClass = () => {
+        state.isRestoreClass = !state.isRestoreClass
+    }
 
     const openArchiveClass = () => {
         state.isArchiveClasses = !state.isArchiveClasses
@@ -215,6 +220,7 @@ export default function () {
     }
     return{
         ...toRefs(state),
+        openRestoreClass,
         openEditClass,
         openCreateClass,
         openArchiveClass,

@@ -69,7 +69,7 @@
                       <p>Create Timetable</p>
                   </div>
                   <div class="grid place-items-center pt-6">
-                      <div class="flex space-x-4 px-6">
+                      <div class="grid sm:flex space-x-4 px-6 place-items-center sm:place-items-start">
 
                           <img
                             v-if="preview"  
@@ -103,11 +103,11 @@
                               </div>
                           </div>
 
-                          <div class="">
+                          <div class="mt-4 sm:mt-0">
                             <p class="text-[16px]">Timetable</p>
                             <input 
                               type="text" 
-                              class="mt-4 text-[18px] w-[29.7rem] border-b border-black ring-0 outline-none" placeholder="Enter Timetable Name"
+                              class="mt-4 text-[18px] w-[28rem] sm:w-[29.7rem] border-b border-black ring-0 outline-none" placeholder="Enter Timetable Name"
                               v-model="timeTableName"
                             >
 

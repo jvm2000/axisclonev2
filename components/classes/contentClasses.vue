@@ -11,8 +11,8 @@ import { ClassesTabPanelsArchive } from '~~/.nuxt/components'
 
     const 
     { 
-        isCreateClass, isEditClass, isArchiveClasses,
-        openCreateClass, openEditClass, openArchiveClass
+        isCreateClass, isEditClass, isArchiveClasses, isRestoreClass,
+        openCreateClass, openEditClass, openArchiveClass, openRestoreClass
     } = modalFunctions()
 
     const { classList, classListArchive } = useCreateClasses()
@@ -68,5 +68,6 @@ import { ClassesTabPanelsArchive } from '~~/.nuxt/components'
     <ClassesModalsAddClass :isCreateClass="openCreateClass" />
     <ClassesModalsEditClass :isEditClass="openEditClass"/>
     <ClassesModalsArchiveClass :isArchiveClasses="openArchiveClass" />
+    <ClassesModalsRestoreClass :isRestoreClass="openRestoreClass"/>
     </div>
 </template>

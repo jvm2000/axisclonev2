@@ -13,7 +13,7 @@ const { programViewItem, assignedStudent, selectedID } = usePrograms()
 
 <template>
     <TransitionRoot appear :show="isConfirmAssignStudentModal" as="template">
-      <Dialog as="div" @close="" class="relative z-10">
+      <Dialog as="div" @close="" class="relative z-30">
         <TransitionChild
           as="template"
           enter="duration-300 ease-out"

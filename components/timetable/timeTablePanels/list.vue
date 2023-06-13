@@ -16,7 +16,7 @@
 </script>
 
 <template>
-    <div class="mt-6">
+    <div class="mt-14 sm:mt-6">
 
         <div 
             v-if="timeTableList.length == 0"

@@ -45,7 +45,7 @@ const deassign = () => {
 <template>
     <div>
         <TransitionRoot appear :show="isAssignStudentModalOpen" as="template">
-            <Dialog as="div" @close="" class="relative z-10">
+            <Dialog as="div" @close="" class="relative z-20">
                 <TransitionChild
                 as="template"
                 enter="duration-0 ease-out"
@@ -258,7 +258,7 @@ const deassign = () => {
                                             <div class="w-7 h-7 rounded-full bg-[#39D0B5]"></div>
                                             <p class="text-[16px]">{{ student.fullname }}</p>
                                             <div class="absolute flex right-0 place-items-center">
-                                                <div class="flex place-items-center mr-[14rem] place-content-center">
+                                                <div class="place-items-center mr-[14rem] place-content-center hidden sm:flex">
                                                     <div class="w-5 h-5 rounded-sm bg-[#FFD600] mr-4"></div>
                                                     <p class="text-[16px]">Yellow Belt</p>
                                                 </div>
