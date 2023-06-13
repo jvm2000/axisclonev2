@@ -9,7 +9,7 @@
 </script>
 
 <template>
-    <div class="mt-6">
+    <div class="mt-14 sm:mt-6">
 
         <div 
             v-if="timeTableList.length == 0"
@@ -26,8 +26,8 @@
                 <div class="table-header-group">
                     <div class="table-row text-[#9FB5D1]">
                         <div class="table-cell" style="padding-left: 5%;">TIMETABLE NAME</div>
-                        <div class="table-cell">DATE RANGE</div>
-                        <div class="table-cell">LAST MODIFIED</div>
+                        <div class="hidden sm:table-cell">DATE RANGE</div>
+                        <div class="hidden sm:table-cell">LAST MODIFIED</div>
                         <div class="table-cell" style="padding-left: 8%">ACTION</div>
                     </div>
                 </div>
@@ -52,10 +52,10 @@
                                 <p>{{ list.name }}</p>
                             </div>
                         </div>
-                        <div class="table-cell place-items-center" style="margin-bottom: 5%;">
+                        <div class="hidden sm:table-cell place-items-center" style="margin-bottom: 5%;">
                             <p>{{ list.fromdate }} - {{ list.todate }}</p>
                         </div>
-                        <div class="table-cell">
+                        <div class="hidden sm:table-cell">
                             Will Harvey
                         </div>
                         <div class="table-cell place-items-center space-x-4 text-[#5E6E82]" style="padding-left: 8%;">

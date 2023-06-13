@@ -34,13 +34,13 @@
             class="grid space-y-4"
         >
 
-            <div class="w-full px-[8rem] flex place-items-center text-[#5E6E82] text-sm space-x-[20rem] font-semibold">
-                <div class="flex space-x-[18rem]">
+            <div class="w-full px-20 sm:px-[8rem] flex place-items-center text-[#5E6E82] text-sm space-x-40 sm:space-x-[20rem] font-semibold">
+                <div class="flex space-x-6 sm:space-x-[18rem]">
                     <p>CLASS NAME</p>
-                    <p>PROGRAM</p>
+                    <p class="hidden sm:block">PROGRAM</p>
                 </div>
-                <div class="flex space-x-[15rem]">
-                    <p>RANKS</p>
+                <div class="flex space-x-2 sm:space-x-[15rem]">
+                    <p class="hidden sm:block">RANKS</p>
                     <p>ACTION</p>
                 </div>
             </div>
@@ -54,7 +54,7 @@
 
                 <div class="w-full flex place-items-center px-4 py-2 bg-white rounded-md text-[16px]">
                     <div 
-                        class="flex place-items-center space-x-8 w-[29rem]"
+                        class="flex place-items-center space-x-4 sm:space-x-8 w-[18rem]"
                     >
                         <img 
                             :src="classes.image"
@@ -62,11 +62,11 @@
                         />
                         <p>{{ classes.name }}</p>
                     </div>
-                    <div class="flex place-items-center w-[24.5rem]">
+                    <div class="hidden sm:flex place-items-center w-[24.5rem]">
                         <p>{{ classes.program }}</p>
                     </div>
                     <div 
-                        class="flex place-items-center w-[18rem] space-x-4"
+                        class="hidden sm:flex place-items-center w-[18rem] space-x-4"
                     >
                         <span 
                             v-for="rnks, ranks_index in classes.ranks"

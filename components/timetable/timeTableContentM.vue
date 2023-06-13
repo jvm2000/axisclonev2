@@ -12,8 +12,8 @@
 </script>
 
 <template>
-    <div class="">
-        <div class="pt-6 w-full table">
+    <div class="h-[44rem] sm:w-full overflow-auto">
+        <div class="w-full table">
         
             <div class="table-header-group bg-gradient-to-r from-blue-500 to-cyan-500">
                 <div class="table-row">

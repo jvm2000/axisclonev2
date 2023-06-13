@@ -20,7 +20,7 @@
 </script>
 
 <template>
-    <div class="py-14 w-full">
+    <div class="pt-20 sm:pt-6 py-14 w-full px-4">
         <div class="w-full flex space-x-6">
             <div>
                 <div class="h-1"></div>
@@ -33,7 +33,7 @@
             </div>    
         </div>
 
-        <div class="space-y-4 h-auto pt-10 pl-10 w-[57rem]">
+        <div class="space-y-4 h-auto pt-10 pl-10 w-full sm:w-[57rem]">
             <div class="pl-5 text-sm text-[#9FB5D1] font-semibold flex relative">
                 <p>LOCATION</p>
                 <p class="absolute right-[7rem]">CLASS AREA</p>
@@ -68,7 +68,7 @@
                     class="flex place-items-center relative"
                 >
                     <div 
-                        class="flex w-[44rem] place-items-center cursor-pointer"
+                        class="flex w-[18rem] sm:w-[44rem] place-items-center cursor-pointer"
                     >
                         <ChevronRightIcon 
                             v-if="!locals.classOn"

@@ -23,7 +23,7 @@
 </script>
 
 <template>
-    <div class="pt-20 px-10 space-y-6">
+    <div class="pt-20 px-10 grid space-y-6">
 
         <div class="flex space-x-4 place-items-center">
             <p 
@@ -36,10 +36,10 @@
             <p class="text-[16px] text-[#527AF5]">{{ objectList.name }}</p>
         </div>
 
-        <div class="w-full h-auto bg-white rounded-lg px-4 py-4">
+        <div class="space-y-6 w-[31rem] sm:w-full h-[52rem] bg-white rounded-lg px-4 py-4">
 
             <div class="flex">
-                <div class="flex flex-none place-items-center w-full">
+                <div class="flex place-content-start sm:place-items-center w-full">
                     <img 
                         v-if="objectList.image"
                         :src="objectList.image" 
@@ -60,12 +60,12 @@
                         <p class="text-sm">{{ objectList.fromdate }} - {{ objectList.todate }}</p>
                     </div>
 
-                    <div class="grid grow place-items-center">
+                    <div class="hidden sm:grid sm:grow place-items-center">
                         <div class="flex space-x-10 place-items-center">
                             <p class="text-2xl font-semibold">October 2023</p>
                             <div class="flex place-items-center border-2 border-gray-300 rounded-lg space-x-4 px-3 font-semibold">
                                 <ChevronLeftIcon class="w-3 h-3"/>
-                                <div class="border-l-2 border-r-2 border-gray-300 px-4 py-3">
+                                <div class="block border-l-2 border-r-2 border-gray-300 px-4 py-3">
                                     <p class="text-[16px]">Today</p>
                                 </div>
                                 <ChevronRightIcon class="w-3 h-3"/>
@@ -74,11 +74,11 @@
                     </div>
 
                     <div class="flex flex-none space-x-4 place-items-center">
-                        <div class="flex space-x-2">
+                        <div class="hidden sm:flex space-x-2">
                             <PencilIcon class="w-5 h-5 text-gray-500"/>
                             <InboxArrowDownIcon class="w-5 h-5 text-gray-500"/>
                         </div>
-                        <div class="flex space-x-2 pr-6">
+                        <div class="hidden sm:flex space-x-2 pr-6">
                             <FunnelIcon class="w-5 h-5 text-gray-500"/>
                             <p class="text-[16px]">Filter</p>
                         </div>
@@ -118,7 +118,6 @@
                     </div>
                 </div>
             </div>
-            <div class="h-[0.5rem]"></div>
             <TimetableTimeTableContentW :class="[dropdown_c == 'Week' ? 'block' : 'hidden']" class="z-[0]"/>
             <TimetableTimeTableContentM :class="[dropdown_c == 'Month' ? 'block' : 'hidden']" class="z-[0]"/>
             <TimetableTimeTableContentD :class="[dropdown_c == 'Day' ? 'block' : 'hidden']" class="z-[0]"/>

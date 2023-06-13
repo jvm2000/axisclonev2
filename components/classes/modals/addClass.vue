@@ -92,7 +92,7 @@ const clearSelectedRanks = () => {
 
 <template>
 <TransitionRoot appear :show="isCreateClass" as="template">
-  <Dialog as="div" @close="" class="relative z-10">
+  <Dialog as="div" @close="" class="relative z-20">
     <TransitionChild
       as="template"
       enter="duration-300 ease-out"
@@ -135,7 +135,7 @@ const clearSelectedRanks = () => {
                         </div>
                     </div>
                     <div class="grid place-items-center pt-6">
-                        <div class="flex space-x-4 px-6 place-items-center">
+                        <div class="grid sm:flex space-x-4 px-6 place-items-center space-y-4">
 
                             <img
                                 v-if="preview"  
@@ -173,7 +173,7 @@ const clearSelectedRanks = () => {
                             <p class="text-[16px]">Class Name</p>
                             <input 
                                 type="text" 
-                                class="mt-4 text-[18px] w-[29.7rem] border-b border-black ring-0 outline-none" placeholder="Enter Class Name"
+                                class="mt-4 text-[18px] w-[26rem] sm:w-[29.7rem] border-b border-black ring-0 outline-none" placeholder="Enter Class Name"
                                 v-model="className"
                             >
                             </div>
@@ -232,13 +232,13 @@ const clearSelectedRanks = () => {
 
                         <div class="grid space-y-4">
                             <p class="text-[16px]">Choose class color</p>
-                            <div class="flex space-x-6 place-items-center">
+                            <div class="flex space-x-6 place-items-center sm:px-0 w-full">
                                 <span 
                                     class="rounded-full h-[6.3rem] w-[6.3rem]"
                                     :class="`${colorObj.color}`"
                                 ></span>
                                 <div class="grid space-y-6">
-                                    <div class="flex space-x-8">
+                                    <div class="flex space-x-6 sm:space-x-8">
                                         <span 
                                             v-for="cols, index in colorsList"
                                             :key="index"
@@ -246,7 +246,7 @@ const clearSelectedRanks = () => {
                                             @click="getClassColor(cols)"
                                         ></span>    
                                     </div>
-                                    <div class="flex space-x-8">
+                                    <div class="flex space-x-6 sm:space-x-8">
                                         <span 
                                             v-for="cols, index in colorsList2"
                                             :key="index"
@@ -295,14 +295,14 @@ const clearSelectedRanks = () => {
                         <div class="grid space-y-6">
                             <div class="w-full relative flex text-[16px] place-items-center">
                                 <p>Choose Ranks</p>
-                                <div class="flex space-x-2 place-items-center absolute right-0">
+                                <div class="flex space-x-2 place-items-center absolute right-12 sm:right-0">
                                     <input 
                                         type="checkbox"
                                     >
                                     <p>Select All</p>
                                 </div>
                             </div>
-                            <div class="flex space-x-10 w-full px-4">
+                            <div class="flex space-x-6 sm:space-x-10 w-full px-4">
                                 <div 
                                     v-for="ranks, index in ranksList"
                                     :key="index"

@@ -34,8 +34,8 @@
                     <div class="table-row text-[#9FB5D1]">
                         <div class="table-cell" style="padding-left: 5%;">TIMETABLE NAME</div>
                         <div class="table-cell">STATUS</div>
-                        <div class="table-cell">DATE RANGE</div>
-                        <div class="table-cell">LAST MODIFIED</div>
+                        <div class="hidden sm:table-cell">DATE RANGE</div>
+                        <div class="hidden sm:table-cell">LAST MODIFIED</div>
                         <div class="table-cell" style="padding-left: 8%">ACTION</div>
                     </div>
                 </div>
@@ -47,11 +47,11 @@
                         :class="[list.status == 'default' ? 'block' : 'hidden']"
                     >
                         <div 
-                            class="table-cell place-items-center space-x-4 cursor-pointer" 
+                            class="flex sm:table-cell place-items-center space-x-4 cursor-pointer mt-2 sm:mt-0" 
                             style="padding-left: 2%; padding-top: 0.8%;"
                             @click="openTimetableView(), objList(list)"
                         >
-                            <div class="flex place-items-center space-x-6 absolute">
+                            <div class="flex place-items-center space-x-6 sm:absolute">
                                 <img 
                                     v-if="list.image"
                                     :src="list.image"
@@ -70,10 +70,10 @@
                                 <p>{{ list.itemStatus }}</p>
                             </div>
                         </div>
-                        <div class="table-cell place-items-center" style="margin-bottom: 5%;">
+                        <div class="hidden sm:table-cell place-items-center" style="margin-bottom: 5%;">
                             <p>{{ list.fromdate }} - {{ list.todate }}</p>
                         </div>
-                        <div class="table-cell">
+                        <div class="hidden sm:table-cell">
                             Will Harvey
                         </div>
                         <div class="table-cell place-items-center space-x-4 text-[#5E6E82]" style="padding-left: 8%;">

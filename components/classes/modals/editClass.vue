@@ -67,7 +67,7 @@ const ranksList = reactive([
 
 <template>
 <TransitionRoot appear :show="isEditClass" as="template">
-  <Dialog as="div" @close="" class="relative z-10">
+  <Dialog as="div" @close="" class="relative z-20">
     <TransitionChild
       as="template"
       enter="duration-300 ease-out"
@@ -121,13 +121,13 @@ const ranksList = reactive([
 
                         <div class="grid space-y-4">
                             <p class="text-[16px]">Choose class color</p>
-                            <div class="flex space-x-6 place-items-center">
+                            <div class="flex space-x-4 sm:space-x-6 place-items-center">
                                 <span 
                                     class="rounded-full h-[6.3rem] w-[6.3rem]"
                                     :class="`${classObj.color}`"
                                 ></span>
                                 <div class="grid space-y-6">
-                                    <div class="flex space-x-8">
+                                    <div class="flex space-x-6 sm:space-x-8">
                                         <span 
                                             v-for="cols, index in colorsList"
                                             :key="index"
@@ -135,7 +135,7 @@ const ranksList = reactive([
                                             @click=""
                                         ></span>    
                                     </div>
-                                    <div class="flex space-x-8">
+                                    <div class="flex space-x-6 sm:space-x-8">
                                         <span 
                                             v-for="cols, index in colorsList2"
                                             :key="index"
@@ -191,7 +191,7 @@ const ranksList = reactive([
                                     <p>Select All</p>
                                 </div>
                             </div>
-                            <div class="flex space-x-10 w-full px-4">
+                            <div class="flex space-x-6 sm:space-x-10 w-full px-4">
                                 <div 
                                     v-for="ranks, index in classObj.ranks"
                                     :key="index"

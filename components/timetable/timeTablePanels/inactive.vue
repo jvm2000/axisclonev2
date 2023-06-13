@@ -16,7 +16,7 @@
 </script>
 
 <template>
-    <div class="mt-6">
+    <div class="mt-14 sm:mt-6">
 
         <div 
             v-if="timeTableList.length == 0"
@@ -34,8 +34,8 @@
                     <div class="table-row text-[#9FB5D1]">
                         <div class="table-cell" style="padding-left: 5%;">TIMETABLE NAME</div>
                         <div class="table-cell">STATUS</div>
-                        <div class="table-cell">DATE RANGE</div>
-                        <div class="table-cell">LAST MODIFIED</div>
+                        <div class="hidden sm:table-cell">DATE RANGE</div>
+                        <div class="hidden sm:table-cell">LAST MODIFIED</div>
                         <div class="table-cell" style="padding-left: 8%">ACTION</div>
                     </div>
                 </div>

@@ -20,13 +20,13 @@ import { ClassesTabPanelsArchive } from '~~/.nuxt/components'
 </script>
 
 <template>
-    <div class="px-20 py-10 w-full h-full">
+    <div class="px-10 sm:px-20 py-10 w-full h-full">
         <TabGroup>
         <div class="">
-            <div class="h-[3.5rem] w-full flex flex-col sm:flex-row items-start sm:items-center border-b-2 relative">
+            <div class="h-[3.5rem] w-full flex flex-col sm:flex-row items-start sm:place-items-center border-b-2 relative">
 
                 <TabList>
-                <div class="text-[16px] space-x-6 ml-24 sm:ml-0 z-[20]">
+                <div class="text-[16px] space-x-6 ml-0 z-[20]">
                     <Tab v-for="category, index in categories" 
                         :key="index"
                         v-slot="{ selected }"
@@ -45,7 +45,7 @@ import { ClassesTabPanelsArchive } from '~~/.nuxt/components'
 
                 <div 
                     v-if="classList.length == 0"
-                    class="flex bg-[#2955DE] rounded-lg px-6 py-1 text-white space-x-4 place-items-center absolute right-0 cursor-pointer"
+                    class="flex bg-[#2955DE] rounded-lg px-6 py-1 text-white space-x-4 place-items-center absolute right-0 cursor-pointer mt-3 sm:mt-0"
                     @click="openCreateClass"
                 >
                     <p class="text-[16px]">Create Class</p>

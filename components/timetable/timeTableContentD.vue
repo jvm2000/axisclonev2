@@ -7,8 +7,8 @@
 </script>
 
 <template>
-    <div class="h-[60rem] overflow-y-auto">
-        <div class="pt-6 w-full table">
+    <div class="h-[42rem] overflow-y-auto">
+        <div class="w-full table">
         
             <div class="table-header-group bg-gradient-to-r from-blue-500 to-cyan-500">
                 <div class="table-row">
@@ -39,7 +39,6 @@
             </div>
 
         </div>
-        <div class="h-[14rem]"></div>
         <TimetableDialogsClassTable :isClassTable="openClassTable"/> 
     </div>
 </template>

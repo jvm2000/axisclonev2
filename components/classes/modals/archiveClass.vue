@@ -18,7 +18,7 @@
 
 <template>
     <TransitionRoot appear :show="isArchiveClasses" as="template">
-      <Dialog as="div" @close="" class="relative z-10">
+      <Dialog as="div" @close="" class="relative z-20">
         <TransitionChild
           as="template"
           enter="duration-300 ease-out"

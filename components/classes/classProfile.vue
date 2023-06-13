@@ -1975,7 +1975,7 @@
                 <p class="text-2xl">{{ classObj.name }}</p>
             </div>
             <div class="absolute right-0 flex place-items-center">
-                <div class="flex space-x-8 place-items-center">
+                <div class="hidden sm:flex space-x-8 place-items-center">
 
                     <div class="flex space-x-4 place-items-center text-[16px]">
                         <FunnelIcon class="w-4 h-4 text-[#9FB5D1]"/>

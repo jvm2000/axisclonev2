@@ -20,7 +20,7 @@
 
 <template>
     <TransitionRoot appear :show="isRestoreClass" as="template">
-      <Dialog as="div" @close="" class="relative z-10">
+      <Dialog as="div" @close="" class="relative z-20">
         <TransitionChild
           as="template"
           enter="duration-300 ease-out"
@@ -63,7 +63,7 @@
                 </div>
                 <div class="pt-6 text-[16px] px-10 space-y-4 place-items-start pb-4">
                     <p>Are you sure you want to restore <b>{{ classObj.name }}</b>?</p>
-                    <p class="w-[32rem]">By restoring <b>{{ classObj.name }}</b>, you'll be able to plot schedules on the
+                    <p class="w-[28rem] sm:w-[32rem]">By restoring <b>{{ classObj.name }}</b>, you'll be able to plot schedules on the
                         Timetable and add / remove attendance for your students &
                         leads.
                     </p>

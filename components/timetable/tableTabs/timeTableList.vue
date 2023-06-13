@@ -42,6 +42,7 @@
                 </div>
                 </TabList>
                 <div 
+                    v-if="timeTableList.length == 0"
                     class="hidden sm:flex px-4 py-1 bg-[#5081F0] place-items-center text-white space-x-4 rounded-lg cursor-pointer absolute right-0"
                     @click="openCreateTimeTable"
                 >
@@ -49,6 +50,7 @@
                     <p class="text-[16px]">Create Timetable</p>
                 </div>
                 <div 
+                    v-if="timeTableList.length == 0"
                     class="flex sm:hidden px-4 py-1 bg-[#5081F0] place-items-center text-white space-x-4 rounded-lg cursor-pointer"
                     @click="openCreateTimeTable"
                 >
