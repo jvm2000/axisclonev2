@@ -43,6 +43,10 @@
         router.push('/classes/classesDashboard')
     }
 
+    const openGradingDashboard = () => {
+        router.push('/grading/gradingDashboard')
+    }
+
 </script>
 
 
@@ -104,7 +108,12 @@
             </div>
             <div class="flex flex-row space-x-4 cursor-pointer">
                 <StarIcon class="w-6 h-6"/>
-                <p class="text-[18px] text-white">Grading</p>
+                <p 
+                    class="text-[18px] text-white"
+                    @click="openGradingDashboard"
+                >
+                    Grading
+                </p>
             </div>
         </div>
     </div>
