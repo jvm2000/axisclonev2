@@ -2,7 +2,6 @@
 
     import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
     import { PlusIcon } from '@heroicons/vue/24/outline'
-import { ClassesTabPanelsArchive } from '~~/.nuxt/components'
 
     const categories = reactive([
             {name: 'List', img: '/timetable/tabs/icon1.svg'},
