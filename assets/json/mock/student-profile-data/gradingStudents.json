@@ -1,6 +1,6 @@
 {
   "data": [
-      {"id": 1, "fullname": "John Anthony Gabutan", "rank": "White Belt", "subrank": "3", "att": "10", "days": "12", "status": "Requirements Not Met"},
+      {"id": 1, "fullname": "John Anthony Gabutan", "rank": "White Belt", "subrank": "5", "att": "10", "days": "12", "status": "Requirements Not Met"},
       {"id": 2, "fullname": "John Bayotas Migo", "rank": "Green Stripe Belt", "subrank": "3", "att": "10", "days": "20", "status": "Requirements Met"},
       {"id": 3, "fullname": "Juan Vicente Miñoza", "rank": "Yellow Belt", "subrank": "3", "att": "3", "days": "10", "status": "Candidate for Promotion"},
       {"id": 4, "fullname": "Adrian Paul Casserva", "rank": "White Belt", "subrank": "3", "att": "4", "days": "10", "status": "Requirements Not Met"},
