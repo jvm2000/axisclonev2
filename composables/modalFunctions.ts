@@ -29,10 +29,20 @@ const state = reactive({
     isArchiveClass: false,
     isEditClass: false,
     isArchiveClasses: false,
-    isRestoreClass: false
+    isRestoreClass: false,
+    isFixRank: false,
+    isConfirmFixRank: false
 })
 
 export default function () {
+
+    const openConfirmFixRank = () => {
+        state.isConfirmFixRank = !state.isConfirmFixRank
+    }
+
+    const openFixRank = () => {
+        state.isFixRank = !state.isFixRank
+    }
 
     const openRestoreClass = () => {
         state.isRestoreClass = !state.isRestoreClass
@@ -220,6 +230,7 @@ export default function () {
     }
     return{
         ...toRefs(state),
+        openFixRank,
         openRestoreClass,
         openEditClass,
         openCreateClass,
@@ -260,5 +271,6 @@ export default function () {
         openRestoreTable,
         openClassTable,
         openDelLoc,
+        openConfirmFixRank,
     }
 }
