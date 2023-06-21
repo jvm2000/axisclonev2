@@ -24,7 +24,7 @@
     {id: 20, firstname: 'Joross Daniel', lastname: 'Miñoza', rank: 'Yellow Belt', subrank: 3, att: 10, days: 28, status: 'Requirements Not Met'}
    ])
 
-    const { sortby, sort, getObjGrading, objGrading, updateGradingStatus, getObjSort, objSort } = useGradingFunctions()
+    const { sortby, sort, getObjGrading, objGrading, updateGradingStatus, getObjSort, objSort, accessSubrankObj } = useGradingFunctions()
 
     // const canProceed = computed(() => confirmationMessage.value == confirm.value)
     const objSubRank = ref()
@@ -89,7 +89,7 @@
 
     })
 
-    const { openFixRank } = modalFunctions()
+    const { openFixRank, openUpdateSubRank } = modalFunctions()
 
 </script>
 
@@ -235,7 +235,10 @@
                         <span v-else class="w-6 h-6 rounded-sm bg-[#00CD7C]"></span>
                         <p>{{ students.rank }}</p>
                     </div>
-                    <div class="grid space-y-1 w-[10rem]">
+                    <div 
+                        class="grid space-y-1 w-[10rem] cursor-pointer"
+                        @click="openUpdateSubRank(), getObjGrading(students), accessSubrankObj()"
+                    >
                         <div class="flex space-x-2 place-items-center">
                             <p>{{ students.subrank }} / 5</p>
                             <CheckIcon
@@ -270,6 +273,7 @@
                             <div 
                                 class="h-2 bg-[#2BD4B6] rounded-lg"
                                 :class="[
+                                    students.att == 0 ? 'w-0' : '',
                                     students.att == 1 ? 'w-[2px]' : '',
                                     students.att == 2 ? 'w-[4px]' : '',
                                     students.att == 3 ? 'w-[6px]' : '',
@@ -319,6 +323,7 @@
                             <div 
                                 class="h-2 bg-[#52EE75] rounded-lg"
                                 :class="[
+                                    students.days == 0 ? 'w-0' : '',
                                     students.days == 1 ? 'w-[2px]' : '',
                                     students.days == 2 ? 'w-[4px]' : '',
                                     students.days == 3 ? 'w-[6px]' : '',

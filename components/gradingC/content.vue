@@ -10,7 +10,7 @@
         {name: 'Statistics'},
     ])
 
-    const { isFixRank, openFixRank, isConfirmFixRank, openConfirmFixRank } = modalFunctions()
+    const { isFixRank, openFixRank, isConfirmFixRank, openConfirmFixRank, isUpdateSubrank, openUpdateSubRank, isConfirmUpdateSubrank, openConfirmUpdateSubrank } = modalFunctions()
 
 </script>
 
@@ -53,5 +53,7 @@
     </TabGroup>
     <GradingCModalsFixRankModal :isFixRank="openFixRank"/>
     <GradingCModalsConfirmFixRankModel :isConfirmFixRank="openConfirmFixRank"/>
+    <GradingCModalsUpdateSubrankModal :isUpdateSubrank="openUpdateSubRank"/>
+    <GradingCModalsConfirmUpdateSubrank :isConfirmUpdateSubrank="openConfirmUpdateSubrank"/>
     </div>
 </template>

@@ -31,10 +31,21 @@ const state = reactive({
     isArchiveClasses: false,
     isRestoreClass: false,
     isFixRank: false,
-    isConfirmFixRank: false
+    isConfirmFixRank: false,
+    isUpdateSubrank: false,
+    isConfirmUpdateSubrank: false
 })
 
 export default function () {
+
+
+    const openConfirmUpdateSubrank = () => {
+        state.isConfirmUpdateSubrank = !state.isConfirmUpdateSubrank
+    }
+
+    const openUpdateSubRank = () => {
+        state.isUpdateSubrank = !state.isUpdateSubrank
+    }
 
     const openConfirmFixRank = () => {
         state.isConfirmFixRank = !state.isConfirmFixRank
@@ -230,6 +241,8 @@ export default function () {
     }
     return{
         ...toRefs(state),
+        openConfirmUpdateSubrank,
+        openUpdateSubRank,
         openFixRank,
         openRestoreClass,
         openEditClass,
