@@ -1,5 +1,6 @@
 const state = reactive({
   sortby: 'First name (asc)',
+  subrank_sortby: 'First name (asc)',
   objGrading: {},
   sort: [
     {menu: 'First name (asc)'},
@@ -11,7 +12,18 @@ const state = reactive({
     {menu: 'Status'},
     {menu: 'Action'}
   ],
+  subrank_sort: [
+    {menu: 'First name (asc)'},
+    {menu: 'Last name'},
+    {menu: 'Rank'},
+    {menu: 'Subrank'},
+    {menu: 'Next Subrank'},
+    {menu: 'Attendance'},
+    {menu: 'Days'},
+    {menu: 'Status'},
+  ],
   objSort: {},
+  objSubrankSort: {},
   colorObj: {},
   confirmGradingObj: {},
   objSubranks: {},
@@ -76,6 +88,11 @@ export default function () {
     state.sortby = state.objSort.menu
   }
 
+  const getObjSubrankSort = (subrank_sorts: Object) => {
+    state.objSubrankSort = subrank_sorts
+    state.subrank_sortby = state.objSubrankSort.menu
+  }
+
   const getObjGradingSubrank = (subs: Object) => {
     state.objSubranks = subs
   }
@@ -92,6 +109,7 @@ export default function () {
     getObjGradingSubrank,
     getUpdateConfirmRank,
     getObjSort,
+    getObjSubrankSort,
     getObjGrading,
     getObjColor,
     updateGradingSubrank,

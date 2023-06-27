@@ -66,7 +66,15 @@
   }
 
   const openRanks = () => {
-    router.push('/grading/gradingDashboard')
+    router.push('/grading/gradingRanks')
+  }
+
+  const openGradingPrep = () => {
+    router.push('/grading/gradingPrep')
+  }
+
+  const openSubranks = () => {
+    router.push('/grading/gradingSubranks')
   }
 
 </script>
@@ -276,13 +284,23 @@
               >
                 <div 
                   class="w-full rounded-md py-2 hover:bg-[#1E2A80]"
-                  :class="[route.path == '/grading/gradingDashboard' ? 'bg-[#1E2A80]' : '']"
+                  :class="[route.path == '/grading/gradingRanks' ? 'bg-[#1E2A80]' : '']"
                   @click="openRanks"
                 >
                   <p class="text-base text-white ml-[5rem]">Ranks</p>
                 </div>
+                <div 
+                  class="w-full rounded-md py-2 hover:bg-[#1E2A80]"
+                  :class="[route.path == '/grading/gradingSubranks' ? 'bg-[#1E2A80]' : '']"
+                  @click="openSubranks"
+                >
+                  <p class="text-base text-white ml-[5rem]">Subranks</p>
+                </div>
                 <div class="w-full rounded-md py-2 hover:bg-[#1E2A80]">
-                  <p class="text-base text-white ml-[5rem]">Classes</p>
+                  <p class="text-base text-white ml-[5rem]">Grading Prep</p>
+                </div>
+                <div class="w-full rounded-md py-2 hover:bg-[#1E2A80]">
+                  <p class="text-base text-white ml-[5rem]">Statistics</p>
                 </div>
               </div>
 

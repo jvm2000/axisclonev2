@@ -47,6 +47,7 @@
                     <GradingCTabPanelsRanks/>
                 </TabPanel>
                 <TabPanel>
+                    <GradingCTabPanelsSubranks/>
                 </TabPanel>
             </TabPanels>
         </div>
